@@ -1,6 +1,6 @@
 {
-    "start_date": "2025-02-08T21:06:29.708082",
-    "end_date": "2025-02-15T21:06:29.708082",
+    "start_date": "2025-02-08T21:10:50.854776",
+    "end_date": "2025-02-15T21:10:50.854776",
     "opened_prs": [
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/429",
@@ -411,7 +411,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/419",
@@ -864,7 +865,8 @@
             },
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 4
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/387",
@@ -1211,7 +1213,8 @@
             },
             "author_association": "COLLABORATOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 17
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/315",
@@ -1643,7 +1646,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 55
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/284",
@@ -2012,7 +2016,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 64
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/277",
@@ -2359,7 +2364,8 @@
             },
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 66
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/249",
@@ -2791,7 +2797,8 @@
             },
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 92
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/236",
@@ -3223,7 +3230,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 102
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/231",
@@ -3634,7 +3642,8 @@
             },
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 110
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/215",
@@ -4087,7 +4096,8 @@
             },
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 124
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/200",
@@ -4434,7 +4444,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 137
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/195",
@@ -4781,7 +4792,8 @@
             },
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 140
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/144",
@@ -5223,7 +5235,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 174
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/83",
@@ -5641,7 +5654,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 206
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/56",
@@ -6073,7 +6087,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 217
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/54",
@@ -6484,7 +6499,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 217
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/8",
@@ -6831,7 +6847,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 227
         }
     ],
     "opened_issues": [

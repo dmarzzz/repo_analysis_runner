@@ -29,6 +29,8 @@ client = OpenAI(api_key=openai_key)
 
 # Loop through each repository tuple
 for repo, repo_owner in repos:
+    print(f"\n🚀 Starting processing for {repo_owner}/{repo} 🚀")
+
     # GitHub API base URL
     base_url = f'https://api.github.com/repos/{repo_owner}/{repo}'
 
@@ -99,11 +101,20 @@ for repo, repo_owner in repos:
         # Filter issues closed within the date range
         return [issue for issue in issues if start_date <= datetime.fromisoformat(issue['closed_at'][:-1]) <= end_date]
 
+    # Function to calculate days open for PRs
+    def calculate_days_open(pr):
+        created_at = datetime.fromisoformat(pr['created_at'][:-1])
+        return (datetime.now() - created_at).days
+
     # Fetch data
     open_prs = fetch_open_prs_within_date_range()
     open_issues = fetch_open_issues_within_date_range()
     closed_prs = fetch_closed_prs_within_date_range()
     closed_issues = fetch_closed_issues_within_date_range()
+
+    # Add days open to each open PR
+    for pr in open_prs:
+        pr['days_open'] = calculate_days_open(pr)
 
     # Print results
     # print('Open PRs:', open_prs)
@@ -401,8 +412,8 @@ for repo, repo_owner in repos:
             </script>
             <h2>✧ Open Pull Requests ✧</h2>
             <table>
-                <tr><th>ID</th><th>Title</th><th>Creator</th><th>Created At</th><th>Last Updated</th><th>Related Issues</th></tr>
-                ''' + ''.join(f'<tr><td>{pr["id"]}</td><td><a href="{pr["html_url"]}" target="_blank">{pr["title"]}</a></td><td><img src="{pr["user"]["avatar_url"]}" alt="{pr["user"]["login"]} avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/{pr["user"]["login"]}" style="color: {generate_color(pr["user"]["login"])};" target="_blank">{pr["user"]["login"]}</a></td><td>{pr["created_at"]}</td><td>{pr["updated_at"]}</td><td>' + ', '.join(f'<a href="https://github.com/{repo_owner}/{repo}/issues/{issue}">#{issue}</a>' for issue in extract_issues_from_description(pr.get("body", ""))) + '</td></tr>' for pr in data['opened_prs']) + '''
+                <tr><th>ID</th><th>Title</th><th>Creator</th><th>Created At</th><th>Last Updated</th><th>Days Open</th><th>Related Issues</th></tr>
+                ''' + ''.join(f'<tr><td>{pr["id"]}</td><td><a href="{pr["html_url"]}" target="_blank">{pr["title"]}</a></td><td><img src="{pr["user"]["avatar_url"]}" alt="{pr["user"]["login"]} avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/{pr["user"]["login"]}" style="color: {generate_color(pr["user"]["login"])};" target="_blank">{pr["user"]["login"]}</a></td><td>{pr["created_at"]}</td><td>{pr["updated_at"]}</td><td>{pr["days_open"]}</td><td>' + ', '.join(f'<a href="https://github.com/{repo_owner}/{repo}/issues/{issue}">#{issue}</a>' for issue in extract_issues_from_description(pr.get("body", ""))) + '</td></tr>' for pr in data['opened_prs']) + '''
             </table>
             <h2>✧ Open Issues ✧</h2>
             <table>
@@ -434,4 +445,6 @@ for repo, repo_owner in repos:
     with open(html_filename, 'w') as html_file:
         html_file.write(html_content)
 
-    print(f'HTML page saved to {html_filename}') 
+    print(f'HTML page saved to {html_filename}')
+
+    print(f"🎉 Finished processing for {repo_owner}/{repo} 🎉\n") 

@@ -1,6 +1,6 @@
 {
-    "start_date": "2025-02-08T21:06:26.572265",
-    "end_date": "2025-02-15T21:06:26.572265",
+    "start_date": "2025-02-08T21:10:47.558356",
+    "end_date": "2025-02-15T21:10:47.558356",
     "opened_prs": [
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/94",
@@ -347,7 +347,8 @@
             },
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 0
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/93",
@@ -694,7 +695,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/24",
@@ -1041,7 +1043,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 113
         }
     ],
     "opened_issues": [

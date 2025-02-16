@@ -1,6 +1,6 @@
 {
-    "start_date": "2025-02-08T21:06:33.027129",
-    "end_date": "2025-02-15T21:06:33.027129",
+    "start_date": "2025-02-08T21:10:53.973932",
+    "end_date": "2025-02-15T21:10:53.973932",
     "opened_prs": [
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14388",
@@ -412,7 +412,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 0
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14387",
@@ -824,7 +825,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 0
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14382",
@@ -1231,7 +1233,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14381",
@@ -1638,7 +1641,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14379",
@@ -1997,7 +2001,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14377",
@@ -2356,7 +2361,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14375",
@@ -2734,7 +2740,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14374",
@@ -3125,7 +3132,8 @@
             },
             "author_association": "NONE",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14370",
@@ -3568,7 +3576,8 @@
                 "commit_title": null,
                 "commit_message": null
             },
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14368",
@@ -3965,7 +3974,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14366",
@@ -4362,7 +4372,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14365",
@@ -4753,7 +4764,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14361",
@@ -5181,7 +5193,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14360",
@@ -5578,7 +5591,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14359",
@@ -6026,7 +6040,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14358",
@@ -6407,7 +6422,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14356",
@@ -6766,7 +6782,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14355",
@@ -7125,7 +7142,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14354",
@@ -7531,7 +7549,8 @@
             },
             "author_association": "NONE",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14353",
@@ -7931,7 +7950,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14352",
@@ -8290,7 +8310,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14351",
@@ -8717,7 +8738,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14350",
@@ -9114,7 +9136,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14349",
@@ -9534,7 +9557,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14348",
@@ -9931,7 +9955,8 @@
             },
             "author_association": "NONE",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14346",
@@ -10328,7 +10353,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14344",
@@ -10725,7 +10751,8 @@
             },
             "author_association": "NONE",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 2
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14341",
@@ -11132,7 +11159,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 3
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14340",
@@ -11538,7 +11566,8 @@
             },
             "author_association": "NONE",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 3
         },
         {
             "url": "https://api.github.com/repos/ethereum-optimism/optimism/pulls/14335",
@@ -11944,7 +11973,8 @@
             },
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "days_open": 3
         }
     ],
     "opened_issues": [
