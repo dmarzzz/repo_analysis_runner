@@ -1,169 +1,169 @@
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title style="text-align: center;">flashbots/rollup-boost - Wartime Milady CEO Weekly Report: Feb 08 - 15, 2025</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <style>
-            * {
-                font-family: 'VT323', monospace !important;
-                font-size: 20px;
-            }
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title style="text-align: center;">flashbots/rollup-boost - Wartime Milady CEO Weekly Report: Feb 08 - 15, 2025</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <style>
+                * {
+                    font-family: 'VT323', monospace !important;
+                    font-size: 20px;
+                }
 
-            body {
-                background-color: #ffffff;
-                color: #000000;
-                background-image: 
-                    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-                    linear-gradient(0deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-                background-size: 20px 20px;
-            }
+                body {
+                    background-color: #ffffff;
+                    color: #000000;
+                    background-image: 
+                        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                        linear-gradient(0deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+                    background-size: 20px 20px;
+                }
 
-            h1, h2, h3 {
-                text-shadow: 1px 1px #ccc;
-                position: relative;
-                font-size: 24px;
-            }
+                h1, h2, h3 {
+                    text-shadow: 1px 1px #ccc;
+                    position: relative;
+                    font-size: 24px;
+                }
 
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                margin-bottom: 20px;
-                background-color: #f9f9f9;
-            }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-bottom: 20px;
+                    background-color: #f9f9f9;
+                }
 
-            th, td {
-                border: 1px solid #ddd;
-                padding: 8px;
-                text-align: left;
-                font-size: 18px;
-            }
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                    text-align: left;
+                    font-size: 18px;
+                }
 
-            th {
-                background-color: #e0e0e0;
-            }
+                th {
+                    background-color: #e0e0e0;
+                }
 
-            tr:nth-child(even) {
-                background-color: #ffffff;
-            }
+                tr:nth-child(even) {
+                    background-color: #ffffff;
+                }
 
-            tr:nth-child(odd) {
-                background-color: #f2f2f2;
-            }
+                tr:nth-child(odd) {
+                    background-color: #f2f2f2;
+                }
 
-            a {
-                color: #0000ee;
-                text-decoration: none;
-            }
+                a {
+                    color: #0000ee;
+                    text-decoration: none;
+                }
 
-            a:hover {
-                text-decoration: underline;
-            }
+                a:hover {
+                    text-decoration: underline;
+                }
 
-            .summary-container {
-                max-width: 300px;
-                margin: 0 auto;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <h1 style="text-align: center;">
-            Wartime Milady CEO Weekly Report: Feb 08 - 15, 2025
-        </h1>
-        <h2 style="text-align: center;">
-            <img src="https://github.com/flashbots.png" alt="flashbots logo" style="width:50px;height:50px;vertical-align:middle;margin-right:10px;">
-            <a href="https://github.com/flashbots/rollup-boost" target="_blank" style="color: inherit; text-decoration: none;">
-                flashbots/rollup-boost
-            </a>
-            <img src="https://github.com/flashbots.png" alt="flashbots logo" style="width:50px;height:50px;vertical-align:middle;margin-left:10px;">
-        </h2>
-        <div style="display: flex; justify-content: center; align-items: flex-start;">
-            <canvas id="statsChart" width="800" height="400" style="background-color: #ffffff; display: block; margin: 0 auto; box-shadow: 0 0 20px rgba(255, 20, 147, 0.7), 0 0 30px rgba(255, 20, 147, 0.5), 0 0 40px rgba(255, 20, 147, 0.3);"></canvas>
-        </div>
-        <div class="summary-container">
-            <h3>Wartime Milady CEO Summary</h3>
-            <ul>
-                <li>Summary Not Available</li><li>Overall: 3 PRs opened, 10 PRs closed, 12 issues opened, 18 issues closed, 4 contributors.</li>
-            </ul>
-        </div>
-        <script>
-            const ctx = document.getElementById('statsChart').getContext('2d');
-            const statsChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['2024-10-25', '2025-01-30', '2025-02-09', '2025-02-10', '2025-02-11', '2025-02-12', '2025-02-13', '2025-02-15'],
-                    datasets: [
-                        {
-                            label: 'PRs Opened',
-                            data: [1, 0, 0, 0, 0, 0, 1, 1],
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'PRs Closed',
-                            data: [0, 0, 3, 3, 1, 1, 1, 1],
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Issues Opened',
-                            data: [0, 2, 2, 0, 0, 8, 0, 0],
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Issues Closed',
-                            data: [0, 0, 3, 8, 1, 3, 2, 1],
-                            borderColor: 'rgba(255, 206, 86, 1)',
-                            backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Contributors',
-                            data: [1, 0, 1, 2, 1, 1, 2, 2],
-                            borderColor: 'rgba(153, 102, 255, 1)',
-                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                            borderWidth: 1
-                        }
-                    ]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
+                .summary-container {
+                    max-width: 300px;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            <h1 style="text-align: center;">
+                Wartime Milady CEO Weekly Report: Feb 08 - 15, 2025
+            </h1>
+            <h2 style="text-align: center;">
+                <img src="https://github.com/flashbots.png" alt="flashbots logo" style="width:50px;height:50px;vertical-align:middle;margin-right:10px;">
+                <a href="https://github.com/flashbots/rollup-boost" target="_blank" style="color: inherit; text-decoration: none;">
+                    flashbots/rollup-boost
+                </a>
+                <img src="https://github.com/flashbots.png" alt="flashbots logo" style="width:50px;height:50px;vertical-align:middle;margin-left:10px;">
+            </h2>
+            <div style="display: flex; justify-content: center; align-items: flex-start;">
+                <canvas id="statsChart" width="800" height="400" style="background-color: #ffffff; display: block; margin: 0 auto; box-shadow: 0 0 20px rgba(255, 20, 147, 0.7), 0 0 30px rgba(255, 20, 147, 0.5), 0 0 40px rgba(255, 20, 147, 0.3);"></canvas>
+            </div>
+            <div class="summary-container">
+                <h3>Wartime Milady CEO Summary</h3>
+                <ul>
+                    <li>Summary Not Available</li><li>Overall: 3 PRs opened, 10 PRs closed, 12 issues opened, 18 issues closed, 4 contributors.</li>
+                </ul>
+            </div>
+            <script>
+                const ctx = document.getElementById('statsChart').getContext('2d');
+                const statsChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2024-10-25', '2025-01-30', '2025-02-09', '2025-02-10', '2025-02-11', '2025-02-12', '2025-02-13', '2025-02-15'],
+                        datasets: [
+                            {
+                                label: 'PRs Opened',
+                                data: [1, 0, 0, 0, 0, 0, 1, 1],
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'PRs Closed',
+                                data: [0, 0, 3, 3, 1, 1, 1, 1],
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Issues Opened',
+                                data: [0, 2, 2, 0, 0, 8, 0, 0],
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Issues Closed',
+                                data: [0, 0, 3, 8, 1, 3, 2, 1],
+                                borderColor: 'rgba(255, 206, 86, 1)',
+                                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Contributors',
+                                data: [1, 0, 1, 2, 1, 1, 2, 2],
+                                borderColor: 'rgba(153, 102, 255, 1)',
+                                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
                         }
                     }
-                }
-            });
-        </script>
-        <h2>✧ Open Pull Requests ✧</h2>
-        <table>
-            <tr><th>ID</th><th>Title</th><th>Creator</th><th>Created At</th><th>Last Updated</th><th>Related Issues</th></tr>
-            <tr><td>2337313984</td><td><a href="https://github.com/flashbots/rollup-boost/pull/94" target="_blank">Add build on each commit to main</a></td><td><img src="https://avatars.githubusercontent.com/u/11803341?v=4" alt="trianglesphere avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/trianglesphere" style="color: #ec8175;" target="_blank">trianglesphere</a></td><td>2025-02-15T01:02:55Z</td><td>2025-02-15T01:04:06Z</td><td></td></tr><tr><td>2334127428</td><td><a href="https://github.com/flashbots/rollup-boost/pull/93" target="_blank">Use flashbots-toolchain action to download reth</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-13T15:37:48Z</td><td>2025-02-13T15:46:10Z</td><td></td></tr><tr><td>2145115578</td><td><a href="https://github.com/flashbots/rollup-boost/pull/24" target="_blank">Add support for multiple builder and block selection</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2024-10-25T06:36:44Z</td><td>2025-02-12T22:29:06Z</td><td></td></tr>
-        </table>
-        <h2>✧ Open Issues ✧</h2>
-        <table>
-            <tr><th>ID</th><th>Title</th><th>Creator</th><th>Created At</th><th>Last Updated</th></tr>
-            <tr><td>2849495629</td><td><a href="https://github.com/flashbots/rollup-boost/issues/92" target="_blank">Rollup Boost Status Page</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T22:34:05Z</td><td>2025-02-12T22:36:20Z</td></tr><tr><td>2849477879</td><td><a href="https://github.com/flashbots/rollup-boost/issues/91" target="_blank">Circuit Breaker</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T22:23:30Z</td><td>2025-02-12T22:23:48Z</td></tr><tr><td>2849475658</td><td><a href="https://github.com/flashbots/rollup-boost/issues/90" target="_blank">Document How Rollup Boost Handles Reorgs</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T22:21:54Z</td><td>2025-02-12T22:23:55Z</td></tr><tr><td>2849381103</td><td><a href="https://github.com/flashbots/rollup-boost/issues/89" target="_blank">Document Invalid or Bad Payload Response from Block Builder</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:22:34Z</td><td>2025-02-12T22:24:01Z</td></tr><tr><td>2849378840</td><td><a href="https://github.com/flashbots/rollup-boost/issues/88" target="_blank">Document Rollup Boost Release Testing Process</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:21:18Z</td><td>2025-02-12T22:24:07Z</td></tr><tr><td>2849369985</td><td><a href="https://github.com/flashbots/rollup-boost/issues/87" target="_blank">Block Builder Creator Log or Metric</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:15:47Z</td><td>2025-02-12T22:24:13Z</td></tr><tr><td>2849365320</td><td><a href="https://github.com/flashbots/rollup-boost/issues/86" target="_blank">Document how debug API + dry run mode work</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:13:29Z</td><td>2025-02-12T21:13:29Z</td></tr><tr><td>2849362709</td><td><a href="https://github.com/flashbots/rollup-boost/issues/85" target="_blank">Production Concerns Documentation</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:11:55Z</td><td>2025-02-12T21:13:39Z</td></tr><tr><td>2840868734</td><td><a href="https://github.com/flashbots/rollup-boost/issues/80" target="_blank">Add an integration test to validate that the builder cannot send bad blocks</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T18:29:34Z</td><td>2025-02-10T14:39:25Z</td></tr><tr><td>2840665520</td><td><a href="https://github.com/flashbots/rollup-boost/issues/79" target="_blank">Remove PayloadID field in FCU request if not doing block building</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T13:09:55Z</td><td>2025-02-13T18:56:51Z</td></tr><tr><td>2821955648</td><td><a href="https://github.com/flashbots/rollup-boost/issues/68" target="_blank">Flashblocks Rollup Boost Design Doc</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-01-30T22:37:08Z</td><td>2025-02-12T22:25:56Z</td></tr><tr><td>2821385629</td><td><a href="https://github.com/flashbots/rollup-boost/issues/67" target="_blank">More metrics</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-01-30T17:15:23Z</td><td>2025-02-12T22:26:31Z</td></tr>
-        </table>
-        <h2>✧ Closed Pull Requests ✧</h2>
-        <table>
-            <tr><th>ID</th><th>Title</th><th>Creator</th><th>Closed At</th><th>Last Updated</th><th>Related Issues</th><th>Time to Close (days)</th></tr>
-            <tr><td>2337690262</td><td><a href="https://github.com/flashbots/rollup-boost/pull/95" target="_blank">Cleanup Integration + builder down integration test</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-15T12:13:20Z</td><td>2025-02-15T12:13:20Z</td><td></td><td>None</td></tr><tr><td>2327571312</td><td><a href="https://github.com/flashbots/rollup-boost/pull/84" target="_blank">Fix/release workflow</a></td><td><img src="https://avatars.githubusercontent.com/u/26036115?v=4" alt="0xOsiris avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/0xOsiris" style="color: #fa956b;" target="_blank">0xOsiris</a></td><td>2025-02-11T01:53:10Z</td><td>2025-02-11T01:53:10Z</td><td></td><td>None</td></tr><tr><td>2327140006</td><td><a href="https://github.com/flashbots/rollup-boost/pull/83" target="_blank">Add debug api + dry-run builder mode</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-12T09:26:00Z</td><td>2025-02-12T09:26:00Z</td><td><a href="https://github.com/flashbots/rollup-boost/issues/82">#82</a>, <a href="https://github.com/flashbots/rollup-boost/issues/8">#8</a></td><td>1</td></tr><tr><td>2324420952</td><td><a href="https://github.com/flashbots/rollup-boost/pull/78" target="_blank">Do not query builder if it is not building the block</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-10T10:05:50Z</td><td>2025-02-10T10:05:51Z</td><td></td><td>None</td></tr><tr><td>2324409280</td><td><a href="https://github.com/flashbots/rollup-boost/pull/77" target="_blank">Tidy block building logic and improve readability</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-10T10:06:00Z</td><td>2025-02-10T10:06:00Z</td><td></td><td>None</td></tr><tr><td>2322072770</td><td><a href="https://github.com/flashbots/rollup-boost/pull/75" target="_blank">Stop integration if service stopped during init</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:12Z</td><td>2025-02-09T09:11:12Z</td><td></td><td>None</td></tr><tr><td>2322026458</td><td><a href="https://github.com/flashbots/rollup-boost/pull/74" target="_blank">Add latency metrics</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:29Z</td><td>2025-02-09T09:11:29Z</td><td></td><td>None</td></tr><tr><td>2321957468</td><td><a href="https://github.com/flashbots/rollup-boost/pull/73" target="_blank">Enable boost-sync by default</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:41Z</td><td>2025-02-09T09:11:41Z</td><td></td><td>None</td></tr><tr><td>2306399332</td><td><a href="https://github.com/flashbots/rollup-boost/pull/66" target="_blank">Adding rollup-boost docs</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-02-10T09:38:26Z</td><td>2025-02-10T13:07:57Z</td><td></td><td>None</td></tr><tr><td>2171780152</td><td><a href="https://github.com/flashbots/rollup-boost/pull/36" target="_blank">Add eth_sendBundle to multiplex to builder</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-02-13T18:35:41Z</td><td>2025-02-13T18:35:41Z</td><td></td><td>None</td></tr>
-        </table>
-        <h2>✧ Closed Issues ✧</h2>
-        <table>
-            <tr><th>ID</th><th>Title</th><th>Creator</th><th>Closed At</th><th>Last Updated</th></tr>
-            <tr><td>2855427350</td><td><a href="https://github.com/flashbots/rollup-boost/pull/95" target="_blank">Cleanup Integration + builder down integration test</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-15T12:13:20Z</td><td>2025-02-15T12:13:20Z</td></tr><tr><td>2844092837</td><td><a href="https://github.com/flashbots/rollup-boost/pull/84" target="_blank">Fix/release workflow</a></td><td><img src="https://avatars.githubusercontent.com/u/26036115?v=4" alt="0xOsiris avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/0xOsiris" style="color: #fa956b;" target="_blank">0xOsiris</a></td><td>2025-02-11T01:53:10Z</td><td>2025-02-11T01:53:10Z</td></tr><tr><td>2843612413</td><td><a href="https://github.com/flashbots/rollup-boost/pull/83" target="_blank">Add debug api + dry-run builder mode</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-12T09:26:00Z</td><td>2025-02-12T09:26:00Z</td></tr><tr><td>2843271302</td><td><a href="https://github.com/flashbots/rollup-boost/issues/82" target="_blank">Dry Run Mode</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T09:26:01Z</td><td>2025-02-12T09:26:01Z</td></tr><tr><td>2841796324</td><td><a href="https://github.com/flashbots/rollup-boost/issues/81" target="_blank">rollup-boost: Infinite engine_forkchoiceUpdatedV2 loop when proxying op-node to L2</a></td><td><img src="https://avatars.githubusercontent.com/u/38132534?v=4" alt="SozinM avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/SozinM" style="color: #f62c24;" target="_blank">SozinM</a></td><td>2025-02-10T10:33:30Z</td><td>2025-02-10T10:33:32Z</td></tr><tr><td>2840560647</td><td><a href="https://github.com/flashbots/rollup-boost/pull/78" target="_blank">Do not query builder if it is not building the block</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-10T10:05:50Z</td><td>2025-02-10T10:05:51Z</td></tr><tr><td>2840546786</td><td><a href="https://github.com/flashbots/rollup-boost/pull/77" target="_blank">Tidy block building logic and improve readability</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-10T10:06:00Z</td><td>2025-02-10T10:06:00Z</td></tr><tr><td>2837929839</td><td><a href="https://github.com/flashbots/rollup-boost/pull/75" target="_blank">Stop integration if service stopped during init</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:12Z</td><td>2025-02-09T09:11:12Z</td></tr><tr><td>2837878248</td><td><a href="https://github.com/flashbots/rollup-boost/pull/74" target="_blank">Add latency metrics</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:29Z</td><td>2025-02-09T09:11:29Z</td></tr><tr><td>2837801102</td><td><a href="https://github.com/flashbots/rollup-boost/pull/73" target="_blank">Enable boost-sync by default</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:41Z</td><td>2025-02-09T09:11:41Z</td></tr><tr><td>2820303952</td><td><a href="https://github.com/flashbots/rollup-boost/pull/66" target="_blank">Adding rollup-boost docs</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-02-10T09:38:26Z</td><td>2025-02-10T13:07:57Z</td></tr><tr><td>2805690234</td><td><a href="https://github.com/flashbots/rollup-boost/issues/57" target="_blank">More Metrics</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-10T16:42:34Z</td><td>2025-02-10T16:42:36Z</td></tr><tr><td>2805472104</td><td><a href="https://github.com/flashbots/rollup-boost/issues/56" target="_blank">Docs: what RPCs are forwarded</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-10T09:39:19Z</td><td>2025-02-10T09:39:19Z</td></tr><tr><td>2805454490</td><td><a href="https://github.com/flashbots/rollup-boost/issues/55" target="_blank">Docs: How to Assess `rollup-boost` and `op-rbuilder` Health</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-10T09:44:29Z</td><td>2025-02-10T09:44:29Z</td></tr><tr><td>2743037335</td><td><a href="https://github.com/flashbots/rollup-boost/issues/45" target="_blank">Operationalization Questions</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-10T09:39:27Z</td><td>2025-02-10T09:39:27Z</td></tr><tr><td>2743035522</td><td><a href="https://github.com/flashbots/rollup-boost/issues/44" target="_blank">Document How Does Rollup Boost work with High Availability Sequencer Setups</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T22:26:48Z</td><td>2025-02-12T22:26:48Z</td></tr><tr><td>2647912872</td><td><a href="https://github.com/flashbots/rollup-boost/pull/36" target="_blank">Add eth_sendBundle to multiplex to builder</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-02-13T18:35:41Z</td><td>2025-02-13T18:35:41Z</td></tr><tr><td>2550858902</td><td><a href="https://github.com/flashbots/rollup-boost/issues/8" target="_blank">Make the builder optional</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-13T17:25:56Z</td><td>2025-02-13T17:25:56Z</td></tr>
-        </table>
-    </body>
-    </html>
-    
+                });
+            </script>
+            <h2>✧ Open Pull Requests ✧</h2>
+            <table>
+                <tr><th>ID</th><th>Title</th><th>Creator</th><th>Created At</th><th>Last Updated</th><th>Related Issues</th></tr>
+                <tr><td>2337313984</td><td><a href="https://github.com/flashbots/rollup-boost/pull/94" target="_blank">Add build on each commit to main</a></td><td><img src="https://avatars.githubusercontent.com/u/11803341?v=4" alt="trianglesphere avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/trianglesphere" style="color: #ec8175;" target="_blank">trianglesphere</a></td><td>2025-02-15T01:02:55Z</td><td>2025-02-15T01:04:06Z</td><td></td></tr><tr><td>2334127428</td><td><a href="https://github.com/flashbots/rollup-boost/pull/93" target="_blank">Use flashbots-toolchain action to download reth</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-13T15:37:48Z</td><td>2025-02-13T15:46:10Z</td><td></td></tr><tr><td>2145115578</td><td><a href="https://github.com/flashbots/rollup-boost/pull/24" target="_blank">Add support for multiple builder and block selection</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2024-10-25T06:36:44Z</td><td>2025-02-12T22:29:06Z</td><td></td></tr>
+            </table>
+            <h2>✧ Open Issues ✧</h2>
+            <table>
+                <tr><th>ID</th><th>Title</th><th>Creator</th><th>Created At</th><th>Last Updated</th></tr>
+                <tr><td>2849495629</td><td><a href="https://github.com/flashbots/rollup-boost/issues/92" target="_blank">Rollup Boost Status Page</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T22:34:05Z</td><td>2025-02-12T22:36:20Z</td></tr><tr><td>2849477879</td><td><a href="https://github.com/flashbots/rollup-boost/issues/91" target="_blank">Circuit Breaker</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T22:23:30Z</td><td>2025-02-12T22:23:48Z</td></tr><tr><td>2849475658</td><td><a href="https://github.com/flashbots/rollup-boost/issues/90" target="_blank">Document How Rollup Boost Handles Reorgs</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T22:21:54Z</td><td>2025-02-12T22:23:55Z</td></tr><tr><td>2849381103</td><td><a href="https://github.com/flashbots/rollup-boost/issues/89" target="_blank">Document Invalid or Bad Payload Response from Block Builder</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:22:34Z</td><td>2025-02-12T22:24:01Z</td></tr><tr><td>2849378840</td><td><a href="https://github.com/flashbots/rollup-boost/issues/88" target="_blank">Document Rollup Boost Release Testing Process</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:21:18Z</td><td>2025-02-12T22:24:07Z</td></tr><tr><td>2849369985</td><td><a href="https://github.com/flashbots/rollup-boost/issues/87" target="_blank">Block Builder Creator Log or Metric</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:15:47Z</td><td>2025-02-12T22:24:13Z</td></tr><tr><td>2849365320</td><td><a href="https://github.com/flashbots/rollup-boost/issues/86" target="_blank">Document how debug API + dry run mode work</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:13:29Z</td><td>2025-02-12T21:13:29Z</td></tr><tr><td>2849362709</td><td><a href="https://github.com/flashbots/rollup-boost/issues/85" target="_blank">Production Concerns Documentation</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T21:11:55Z</td><td>2025-02-12T21:13:39Z</td></tr><tr><td>2840868734</td><td><a href="https://github.com/flashbots/rollup-boost/issues/80" target="_blank">Add an integration test to validate that the builder cannot send bad blocks</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T18:29:34Z</td><td>2025-02-10T14:39:25Z</td></tr><tr><td>2840665520</td><td><a href="https://github.com/flashbots/rollup-boost/issues/79" target="_blank">Remove PayloadID field in FCU request if not doing block building</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T13:09:55Z</td><td>2025-02-13T18:56:51Z</td></tr><tr><td>2821955648</td><td><a href="https://github.com/flashbots/rollup-boost/issues/68" target="_blank">Flashblocks Rollup Boost Design Doc</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-01-30T22:37:08Z</td><td>2025-02-12T22:25:56Z</td></tr><tr><td>2821385629</td><td><a href="https://github.com/flashbots/rollup-boost/issues/67" target="_blank">More metrics</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-01-30T17:15:23Z</td><td>2025-02-12T22:26:31Z</td></tr>
+            </table>
+            <h2>✧ Closed Pull Requests ✧</h2>
+            <table>
+                <tr><th>ID</th><th>Title</th><th>Creator</th><th>Closed At</th><th>Last Updated</th><th>Related Issues</th><th>Time to Close (days)</th></tr>
+                <tr><td>2337690262</td><td><a href="https://github.com/flashbots/rollup-boost/pull/95" target="_blank">Cleanup Integration + builder down integration test</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-15T12:13:20Z</td><td>2025-02-15T12:13:20Z</td><td></td><td>None</td></tr><tr><td>2327571312</td><td><a href="https://github.com/flashbots/rollup-boost/pull/84" target="_blank">Fix/release workflow</a></td><td><img src="https://avatars.githubusercontent.com/u/26036115?v=4" alt="0xOsiris avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/0xOsiris" style="color: #fa956b;" target="_blank">0xOsiris</a></td><td>2025-02-11T01:53:10Z</td><td>2025-02-11T01:53:10Z</td><td></td><td>None</td></tr><tr><td>2327140006</td><td><a href="https://github.com/flashbots/rollup-boost/pull/83" target="_blank">Add debug api + dry-run builder mode</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-12T09:26:00Z</td><td>2025-02-12T09:26:00Z</td><td><a href="https://github.com/flashbots/rollup-boost/issues/82">#82</a>, <a href="https://github.com/flashbots/rollup-boost/issues/8">#8</a></td><td>1</td></tr><tr><td>2324420952</td><td><a href="https://github.com/flashbots/rollup-boost/pull/78" target="_blank">Do not query builder if it is not building the block</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-10T10:05:50Z</td><td>2025-02-10T10:05:51Z</td><td></td><td>None</td></tr><tr><td>2324409280</td><td><a href="https://github.com/flashbots/rollup-boost/pull/77" target="_blank">Tidy block building logic and improve readability</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-10T10:06:00Z</td><td>2025-02-10T10:06:00Z</td><td></td><td>None</td></tr><tr><td>2322072770</td><td><a href="https://github.com/flashbots/rollup-boost/pull/75" target="_blank">Stop integration if service stopped during init</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:12Z</td><td>2025-02-09T09:11:12Z</td><td></td><td>None</td></tr><tr><td>2322026458</td><td><a href="https://github.com/flashbots/rollup-boost/pull/74" target="_blank">Add latency metrics</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:29Z</td><td>2025-02-09T09:11:29Z</td><td></td><td>None</td></tr><tr><td>2321957468</td><td><a href="https://github.com/flashbots/rollup-boost/pull/73" target="_blank">Enable boost-sync by default</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:41Z</td><td>2025-02-09T09:11:41Z</td><td></td><td>None</td></tr><tr><td>2306399332</td><td><a href="https://github.com/flashbots/rollup-boost/pull/66" target="_blank">Adding rollup-boost docs</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-02-10T09:38:26Z</td><td>2025-02-10T13:07:57Z</td><td></td><td>None</td></tr><tr><td>2171780152</td><td><a href="https://github.com/flashbots/rollup-boost/pull/36" target="_blank">Add eth_sendBundle to multiplex to builder</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-02-13T18:35:41Z</td><td>2025-02-13T18:35:41Z</td><td></td><td>None</td></tr>
+            </table>
+            <h2>✧ Closed Issues ✧</h2>
+            <table>
+                <tr><th>ID</th><th>Title</th><th>Creator</th><th>Closed At</th><th>Last Updated</th></tr>
+                <tr><td>2855427350</td><td><a href="https://github.com/flashbots/rollup-boost/pull/95" target="_blank">Cleanup Integration + builder down integration test</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-15T12:13:20Z</td><td>2025-02-15T12:13:20Z</td></tr><tr><td>2844092837</td><td><a href="https://github.com/flashbots/rollup-boost/pull/84" target="_blank">Fix/release workflow</a></td><td><img src="https://avatars.githubusercontent.com/u/26036115?v=4" alt="0xOsiris avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/0xOsiris" style="color: #fa956b;" target="_blank">0xOsiris</a></td><td>2025-02-11T01:53:10Z</td><td>2025-02-11T01:53:10Z</td></tr><tr><td>2843612413</td><td><a href="https://github.com/flashbots/rollup-boost/pull/83" target="_blank">Add debug api + dry-run builder mode</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-12T09:26:00Z</td><td>2025-02-12T09:26:00Z</td></tr><tr><td>2843271302</td><td><a href="https://github.com/flashbots/rollup-boost/issues/82" target="_blank">Dry Run Mode</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T09:26:01Z</td><td>2025-02-12T09:26:01Z</td></tr><tr><td>2841796324</td><td><a href="https://github.com/flashbots/rollup-boost/issues/81" target="_blank">rollup-boost: Infinite engine_forkchoiceUpdatedV2 loop when proxying op-node to L2</a></td><td><img src="https://avatars.githubusercontent.com/u/38132534?v=4" alt="SozinM avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/SozinM" style="color: #f62c24;" target="_blank">SozinM</a></td><td>2025-02-10T10:33:30Z</td><td>2025-02-10T10:33:32Z</td></tr><tr><td>2840560647</td><td><a href="https://github.com/flashbots/rollup-boost/pull/78" target="_blank">Do not query builder if it is not building the block</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-10T10:05:50Z</td><td>2025-02-10T10:05:51Z</td></tr><tr><td>2840546786</td><td><a href="https://github.com/flashbots/rollup-boost/pull/77" target="_blank">Tidy block building logic and improve readability</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-10T10:06:00Z</td><td>2025-02-10T10:06:00Z</td></tr><tr><td>2837929839</td><td><a href="https://github.com/flashbots/rollup-boost/pull/75" target="_blank">Stop integration if service stopped during init</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:12Z</td><td>2025-02-09T09:11:12Z</td></tr><tr><td>2837878248</td><td><a href="https://github.com/flashbots/rollup-boost/pull/74" target="_blank">Add latency metrics</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:29Z</td><td>2025-02-09T09:11:29Z</td></tr><tr><td>2837801102</td><td><a href="https://github.com/flashbots/rollup-boost/pull/73" target="_blank">Enable boost-sync by default</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-09T09:11:41Z</td><td>2025-02-09T09:11:41Z</td></tr><tr><td>2820303952</td><td><a href="https://github.com/flashbots/rollup-boost/pull/66" target="_blank">Adding rollup-boost docs</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-02-10T09:38:26Z</td><td>2025-02-10T13:07:57Z</td></tr><tr><td>2805690234</td><td><a href="https://github.com/flashbots/rollup-boost/issues/57" target="_blank">More Metrics</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-10T16:42:34Z</td><td>2025-02-10T16:42:36Z</td></tr><tr><td>2805472104</td><td><a href="https://github.com/flashbots/rollup-boost/issues/56" target="_blank">Docs: what RPCs are forwarded</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-10T09:39:19Z</td><td>2025-02-10T09:39:19Z</td></tr><tr><td>2805454490</td><td><a href="https://github.com/flashbots/rollup-boost/issues/55" target="_blank">Docs: How to Assess `rollup-boost` and `op-rbuilder` Health</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-10T09:44:29Z</td><td>2025-02-10T09:44:29Z</td></tr><tr><td>2743037335</td><td><a href="https://github.com/flashbots/rollup-boost/issues/45" target="_blank">Operationalization Questions</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-10T09:39:27Z</td><td>2025-02-10T09:39:27Z</td></tr><tr><td>2743035522</td><td><a href="https://github.com/flashbots/rollup-boost/issues/44" target="_blank">Document How Does Rollup Boost work with High Availability Sequencer Setups</a></td><td><img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/dmarzzz" style="color: #0248db;" target="_blank">dmarzzz</a></td><td>2025-02-12T22:26:48Z</td><td>2025-02-12T22:26:48Z</td></tr><tr><td>2647912872</td><td><a href="https://github.com/flashbots/rollup-boost/pull/36" target="_blank">Add eth_sendBundle to multiplex to builder</a></td><td><img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/avalonche" style="color: #43b88d;" target="_blank">avalonche</a></td><td>2025-02-13T18:35:41Z</td><td>2025-02-13T18:35:41Z</td></tr><tr><td>2550858902</td><td><a href="https://github.com/flashbots/rollup-boost/issues/8" target="_blank">Make the builder optional</a></td><td><img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt avatar" style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;"><a href="https://github.com/ferranbt" style="color: #9940c8;" target="_blank">ferranbt</a></td><td>2025-02-13T17:25:56Z</td><td>2025-02-13T17:25:56Z</td></tr>
+            </table>
+        </body>
+        </html>
+        
