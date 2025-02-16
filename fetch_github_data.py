@@ -6,6 +6,9 @@ import json
 import re
 import hashlib
 from collections import defaultdict
+from openai import OpenAI
+import asyncio
+import openai
 
 # Load environment variables from .env file
 load_dotenv()
@@ -15,6 +18,9 @@ openai_key = os.getenv('OPENAI_KEY')
 github_token = os.getenv('GITHUB_TOKEN')
 repo = os.getenv('REPO')
 repo_owner = os.getenv('REPO_OWNER')
+
+# Initialize OpenAI client
+client = OpenAI(api_key=openai_key)
 
 # # Debug print to verify token
 # print('GitHub Token:', github_token)
@@ -101,40 +107,84 @@ closed_issues = fetch_closed_issues_within_date_range()
 # print('Closed PRs in the last week:', closed_prs_last_week)
 # print('Closed Issues in the last week:', closed_issues_last_week)
 
-# Create a subfolder for the week's date
-week_folder = f'weekly_report/{start_date.strftime("%Y%m%d")}_{end_date.strftime("%Y%m%d")}'
+# Create a subfolder for the repository and week's date
+repo_folder = f'weekly_report/{repo}'
+week_folder = f'{repo_folder}/{start_date.strftime("%Y%m%d")}_{end_date.strftime("%Y%m%d")}'
 os.makedirs(week_folder, exist_ok=True)
 
 # Calculate aggregate statistics
 aggregated_stats = defaultdict(lambda: {'prs_opened': 0, 'prs_closed': 0, 'issues_opened': 0, 'issues_closed': 0, 'contributors': set()})
+
+# Aggregate all contributors into a single set for the entire period
+all_contributors = set()
 
 # Process opened PRs
 for pr in open_prs:
     date = pr['created_at'][:10]
     aggregated_stats[date]['prs_opened'] += 1
     aggregated_stats[date]['contributors'].add(pr['user']['login'])
+    all_contributors.add(pr['user']['login'])
 
 # Process closed PRs
 for pr in closed_prs:
     date = pr['closed_at'][:10]
     aggregated_stats[date]['prs_closed'] += 1
     aggregated_stats[date]['contributors'].add(pr['user']['login'])
+    all_contributors.add(pr['user']['login'])
 
 # Process opened issues
 for issue in open_issues:
     date = issue['created_at'][:10]
     aggregated_stats[date]['issues_opened'] += 1
-    aggregated_stats[date]['contributors'].add(issue['user']['login'])
 
 # Process closed issues
 for issue in closed_issues:
     date = issue['closed_at'][:10]
     aggregated_stats[date]['issues_closed'] += 1
-    aggregated_stats[date]['contributors'].add(issue['user']['login'])
 
 # Convert contributors set to count
 for date, stats in aggregated_stats.items():
     stats['contributors'] = len(stats['contributors'])
+
+# Use the unique count of all contributors for the overall stats
+overall_contributors_count = len(all_contributors)
+
+# Function to generate a descriptive summary using OpenAI
+async def generate_descriptive_summary(open_prs, closed_prs, open_issues, closed_issues):
+    prompt = f"""
+    Based on the following data, generate a three-bullet-point summary of the key changes and activities:
+    Open PRs: {len(open_prs)}
+    Closed PRs: {len(closed_prs)}
+    Open Issues: {len(open_issues)}
+    Closed Issues: {len(closed_issues)}
+    """
+    try:
+        response = await client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "system", "content": "You are a helpful assistant."},
+                      {"role": "user", "content": prompt}],
+            max_tokens=150,
+            n=1,
+            stop=None,
+            temperature=0.5
+        )
+        return response.choices[0].message['content'].strip().split('\n')
+    except Exception as e:
+        print(f"Error generating summary: {e}")
+        return []
+
+# Generate a descriptive summary
+summary = asyncio.run(generate_descriptive_summary(open_prs, closed_prs, open_issues, closed_issues))
+
+# Modify the overall statistics bullet point
+overall_stats = f"Overall: {len(open_prs)} PRs opened, {len(closed_prs)} PRs closed, {len(open_issues)} issues opened, {len(closed_issues)} issues closed, {overall_contributors_count} contributors."
+
+# Check if the summary is empty and add a bullet point if necessary
+if not summary:
+    summary.append("Summary Not Available")
+
+# Append the overall statistics to the summary
+summary.append(overall_stats)
 
 # Save data to JSON file in the week's folder
 output_data = {
@@ -144,7 +194,8 @@ output_data = {
     'opened_issues': open_issues,
     'closed_prs': closed_prs,
     'closed_issues': closed_issues,
-    'aggregated_stats': aggregated_stats
+    'aggregated_stats': aggregated_stats,
+    'wartime_milady_ceo_summary': summary
 }
 
 output_filename = f'{week_folder}/data.json'
@@ -263,6 +314,12 @@ def generate_html(data):
             a:hover {{
                 text-decoration: underline;
             }}
+
+            .summary-container {{
+                max-width: 300px;
+                margin: 0 auto;
+                text-align: center;
+            }}
         </style>
     </head>
     <body>
@@ -276,7 +333,15 @@ def generate_html(data):
             </a>
             <img src="{org_logo_url}" alt="{repo_owner} logo" style="width:50px;height:50px;vertical-align:middle;margin-left:10px;">
         </h2>
-        <canvas id="statsChart" width="800" height="400" style="background-color: #ffffff; display: block; margin: 0 auto; box-shadow: 0 0 20px rgba(255, 20, 147, 0.7), 0 0 30px rgba(255, 20, 147, 0.5), 0 0 40px rgba(255, 20, 147, 0.3);"></canvas>
+        <div style="display: flex; justify-content: center; align-items: flex-start;">
+            <canvas id="statsChart" width="800" height="400" style="background-color: #ffffff; display: block; margin: 0 auto; box-shadow: 0 0 20px rgba(255, 20, 147, 0.7), 0 0 30px rgba(255, 20, 147, 0.5), 0 0 40px rgba(255, 20, 147, 0.3);"></canvas>
+        </div>
+        <div class="summary-container">
+            <h3>Wartime Milady CEO Summary</h3>
+            <ul>
+                {''.join(f'<li>{line}</li>' for line in data['wartime_milady_ceo_summary'])}
+            </ul>
+        </div>
         <script>
             const ctx = document.getElementById('statsChart').getContext('2d');
             const statsChart = new Chart(ctx, {{
@@ -353,6 +418,7 @@ def generate_html(data):
     </body>
     </html>
     '''
+    print("CSS block is being processed correctly.")
     return html_content
 
 # Generate HTML content

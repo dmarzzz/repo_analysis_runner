@@ -1,6 +1,6 @@
 {
-    "start_date": "2025-02-08T20:31:57.766705",
-    "end_date": "2025-02-15T20:31:57.766705",
+    "start_date": "2025-02-08T20:51:56.925768",
+    "end_date": "2025-02-15T20:51:56.925768",
     "opened_prs": [
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/94",
@@ -7288,14 +7288,14 @@
             "prs_closed": 1,
             "issues_opened": 8,
             "issues_closed": 3,
-            "contributors": 2
+            "contributors": 1
         },
         "2025-02-10": {
             "prs_opened": 0,
             "prs_closed": 3,
             "issues_opened": 0,
             "issues_closed": 8,
-            "contributors": 4
+            "contributors": 2
         },
         "2025-02-09": {
             "prs_opened": 0,
@@ -7309,7 +7309,11 @@
             "prs_closed": 0,
             "issues_opened": 2,
             "issues_closed": 0,
-            "contributors": 2
+            "contributors": 0
         }
-    }
+    },
+    "wartime_milady_ceo_summary": [
+        "Summary Not Available",
+        "Overall: 3 PRs opened, 10 PRs closed, 12 issues opened, 18 issues closed, 4 contributors."
+    ]
 }

@@ -63,6 +63,12 @@
             a:hover {
                 text-decoration: underline;
             }
+
+            .summary-container {
+                max-width: 300px;
+                margin: 0 auto;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -76,7 +82,15 @@
             </a>
             <img src="https://github.com/flashbots.png" alt="flashbots logo" style="width:50px;height:50px;vertical-align:middle;margin-left:10px;">
         </h2>
-        <canvas id="statsChart" width="800" height="400" style="background-color: #ffffff; display: block; margin: 0 auto; box-shadow: 0 0 20px rgba(255, 20, 147, 0.7), 0 0 30px rgba(255, 20, 147, 0.5), 0 0 40px rgba(255, 20, 147, 0.3);"></canvas>
+        <div style="display: flex; justify-content: center; align-items: flex-start;">
+            <canvas id="statsChart" width="800" height="400" style="background-color: #ffffff; display: block; margin: 0 auto; box-shadow: 0 0 20px rgba(255, 20, 147, 0.7), 0 0 30px rgba(255, 20, 147, 0.5), 0 0 40px rgba(255, 20, 147, 0.3);"></canvas>
+        </div>
+        <div class="summary-container">
+            <h3>Wartime Milady CEO Summary</h3>
+            <ul>
+                <li>Summary Not Available</li><li>Overall: 3 PRs opened, 10 PRs closed, 12 issues opened, 18 issues closed, 4 contributors.</li>
+            </ul>
+        </div>
         <script>
             const ctx = document.getElementById('statsChart').getContext('2d');
             const statsChart = new Chart(ctx, {
@@ -114,7 +128,7 @@
                         },
                         {
                             label: 'Contributors',
-                            data: [1, 2, 1, 4, 1, 2, 2, 2],
+                            data: [1, 0, 1, 2, 1, 1, 2, 2],
                             borderColor: 'rgba(153, 102, 255, 1)',
                             backgroundColor: 'rgba(153, 102, 255, 0.2)',
                             borderWidth: 1
