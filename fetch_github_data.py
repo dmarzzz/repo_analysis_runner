@@ -7,7 +7,9 @@ import re
 import hashlib
 from collections import defaultdict
 import asyncio
-import openai  # Use the official openai library
+from openai import AsyncOpenAI, OpenAIError
+
+
 
 # Load environment variables from .env file
 load_dotenv()
@@ -17,8 +19,12 @@ openai_key = os.getenv('OPENAI_KEY')
 github_token = os.getenv('GITHUB_TOKEN')
 repos = os.getenv('REPOS')
 
+aclient = AsyncOpenAI(api_key=openai_key)
+
+# Just for debugging, print out the loaded OpenAI Key (optional)
+print(f"OpenAI API Key from .env: {openai_key}")
+
 # Set the OpenAI API key for official openai library usage
-openai.api_key = openai_key
 
 # Parse the REPOS environment variable
 repos = eval(repos)  # Convert string representation of list to an actual list
@@ -268,38 +274,45 @@ for repo, repo_owner in repos:
     overall_contributors_count = len(all_contributors)
 
     # Function to generate a descriptive summary using async openai call
-    async def generate_descriptive_summary(open_prs, closed_prs, open_issues, closed_issues):
+    async def generate_descriptive_summary(closed_prs):
+        # Collect detailed PR data
+        pr_details = [
+            f"Title: {pr['title']}, Description: {pr.get('body', 'No description')}, Creator: {pr['user']['login']}, Closed At: {pr['closed_at']}"
+            for pr in closed_prs
+        ]
+        
+        # Update the prompt to include detailed PR data
         prompt = f"""
-        Based on the following data, generate a three-bullet-point summary of the key changes and activities:
-        Open PRs: {len(open_prs)}
-        Closed PRs: {len(closed_prs)}
-        Open Issues: {len(open_issues)}
-        Closed Issues: {len(closed_issues)}
+        Based on the following closed PRs data, generate a three-bullet-point summary of the key changes and activities:
+        {chr(10).join(pr_details)}
         """
+        # Optionally, include more detailed information about closed PRs if needed
+        # For example, you could include titles or other attributes of the closed PRs
+        # This is just a basic example focusing on the count of closed PRs
+        # You can expand this to include more detailed data if desired
+        # Example: titles = [pr['title'] for pr in closed_prs]
         try:
-            response = await openai.ChatCompletion.acreate(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": prompt}
-                ],
-                max_tokens=150,
-                n=1,
-                stop=None,
-                temperature=0.5
-            )
-            return response.choices[0].message['content'].strip().split('\n')
-        except openai.error.OpenAIError as e:
+            # Use a standard model that almost everyone with an account can access
+            response = await aclient.chat.completions.create(model="gpt-4o",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=150,
+            n=1,
+            stop=None,
+            temperature=0.5)
+            return response.choices[0].message.content.strip().split('\n')
+        except OpenAIError as e:
             print(f"Error generating summary: {e}")
             return []
 
     # Generate a descriptive summary
-    summary = asyncio.run(generate_descriptive_summary(open_prs, closed_prs, open_issues, closed_issues))
+    summary = asyncio.run(generate_descriptive_summary(closed_prs))
 
     # Modify the overall statistics bullet point
     overall_stats = (
-        f"Overall: {len(open_prs)} PRs opened, {len(closed_prs)} PRs closed, "
-        f"{len(open_issues)} issues opened, {len(closed_issues)} issues closed, "
+        f"Overall: {len(closed_prs)} PRs closed, "
         f"{overall_contributors_count} contributors."
     )
 
@@ -366,9 +379,7 @@ for repo, repo_owner in repos:
 
         # Prepare data for graph
         dates = sorted(data['aggregated_stats'].keys())
-        prs_opened = [data['aggregated_stats'][date]['prs_opened'] for date in dates]
         prs_closed = [data['aggregated_stats'][date]['prs_closed'] for date in dates]
-        issues_opened = [data['aggregated_stats'][date]['issues_opened'] for date in dates]
         issues_closed = [data['aggregated_stats'][date]['issues_closed'] for date in dates]
         contributors = [data['aggregated_stats'][date]['contributors'] for date in dates]
 
@@ -474,24 +485,10 @@ for repo, repo_owner in repos:
                         labels: {dates},
                         datasets: [
                             {{
-                                label: 'PRs Opened',
-                                data: {prs_opened},
-                                borderColor: 'rgba(75, 192, 192, 1)',
-                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                                borderWidth: 1
-                            }},
-                            {{
                                 label: 'PRs Closed',
                                 data: {prs_closed},
                                 borderColor: 'rgba(255, 99, 132, 1)',
                                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                                borderWidth: 1
-                            }},
-                            {{
-                                label: 'Issues Opened',
-                                data: {issues_opened},
-                                borderColor: 'rgba(54, 162, 235, 1)',
-                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
                                 borderWidth: 1
                             }},
                             {{
@@ -519,45 +516,6 @@ for repo, repo_owner in repos:
                     }}
                 }});
             </script>
-            <h2>✧ Open Pull Requests ✧</h2>
-            <table>
-                <tr><th>ID</th><th>Title</th><th>Creator</th><th>Created At</th><th>Last Updated</th><th>Days Open</th><th>Related Issues</th></tr>
-                ''' + ''.join(
-                    f'<tr>'
-                    f'<td>{pr["id"]}</td>'
-                    f'<td><a href="{pr["html_url"]}" target="_blank">{pr["title"]}</a></td>'
-                    f'<td><img src="{pr["user"]["avatar_url"]}" alt="{pr["user"]["login"]} avatar" '
-                    f'style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;">'
-                    f'<a href="https://github.com/{pr["user"]["login"]}" '
-                    f'style="color: {generate_color(pr["user"]["login"])};" target="_blank">'
-                    f'{pr["user"]["login"]}</a></td>'
-                    f'<td>{pr["created_at"]}</td>'
-                    f'<td>{pr["updated_at"]}</td>'
-                    f'<td>{pr["days_open"]}</td>'
-                    f'<td>' + ', '.join(
-                        f'<a href="https://github.com/{repo_owner}/{repo}/issues/{issue}">#{issue}</a>'
-                        for issue in extract_issues_from_description(pr.get("body", ""))
-                    ) + '</td></tr>'
-                    for pr in data['opened_prs']
-                ) + '''
-            </table>
-            <h2>✧ Open Issues ✧</h2>
-            <table>
-                <tr><th>ID</th><th>Title</th><th>Creator</th><th>Created At</th><th>Last Updated</th></tr>
-                ''' + ''.join(
-                    f'<tr>'
-                    f'<td>{issue["id"]}</td>'
-                    f'<td><a href="{issue["html_url"]}" target="_blank">{issue["title"]}</a></td>'
-                    f'<td><img src="{issue["user"]["avatar_url"]}" alt="{issue["user"]["login"]} avatar" '
-                    f'style="width:24px;height:24px;border-radius:50%;vertical-align:middle;margin-right:8px;">'
-                    f'<a href="https://github.com/{issue["user"]["login"]}" '
-                    f'style="color: {generate_color(issue["user"]["login"])};" target="_blank">'
-                    f'{issue["user"]["login"]}</a></td>'
-                    f'<td>{issue["created_at"]}</td>'
-                    f'<td>{issue["updated_at"]}</td></tr>'
-                    for issue in data['opened_issues']
-                ) + '''
-            </table>
             <h2>✧ Closed Pull Requests ✧</h2>
             <table>
                 <tr><th>ID</th><th>Title</th><th>Creator</th><th>Closed At</th><th>Last Updated</th><th>Related Issues</th><th>Time to Close (days)</th></tr>
