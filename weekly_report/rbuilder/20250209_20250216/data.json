@@ -1,6 +1,6 @@
 {
-    "start_date": "2025-02-09T01:36:12.210919",
-    "end_date": "2025-02-16T01:36:12.210919",
+    "start_date": "2025-02-09T19:46:19.375532",
+    "end_date": "2025-02-16T19:46:19.375532",
     "opened_prs": [
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/429",
@@ -412,7 +412,7 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 2
+            "days_open": 3
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/419",
@@ -665,13 +665,13 @@
                     "deployments_url": "https://api.github.com/repos/NethermindEth/rbuilder/deployments",
                     "created_at": "2024-12-04T12:46:15Z",
                     "updated_at": "2025-02-13T15:37:44Z",
-                    "pushed_at": "2025-02-15T20:36:57Z",
+                    "pushed_at": "2025-02-16T19:34:36Z",
                     "git_url": "git://github.com/NethermindEth/rbuilder.git",
                     "ssh_url": "git@github.com:NethermindEth/rbuilder.git",
                     "clone_url": "https://github.com/NethermindEth/rbuilder.git",
                     "svn_url": "https://github.com/NethermindEth/rbuilder",
                     "homepage": "",
-                    "size": 16813,
+                    "size": 16832,
                     "stargazers_count": 1,
                     "watchers_count": 1,
                     "language": "Rust",
@@ -866,7 +866,7 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 4
+            "days_open": 5
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/387",
@@ -1214,7 +1214,7 @@
             "author_association": "COLLABORATOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 17
+            "days_open": 18
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/315",
@@ -1647,7 +1647,7 @@
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 55
+            "days_open": 56
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/284",
@@ -2365,7 +2365,7 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 66
+            "days_open": 67
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/249",
@@ -2798,7 +2798,7 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 92
+            "days_open": 93
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/236",
@@ -3643,7 +3643,7 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 110
+            "days_open": 111
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/215",
@@ -4097,7 +4097,7 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 124
+            "days_open": 125
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/200",
@@ -4793,7 +4793,7 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 140
+            "days_open": 141
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/144",
@@ -5236,7 +5236,7 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 174
+            "days_open": 175
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/83",
@@ -5655,7 +5655,7 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 206
+            "days_open": 207
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/56",
@@ -6088,7 +6088,7 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 217
+            "days_open": 218
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/54",
@@ -6500,7 +6500,7 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 217
+            "days_open": 218
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/8",
@@ -6848,7 +6848,7 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 227
+            "days_open": 228
         }
     ],
     "opened_issues": [
@@ -15141,11 +15141,13 @@
         }
     },
     "wartime_milady_ceo_summary": [
-        "- **Enhancements and Refactoring**: Several pull requests focused on improving code quality and functionality. Notable changes include the generalization of the `PayloadServiceLauncher` with a builder trait, the removal of unused variables in the operation payload builder, and the replacement of dry run mode with a more robust test relay service. These changes aim to streamline processes and improve the reliability of tests and services.",
-        "",
-        "- **Bug Fixes and Cleanup**: Efforts were made to address existing bugs and clean up outdated or broken features. This includes fixing a variable name mismatch in a loop to prevent runtime errors and removing a broken benchmark CI that was providing inaccurate metrics. These fixes enhance the stability and maintainability of the codebase.",
-        "",
-        "- **Testing and Validation Improvements",
+        "- **Closed PRs Highlights:**",
+        "  - PR #421 introduced a test relay binary, replacing the dry run mode to enhance testing robustness by simulating relay API interactions without pointing to production relays.",
+        "  - PR #424 integrated a tokio Cancellation token, improving the cancellation mechanism used in the system by replacing the previous mutex-based approach.",
         "Overall: 15 PRs closed, 17 contributors."
+    ],
+    "spec_links": [
+        "https://github.com/alloy-rs)),",
+        "https://github.com/paradigmxyz/reth/blob/61728726d39cb5a23091dfefb5321bd003c0f929/crates/rpc/rpc-eth-types/src/cache/mod.rs#L622-L645"
     ]
 }
