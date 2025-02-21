@@ -1,7 +1,356 @@
 {
-    "start_date": "2025-02-12T20:34:38.128274",
-    "end_date": "2025-02-19T20:34:38.128274",
+    "start_date": "2025-02-12T23:19:58.569004",
+    "end_date": "2025-02-19T23:19:58.569004",
     "opened_prs": [
+        {
+            "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/108",
+            "id": 2345987034,
+            "node_id": "PR_kwDOM0JBVc6L1Ova",
+            "html_url": "https://github.com/flashbots/rollup-boost/pull/108",
+            "diff_url": "https://github.com/flashbots/rollup-boost/pull/108.diff",
+            "patch_url": "https://github.com/flashbots/rollup-boost/pull/108.patch",
+            "issue_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/108",
+            "number": 108,
+            "state": "open",
+            "locked": false,
+            "title": "Add production docs",
+            "user": {
+                "login": "avalonche",
+                "id": 32314588,
+                "node_id": "MDQ6VXNlcjMyMzE0NTg4",
+                "avatar_url": "https://avatars.githubusercontent.com/u/32314588?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/avalonche",
+                "html_url": "https://github.com/avalonche",
+                "followers_url": "https://api.github.com/users/avalonche/followers",
+                "following_url": "https://api.github.com/users/avalonche/following{/other_user}",
+                "gists_url": "https://api.github.com/users/avalonche/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/avalonche/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/avalonche/subscriptions",
+                "organizations_url": "https://api.github.com/users/avalonche/orgs",
+                "repos_url": "https://api.github.com/users/avalonche/repos",
+                "events_url": "https://api.github.com/users/avalonche/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/avalonche/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+            },
+            "body": "Resolves https://github.com/flashbots/rollup-boost/issues/86 https://github.com/flashbots/rollup-boost/issues/88 https://github.com/flashbots/rollup-boost/issues/89\r\n\r\nhttps://github.com/flashbots/rollup-boost/issues/90 not yet in this PR, future work as follow up\r\n\r\nAlso adds a small change to the debug api to convert the enum to snake case",
+            "created_at": "2025-02-20T02:21:36Z",
+            "updated_at": "2025-02-20T02:42:45Z",
+            "closed_at": null,
+            "merged_at": null,
+            "merge_commit_sha": "3325144943d6de14f7c37ad1d96bc86ddcf0ab5e",
+            "assignee": null,
+            "assignees": [],
+            "requested_reviewers": [],
+            "requested_teams": [],
+            "labels": [],
+            "milestone": null,
+            "draft": false,
+            "commits_url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/108/commits",
+            "review_comments_url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/108/comments",
+            "review_comment_url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/comments{/number}",
+            "comments_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/108/comments",
+            "statuses_url": "https://api.github.com/repos/flashbots/rollup-boost/statuses/ca0e65ee120b77726bad49d0ad74e82f9f867785",
+            "head": {
+                "label": "flashbots:production-docs",
+                "ref": "production-docs",
+                "sha": "ca0e65ee120b77726bad49d0ad74e82f9f867785",
+                "user": {
+                    "login": "flashbots",
+                    "id": 71380475,
+                    "node_id": "MDEyOk9yZ2FuaXphdGlvbjcxMzgwNDc1",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/71380475?v=4",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/flashbots",
+                    "html_url": "https://github.com/flashbots",
+                    "followers_url": "https://api.github.com/users/flashbots/followers",
+                    "following_url": "https://api.github.com/users/flashbots/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/flashbots/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/flashbots/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/flashbots/subscriptions",
+                    "organizations_url": "https://api.github.com/users/flashbots/orgs",
+                    "repos_url": "https://api.github.com/users/flashbots/repos",
+                    "events_url": "https://api.github.com/users/flashbots/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/flashbots/received_events",
+                    "type": "Organization",
+                    "user_view_type": "public",
+                    "site_admin": false
+                },
+                "repo": {
+                    "id": 859980117,
+                    "node_id": "R_kgDOM0JBVQ",
+                    "name": "rollup-boost",
+                    "full_name": "flashbots/rollup-boost",
+                    "private": false,
+                    "owner": {
+                        "login": "flashbots",
+                        "id": 71380475,
+                        "node_id": "MDEyOk9yZ2FuaXphdGlvbjcxMzgwNDc1",
+                        "avatar_url": "https://avatars.githubusercontent.com/u/71380475?v=4",
+                        "gravatar_id": "",
+                        "url": "https://api.github.com/users/flashbots",
+                        "html_url": "https://github.com/flashbots",
+                        "followers_url": "https://api.github.com/users/flashbots/followers",
+                        "following_url": "https://api.github.com/users/flashbots/following{/other_user}",
+                        "gists_url": "https://api.github.com/users/flashbots/gists{/gist_id}",
+                        "starred_url": "https://api.github.com/users/flashbots/starred{/owner}{/repo}",
+                        "subscriptions_url": "https://api.github.com/users/flashbots/subscriptions",
+                        "organizations_url": "https://api.github.com/users/flashbots/orgs",
+                        "repos_url": "https://api.github.com/users/flashbots/repos",
+                        "events_url": "https://api.github.com/users/flashbots/events{/privacy}",
+                        "received_events_url": "https://api.github.com/users/flashbots/received_events",
+                        "type": "Organization",
+                        "user_view_type": "public",
+                        "site_admin": false
+                    },
+                    "html_url": "https://github.com/flashbots/rollup-boost",
+                    "description": "Sidecar to Enable Rollup Extensions",
+                    "fork": false,
+                    "url": "https://api.github.com/repos/flashbots/rollup-boost",
+                    "forks_url": "https://api.github.com/repos/flashbots/rollup-boost/forks",
+                    "keys_url": "https://api.github.com/repos/flashbots/rollup-boost/keys{/key_id}",
+                    "collaborators_url": "https://api.github.com/repos/flashbots/rollup-boost/collaborators{/collaborator}",
+                    "teams_url": "https://api.github.com/repos/flashbots/rollup-boost/teams",
+                    "hooks_url": "https://api.github.com/repos/flashbots/rollup-boost/hooks",
+                    "issue_events_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/events{/number}",
+                    "events_url": "https://api.github.com/repos/flashbots/rollup-boost/events",
+                    "assignees_url": "https://api.github.com/repos/flashbots/rollup-boost/assignees{/user}",
+                    "branches_url": "https://api.github.com/repos/flashbots/rollup-boost/branches{/branch}",
+                    "tags_url": "https://api.github.com/repos/flashbots/rollup-boost/tags",
+                    "blobs_url": "https://api.github.com/repos/flashbots/rollup-boost/git/blobs{/sha}",
+                    "git_tags_url": "https://api.github.com/repos/flashbots/rollup-boost/git/tags{/sha}",
+                    "git_refs_url": "https://api.github.com/repos/flashbots/rollup-boost/git/refs{/sha}",
+                    "trees_url": "https://api.github.com/repos/flashbots/rollup-boost/git/trees{/sha}",
+                    "statuses_url": "https://api.github.com/repos/flashbots/rollup-boost/statuses/{sha}",
+                    "languages_url": "https://api.github.com/repos/flashbots/rollup-boost/languages",
+                    "stargazers_url": "https://api.github.com/repos/flashbots/rollup-boost/stargazers",
+                    "contributors_url": "https://api.github.com/repos/flashbots/rollup-boost/contributors",
+                    "subscribers_url": "https://api.github.com/repos/flashbots/rollup-boost/subscribers",
+                    "subscription_url": "https://api.github.com/repos/flashbots/rollup-boost/subscription",
+                    "commits_url": "https://api.github.com/repos/flashbots/rollup-boost/commits{/sha}",
+                    "git_commits_url": "https://api.github.com/repos/flashbots/rollup-boost/git/commits{/sha}",
+                    "comments_url": "https://api.github.com/repos/flashbots/rollup-boost/comments{/number}",
+                    "issue_comment_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/comments{/number}",
+                    "contents_url": "https://api.github.com/repos/flashbots/rollup-boost/contents/{+path}",
+                    "compare_url": "https://api.github.com/repos/flashbots/rollup-boost/compare/{base}...{head}",
+                    "merges_url": "https://api.github.com/repos/flashbots/rollup-boost/merges",
+                    "archive_url": "https://api.github.com/repos/flashbots/rollup-boost/{archive_format}{/ref}",
+                    "downloads_url": "https://api.github.com/repos/flashbots/rollup-boost/downloads",
+                    "issues_url": "https://api.github.com/repos/flashbots/rollup-boost/issues{/number}",
+                    "pulls_url": "https://api.github.com/repos/flashbots/rollup-boost/pulls{/number}",
+                    "milestones_url": "https://api.github.com/repos/flashbots/rollup-boost/milestones{/number}",
+                    "notifications_url": "https://api.github.com/repos/flashbots/rollup-boost/notifications{?since,all,participating}",
+                    "labels_url": "https://api.github.com/repos/flashbots/rollup-boost/labels{/name}",
+                    "releases_url": "https://api.github.com/repos/flashbots/rollup-boost/releases{/id}",
+                    "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
+                    "created_at": "2024-09-19T15:53:40Z",
+                    "updated_at": "2025-02-20T01:01:27Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
+                    "git_url": "git://github.com/flashbots/rollup-boost.git",
+                    "ssh_url": "git@github.com:flashbots/rollup-boost.git",
+                    "clone_url": "https://github.com/flashbots/rollup-boost.git",
+                    "svn_url": "https://github.com/flashbots/rollup-boost",
+                    "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
+                    "size": 1116,
+                    "stargazers_count": 72,
+                    "watchers_count": 72,
+                    "language": "Rust",
+                    "has_issues": true,
+                    "has_projects": true,
+                    "has_downloads": true,
+                    "has_wiki": true,
+                    "has_pages": false,
+                    "has_discussions": false,
+                    "forks_count": 17,
+                    "mirror_url": null,
+                    "archived": false,
+                    "disabled": false,
+                    "open_issues_count": 27,
+                    "license": {
+                        "key": "mit",
+                        "name": "MIT License",
+                        "spdx_id": "MIT",
+                        "url": "https://api.github.com/licenses/mit",
+                        "node_id": "MDc6TGljZW5zZTEz"
+                    },
+                    "allow_forking": true,
+                    "is_template": false,
+                    "web_commit_signoff_required": false,
+                    "topics": [],
+                    "visibility": "public",
+                    "forks": 17,
+                    "open_issues": 27,
+                    "watchers": 72,
+                    "default_branch": "main"
+                }
+            },
+            "base": {
+                "label": "flashbots:main",
+                "ref": "main",
+                "sha": "686d12fe14398b3025af2c9b18e51b56bb8add97",
+                "user": {
+                    "login": "flashbots",
+                    "id": 71380475,
+                    "node_id": "MDEyOk9yZ2FuaXphdGlvbjcxMzgwNDc1",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/71380475?v=4",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/flashbots",
+                    "html_url": "https://github.com/flashbots",
+                    "followers_url": "https://api.github.com/users/flashbots/followers",
+                    "following_url": "https://api.github.com/users/flashbots/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/flashbots/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/flashbots/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/flashbots/subscriptions",
+                    "organizations_url": "https://api.github.com/users/flashbots/orgs",
+                    "repos_url": "https://api.github.com/users/flashbots/repos",
+                    "events_url": "https://api.github.com/users/flashbots/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/flashbots/received_events",
+                    "type": "Organization",
+                    "user_view_type": "public",
+                    "site_admin": false
+                },
+                "repo": {
+                    "id": 859980117,
+                    "node_id": "R_kgDOM0JBVQ",
+                    "name": "rollup-boost",
+                    "full_name": "flashbots/rollup-boost",
+                    "private": false,
+                    "owner": {
+                        "login": "flashbots",
+                        "id": 71380475,
+                        "node_id": "MDEyOk9yZ2FuaXphdGlvbjcxMzgwNDc1",
+                        "avatar_url": "https://avatars.githubusercontent.com/u/71380475?v=4",
+                        "gravatar_id": "",
+                        "url": "https://api.github.com/users/flashbots",
+                        "html_url": "https://github.com/flashbots",
+                        "followers_url": "https://api.github.com/users/flashbots/followers",
+                        "following_url": "https://api.github.com/users/flashbots/following{/other_user}",
+                        "gists_url": "https://api.github.com/users/flashbots/gists{/gist_id}",
+                        "starred_url": "https://api.github.com/users/flashbots/starred{/owner}{/repo}",
+                        "subscriptions_url": "https://api.github.com/users/flashbots/subscriptions",
+                        "organizations_url": "https://api.github.com/users/flashbots/orgs",
+                        "repos_url": "https://api.github.com/users/flashbots/repos",
+                        "events_url": "https://api.github.com/users/flashbots/events{/privacy}",
+                        "received_events_url": "https://api.github.com/users/flashbots/received_events",
+                        "type": "Organization",
+                        "user_view_type": "public",
+                        "site_admin": false
+                    },
+                    "html_url": "https://github.com/flashbots/rollup-boost",
+                    "description": "Sidecar to Enable Rollup Extensions",
+                    "fork": false,
+                    "url": "https://api.github.com/repos/flashbots/rollup-boost",
+                    "forks_url": "https://api.github.com/repos/flashbots/rollup-boost/forks",
+                    "keys_url": "https://api.github.com/repos/flashbots/rollup-boost/keys{/key_id}",
+                    "collaborators_url": "https://api.github.com/repos/flashbots/rollup-boost/collaborators{/collaborator}",
+                    "teams_url": "https://api.github.com/repos/flashbots/rollup-boost/teams",
+                    "hooks_url": "https://api.github.com/repos/flashbots/rollup-boost/hooks",
+                    "issue_events_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/events{/number}",
+                    "events_url": "https://api.github.com/repos/flashbots/rollup-boost/events",
+                    "assignees_url": "https://api.github.com/repos/flashbots/rollup-boost/assignees{/user}",
+                    "branches_url": "https://api.github.com/repos/flashbots/rollup-boost/branches{/branch}",
+                    "tags_url": "https://api.github.com/repos/flashbots/rollup-boost/tags",
+                    "blobs_url": "https://api.github.com/repos/flashbots/rollup-boost/git/blobs{/sha}",
+                    "git_tags_url": "https://api.github.com/repos/flashbots/rollup-boost/git/tags{/sha}",
+                    "git_refs_url": "https://api.github.com/repos/flashbots/rollup-boost/git/refs{/sha}",
+                    "trees_url": "https://api.github.com/repos/flashbots/rollup-boost/git/trees{/sha}",
+                    "statuses_url": "https://api.github.com/repos/flashbots/rollup-boost/statuses/{sha}",
+                    "languages_url": "https://api.github.com/repos/flashbots/rollup-boost/languages",
+                    "stargazers_url": "https://api.github.com/repos/flashbots/rollup-boost/stargazers",
+                    "contributors_url": "https://api.github.com/repos/flashbots/rollup-boost/contributors",
+                    "subscribers_url": "https://api.github.com/repos/flashbots/rollup-boost/subscribers",
+                    "subscription_url": "https://api.github.com/repos/flashbots/rollup-boost/subscription",
+                    "commits_url": "https://api.github.com/repos/flashbots/rollup-boost/commits{/sha}",
+                    "git_commits_url": "https://api.github.com/repos/flashbots/rollup-boost/git/commits{/sha}",
+                    "comments_url": "https://api.github.com/repos/flashbots/rollup-boost/comments{/number}",
+                    "issue_comment_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/comments{/number}",
+                    "contents_url": "https://api.github.com/repos/flashbots/rollup-boost/contents/{+path}",
+                    "compare_url": "https://api.github.com/repos/flashbots/rollup-boost/compare/{base}...{head}",
+                    "merges_url": "https://api.github.com/repos/flashbots/rollup-boost/merges",
+                    "archive_url": "https://api.github.com/repos/flashbots/rollup-boost/{archive_format}{/ref}",
+                    "downloads_url": "https://api.github.com/repos/flashbots/rollup-boost/downloads",
+                    "issues_url": "https://api.github.com/repos/flashbots/rollup-boost/issues{/number}",
+                    "pulls_url": "https://api.github.com/repos/flashbots/rollup-boost/pulls{/number}",
+                    "milestones_url": "https://api.github.com/repos/flashbots/rollup-boost/milestones{/number}",
+                    "notifications_url": "https://api.github.com/repos/flashbots/rollup-boost/notifications{?since,all,participating}",
+                    "labels_url": "https://api.github.com/repos/flashbots/rollup-boost/labels{/name}",
+                    "releases_url": "https://api.github.com/repos/flashbots/rollup-boost/releases{/id}",
+                    "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
+                    "created_at": "2024-09-19T15:53:40Z",
+                    "updated_at": "2025-02-20T01:01:27Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
+                    "git_url": "git://github.com/flashbots/rollup-boost.git",
+                    "ssh_url": "git@github.com:flashbots/rollup-boost.git",
+                    "clone_url": "https://github.com/flashbots/rollup-boost.git",
+                    "svn_url": "https://github.com/flashbots/rollup-boost",
+                    "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
+                    "size": 1116,
+                    "stargazers_count": 72,
+                    "watchers_count": 72,
+                    "language": "Rust",
+                    "has_issues": true,
+                    "has_projects": true,
+                    "has_downloads": true,
+                    "has_wiki": true,
+                    "has_pages": false,
+                    "has_discussions": false,
+                    "forks_count": 17,
+                    "mirror_url": null,
+                    "archived": false,
+                    "disabled": false,
+                    "open_issues_count": 27,
+                    "license": {
+                        "key": "mit",
+                        "name": "MIT License",
+                        "spdx_id": "MIT",
+                        "url": "https://api.github.com/licenses/mit",
+                        "node_id": "MDc6TGljZW5zZTEz"
+                    },
+                    "allow_forking": true,
+                    "is_template": false,
+                    "web_commit_signoff_required": false,
+                    "topics": [],
+                    "visibility": "public",
+                    "forks": 17,
+                    "open_issues": 27,
+                    "watchers": 72,
+                    "default_branch": "main"
+                }
+            },
+            "_links": {
+                "self": {
+                    "href": "https://api.github.com/repos/flashbots/rollup-boost/pulls/108"
+                },
+                "html": {
+                    "href": "https://github.com/flashbots/rollup-boost/pull/108"
+                },
+                "issue": {
+                    "href": "https://api.github.com/repos/flashbots/rollup-boost/issues/108"
+                },
+                "comments": {
+                    "href": "https://api.github.com/repos/flashbots/rollup-boost/issues/108/comments"
+                },
+                "review_comments": {
+                    "href": "https://api.github.com/repos/flashbots/rollup-boost/pulls/108/comments"
+                },
+                "review_comment": {
+                    "href": "https://api.github.com/repos/flashbots/rollup-boost/pulls/comments{/number}"
+                },
+                "commits": {
+                    "href": "https://api.github.com/repos/flashbots/rollup-boost/pulls/108/commits"
+                },
+                "statuses": {
+                    "href": "https://api.github.com/repos/flashbots/rollup-boost/statuses/ca0e65ee120b77726bad49d0ad74e82f9f867785"
+                }
+            },
+            "author_association": "MEMBER",
+            "auto_merge": null,
+            "active_lock_reason": null,
+            "days_open": -1,
+            "time_to_first_response": null
+        },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/106",
             "id": 2345686105,
@@ -153,7 +502,7 @@
                     "clone_url": "https://github.com/cody-wang-cb/rollup-boost.git",
                     "svn_url": "https://github.com/cody-wang-cb/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1090,
+                    "size": 1092,
                     "stargazers_count": 0,
                     "watchers_count": 0,
                     "language": null,
@@ -280,13 +629,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -300,7 +649,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -314,7 +663,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -348,7 +697,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": -1
+            "days_open": 0,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/105",
@@ -388,7 +738,7 @@
             "updated_at": "2025-02-20T00:36:43Z",
             "closed_at": null,
             "merged_at": null,
-            "merge_commit_sha": "dd5a0de2a6864591032686ef37ee752f1f50ed0f",
+            "merge_commit_sha": "c743bbc521559eed4057e716e5291d047aebc72f",
             "assignee": null,
             "assignees": [],
             "requested_reviewers": [
@@ -650,13 +1000,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -670,7 +1020,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -684,7 +1034,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -718,7 +1068,8 @@
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 0
+            "days_open": 0,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/103",
@@ -865,13 +1216,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -885,7 +1236,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -899,7 +1250,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -998,13 +1349,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -1018,7 +1369,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -1032,7 +1383,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -1066,7 +1417,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 0
+            "days_open": 0,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/98",
@@ -1213,13 +1565,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -1233,7 +1585,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -1247,7 +1599,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -1346,13 +1698,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -1366,7 +1718,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -1380,7 +1732,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -1414,7 +1766,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 2
+            "days_open": 2,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/94",
@@ -1694,13 +2047,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -1714,7 +2067,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -1728,7 +2081,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -1762,7 +2115,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 4
+            "days_open": 4,
+            "time_to_first_response": 5
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/24",
@@ -1909,13 +2263,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -1929,7 +2283,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -1943,7 +2297,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -2042,13 +2396,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -2062,7 +2416,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -2076,7 +2430,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -2110,10 +2464,79 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 117
+            "days_open": 117,
+            "time_to_first_response": 110
         }
     ],
     "opened_issues": [
+        {
+            "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/107",
+            "repository_url": "https://api.github.com/repos/flashbots/rollup-boost",
+            "labels_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/107/labels{/name}",
+            "comments_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/107/comments",
+            "events_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/107/events",
+            "html_url": "https://github.com/flashbots/rollup-boost/issues/107",
+            "id": 2864803808,
+            "node_id": "I_kwDOM0JBVc6qwW_g",
+            "number": 107,
+            "title": "Debug API dry run status",
+            "user": {
+                "login": "avalonche",
+                "id": 32314588,
+                "node_id": "MDQ6VXNlcjMyMzE0NTg4",
+                "avatar_url": "https://avatars.githubusercontent.com/u/32314588?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/avalonche",
+                "html_url": "https://github.com/avalonche",
+                "followers_url": "https://api.github.com/users/avalonche/followers",
+                "following_url": "https://api.github.com/users/avalonche/following{/other_user}",
+                "gists_url": "https://api.github.com/users/avalonche/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/avalonche/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/avalonche/subscriptions",
+                "organizations_url": "https://api.github.com/users/avalonche/orgs",
+                "repos_url": "https://api.github.com/users/avalonche/repos",
+                "events_url": "https://api.github.com/users/avalonche/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/avalonche/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+            },
+            "labels": [],
+            "state": "open",
+            "locked": false,
+            "assignee": null,
+            "assignees": [],
+            "milestone": null,
+            "comments": 0,
+            "created_at": "2025-02-20T01:36:10Z",
+            "updated_at": "2025-02-20T01:36:18Z",
+            "closed_at": null,
+            "author_association": "MEMBER",
+            "sub_issues_summary": {
+                "total": 0,
+                "completed": 0,
+                "percent_completed": 0
+            },
+            "active_lock_reason": null,
+            "body": "Json rpc api to return whether dry run mode is enabled",
+            "closed_by": null,
+            "reactions": {
+                "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/107/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+            },
+            "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/107/timeline",
+            "performed_via_github_app": null,
+            "state_reason": null,
+            "time_to_first_response": null
+        },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/101",
             "repository_url": "https://api.github.com/repos/flashbots/rollup-boost",
@@ -2179,7 +2602,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/101/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": 1
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/100",
@@ -2256,7 +2680,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/100/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": 1
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/97",
@@ -2333,7 +2758,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/97/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/91",
@@ -2392,9 +2818,9 @@
             "assignee": null,
             "assignees": [],
             "milestone": null,
-            "comments": 3,
+            "comments": 4,
             "created_at": "2025-02-12T22:23:30Z",
-            "updated_at": "2025-02-20T00:27:39Z",
+            "updated_at": "2025-02-20T01:48:09Z",
             "closed_at": null,
             "author_association": "MEMBER",
             "sub_issues_summary": {
@@ -2419,7 +2845,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/91/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": 6
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/87",
@@ -2496,7 +2923,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/87/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": 7
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/86",
@@ -2573,7 +3001,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/86/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/79",
@@ -2650,7 +3079,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/79/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": 9
         }
     ],
     "closed_prs": [
@@ -2799,13 +3229,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -2819,7 +3249,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -2833,7 +3263,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -2932,13 +3362,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -2952,7 +3382,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -2966,7 +3396,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -2999,7 +3429,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/96",
@@ -3146,13 +3577,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -3166,7 +3597,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -3180,7 +3611,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -3279,13 +3710,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -3299,7 +3730,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -3313,7 +3744,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -3346,7 +3777,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/95",
@@ -3493,13 +3925,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -3513,7 +3945,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -3527,7 +3959,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -3626,13 +4058,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -3646,7 +4078,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -3660,7 +4092,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -3693,7 +4125,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/pulls/93",
@@ -3840,13 +4273,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -3860,7 +4293,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -3874,7 +4307,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -3973,13 +4406,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rollup-boost/deployments",
                     "created_at": "2024-09-19T15:53:40Z",
                     "updated_at": "2025-02-20T01:01:27Z",
-                    "pushed_at": "2025-02-20T01:01:23Z",
+                    "pushed_at": "2025-02-20T02:19:47Z",
                     "git_url": "git://github.com/flashbots/rollup-boost.git",
                     "ssh_url": "git@github.com:flashbots/rollup-boost.git",
                     "clone_url": "https://github.com/flashbots/rollup-boost.git",
                     "svn_url": "https://github.com/flashbots/rollup-boost",
                     "homepage": "https://writings.flashbots.net/introducing-rollup-boost",
-                    "size": 1113,
+                    "size": 1116,
                     "stargazers_count": 72,
                     "watchers_count": 72,
                     "language": "Rust",
@@ -3993,7 +4426,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 25,
+                    "open_issues_count": 27,
                     "license": {
                         "key": "mit",
                         "name": "MIT License",
@@ -4007,7 +4440,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 17,
-                    "open_issues": 25,
+                    "open_issues": 27,
                     "watchers": 72,
                     "default_branch": "main"
                 }
@@ -4040,7 +4473,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "time_to_first_response": null
         }
     ],
     "closed_issues": [
@@ -4137,7 +4571,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/99/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/96",
@@ -4232,7 +4667,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/96/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/95",
@@ -4327,7 +4763,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/95/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/93",
@@ -4422,7 +4859,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/93/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/80",
@@ -4519,7 +4957,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/80/timeline",
             "performed_via_github_app": null,
-            "state_reason": "completed"
+            "state_reason": "completed",
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/36",
@@ -4614,7 +5053,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/36/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": 2
         },
         {
             "url": "https://api.github.com/repos/flashbots/rollup-boost/issues/8",
@@ -4701,10 +5141,18 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rollup-boost/issues/8/timeline",
             "performed_via_github_app": null,
-            "state_reason": "completed"
+            "state_reason": "completed",
+            "time_to_first_response": 139
         }
     ],
     "aggregated_stats": {
+        "2025-02-20": {
+            "prs_opened": 1,
+            "prs_closed": 0,
+            "issues_opened": 1,
+            "issues_closed": 0,
+            "contributors": 1
+        },
         "2025-02-19": {
             "prs_opened": 3,
             "prs_closed": 0,
@@ -4764,8 +5212,8 @@
     },
     "wartime_milady_ceo_summary": [
         "- **Closed PRs:**",
-        "  - PR #99 removed Reth dependencies by replacing them with Alloy dependencies and copying a few simple functions, simplifying the codebase.",
-        "  - PR #96 introduced a proxy between Rollup-boost and the builder to simulate latency and test state root changes, enhancing the system's robustness.",
+        "  - PR #99 removed unnecessary Reth dependencies by replacing them with alloy dependencies and copying simple functions, streamlining the codebase.",
+        "  - PR #96 introduced a proxy to simulate latency and test state root changes between Rollup-boost and the builder, enhancing testing capabilities.",
         "Overall: 4 PRs closed, 5 contributors."
     ],
     "spec_links": []

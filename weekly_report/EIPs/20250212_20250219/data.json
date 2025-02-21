@@ -1,7 +1,414 @@
 {
-    "start_date": "2025-02-12T20:35:54.181694",
-    "end_date": "2025-02-19T20:35:54.181694",
+    "start_date": "2025-02-12T23:12:29.965496",
+    "end_date": "2025-02-19T23:12:29.965496",
     "opened_prs": [
+        {
+            "url": "https://api.github.com/repos/ethereum/EIPs/pulls/9388",
+            "id": 2346086435,
+            "node_id": "PR_kwDOAq426M6L1nAj",
+            "html_url": "https://github.com/ethereum/EIPs/pull/9388",
+            "diff_url": "https://github.com/ethereum/EIPs/pull/9388.diff",
+            "patch_url": "https://github.com/ethereum/EIPs/pull/9388.patch",
+            "issue_url": "https://api.github.com/repos/ethereum/EIPs/issues/9388",
+            "number": 9388,
+            "state": "open",
+            "locked": false,
+            "title": "Update EIP-7607: Propose EIP-5920 for inclusion in Osaka",
+            "user": {
+                "login": "wjmelements",
+                "id": 799573,
+                "node_id": "MDQ6VXNlcjc5OTU3Mw==",
+                "avatar_url": "https://avatars.githubusercontent.com/u/799573?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/wjmelements",
+                "html_url": "https://github.com/wjmelements",
+                "followers_url": "https://api.github.com/users/wjmelements/followers",
+                "following_url": "https://api.github.com/users/wjmelements/following{/other_user}",
+                "gists_url": "https://api.github.com/users/wjmelements/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/wjmelements/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/wjmelements/subscriptions",
+                "organizations_url": "https://api.github.com/users/wjmelements/orgs",
+                "repos_url": "https://api.github.com/users/wjmelements/repos",
+                "events_url": "https://api.github.com/users/wjmelements/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/wjmelements/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+            },
+            "body": "\nReviewer @timbeiko\nI think EOF needs the PAY opcode to maintain payment security, so I propose it will be considered for Osaka.\n#### Changes\n* add eip-5920 to proposed for inclusion",
+            "created_at": "2025-02-20T04:03:51Z",
+            "updated_at": "2025-02-20T04:04:37Z",
+            "closed_at": null,
+            "merged_at": null,
+            "merge_commit_sha": "e4fa6433e334b5323fa3b38cce868a0fee440bda",
+            "assignee": null,
+            "assignees": [],
+            "requested_reviewers": [
+                {
+                    "login": "eth-bot",
+                    "id": 85952233,
+                    "node_id": "MDQ6VXNlcjg1OTUyMjMz",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/85952233?v=4",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/eth-bot",
+                    "html_url": "https://github.com/eth-bot",
+                    "followers_url": "https://api.github.com/users/eth-bot/followers",
+                    "following_url": "https://api.github.com/users/eth-bot/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/eth-bot/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/eth-bot/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/eth-bot/subscriptions",
+                    "organizations_url": "https://api.github.com/users/eth-bot/orgs",
+                    "repos_url": "https://api.github.com/users/eth-bot/repos",
+                    "events_url": "https://api.github.com/users/eth-bot/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/eth-bot/received_events",
+                    "type": "User",
+                    "user_view_type": "public",
+                    "site_admin": false
+                }
+            ],
+            "requested_teams": [],
+            "labels": [
+                {
+                    "id": 4455827647,
+                    "node_id": "LA_kwDOAq426M8AAAABCZaIvw",
+                    "url": "https://api.github.com/repos/ethereum/EIPs/labels/c-update",
+                    "name": "c-update",
+                    "color": "C5DEF5",
+                    "default": false,
+                    "description": "Modifies an existing proposal"
+                },
+                {
+                    "id": 4455834550,
+                    "node_id": "LA_kwDOAq426M8AAAABCZajtg",
+                    "url": "https://api.github.com/repos/ethereum/EIPs/labels/t-meta",
+                    "name": "t-meta",
+                    "color": "FEF2C0",
+                    "default": false,
+                    "description": ""
+                },
+                {
+                    "id": 4455850181,
+                    "node_id": "LA_kwDOAq426M8AAAABCZbgxQ",
+                    "url": "https://api.github.com/repos/ethereum/EIPs/labels/a-review",
+                    "name": "a-review",
+                    "color": "F166DC",
+                    "default": false,
+                    "description": "Waiting on author to review"
+                },
+                {
+                    "id": 4455851279,
+                    "node_id": "LA_kwDOAq426M8AAAABCZblDw",
+                    "url": "https://api.github.com/repos/ethereum/EIPs/labels/s-draft",
+                    "name": "s-draft",
+                    "color": "0E8A16",
+                    "default": false,
+                    "description": "This EIP is a Draft"
+                }
+            ],
+            "milestone": null,
+            "draft": false,
+            "commits_url": "https://api.github.com/repos/ethereum/EIPs/pulls/9388/commits",
+            "review_comments_url": "https://api.github.com/repos/ethereum/EIPs/pulls/9388/comments",
+            "review_comment_url": "https://api.github.com/repos/ethereum/EIPs/pulls/comments{/number}",
+            "comments_url": "https://api.github.com/repos/ethereum/EIPs/issues/9388/comments",
+            "statuses_url": "https://api.github.com/repos/ethereum/EIPs/statuses/81f186fbc8a3f03acb1ab91cc54a5f46c4194ef6",
+            "head": {
+                "label": "wjmelements:osaka-pay",
+                "ref": "osaka-pay",
+                "sha": "81f186fbc8a3f03acb1ab91cc54a5f46c4194ef6",
+                "user": {
+                    "login": "wjmelements",
+                    "id": 799573,
+                    "node_id": "MDQ6VXNlcjc5OTU3Mw==",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/799573?v=4",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/wjmelements",
+                    "html_url": "https://github.com/wjmelements",
+                    "followers_url": "https://api.github.com/users/wjmelements/followers",
+                    "following_url": "https://api.github.com/users/wjmelements/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/wjmelements/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/wjmelements/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/wjmelements/subscriptions",
+                    "organizations_url": "https://api.github.com/users/wjmelements/orgs",
+                    "repos_url": "https://api.github.com/users/wjmelements/repos",
+                    "events_url": "https://api.github.com/users/wjmelements/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/wjmelements/received_events",
+                    "type": "User",
+                    "user_view_type": "public",
+                    "site_admin": false
+                },
+                "repo": {
+                    "id": 133733241,
+                    "node_id": "MDEwOlJlcG9zaXRvcnkxMzM3MzMyNDE=",
+                    "name": "EIPs",
+                    "full_name": "wjmelements/EIPs",
+                    "private": false,
+                    "owner": {
+                        "login": "wjmelements",
+                        "id": 799573,
+                        "node_id": "MDQ6VXNlcjc5OTU3Mw==",
+                        "avatar_url": "https://avatars.githubusercontent.com/u/799573?v=4",
+                        "gravatar_id": "",
+                        "url": "https://api.github.com/users/wjmelements",
+                        "html_url": "https://github.com/wjmelements",
+                        "followers_url": "https://api.github.com/users/wjmelements/followers",
+                        "following_url": "https://api.github.com/users/wjmelements/following{/other_user}",
+                        "gists_url": "https://api.github.com/users/wjmelements/gists{/gist_id}",
+                        "starred_url": "https://api.github.com/users/wjmelements/starred{/owner}{/repo}",
+                        "subscriptions_url": "https://api.github.com/users/wjmelements/subscriptions",
+                        "organizations_url": "https://api.github.com/users/wjmelements/orgs",
+                        "repos_url": "https://api.github.com/users/wjmelements/repos",
+                        "events_url": "https://api.github.com/users/wjmelements/events{/privacy}",
+                        "received_events_url": "https://api.github.com/users/wjmelements/received_events",
+                        "type": "User",
+                        "user_view_type": "public",
+                        "site_admin": false
+                    },
+                    "html_url": "https://github.com/wjmelements/EIPs",
+                    "description": "The Ethereum Improvement Proposal repository",
+                    "fork": true,
+                    "url": "https://api.github.com/repos/wjmelements/EIPs",
+                    "forks_url": "https://api.github.com/repos/wjmelements/EIPs/forks",
+                    "keys_url": "https://api.github.com/repos/wjmelements/EIPs/keys{/key_id}",
+                    "collaborators_url": "https://api.github.com/repos/wjmelements/EIPs/collaborators{/collaborator}",
+                    "teams_url": "https://api.github.com/repos/wjmelements/EIPs/teams",
+                    "hooks_url": "https://api.github.com/repos/wjmelements/EIPs/hooks",
+                    "issue_events_url": "https://api.github.com/repos/wjmelements/EIPs/issues/events{/number}",
+                    "events_url": "https://api.github.com/repos/wjmelements/EIPs/events",
+                    "assignees_url": "https://api.github.com/repos/wjmelements/EIPs/assignees{/user}",
+                    "branches_url": "https://api.github.com/repos/wjmelements/EIPs/branches{/branch}",
+                    "tags_url": "https://api.github.com/repos/wjmelements/EIPs/tags",
+                    "blobs_url": "https://api.github.com/repos/wjmelements/EIPs/git/blobs{/sha}",
+                    "git_tags_url": "https://api.github.com/repos/wjmelements/EIPs/git/tags{/sha}",
+                    "git_refs_url": "https://api.github.com/repos/wjmelements/EIPs/git/refs{/sha}",
+                    "trees_url": "https://api.github.com/repos/wjmelements/EIPs/git/trees{/sha}",
+                    "statuses_url": "https://api.github.com/repos/wjmelements/EIPs/statuses/{sha}",
+                    "languages_url": "https://api.github.com/repos/wjmelements/EIPs/languages",
+                    "stargazers_url": "https://api.github.com/repos/wjmelements/EIPs/stargazers",
+                    "contributors_url": "https://api.github.com/repos/wjmelements/EIPs/contributors",
+                    "subscribers_url": "https://api.github.com/repos/wjmelements/EIPs/subscribers",
+                    "subscription_url": "https://api.github.com/repos/wjmelements/EIPs/subscription",
+                    "commits_url": "https://api.github.com/repos/wjmelements/EIPs/commits{/sha}",
+                    "git_commits_url": "https://api.github.com/repos/wjmelements/EIPs/git/commits{/sha}",
+                    "comments_url": "https://api.github.com/repos/wjmelements/EIPs/comments{/number}",
+                    "issue_comment_url": "https://api.github.com/repos/wjmelements/EIPs/issues/comments{/number}",
+                    "contents_url": "https://api.github.com/repos/wjmelements/EIPs/contents/{+path}",
+                    "compare_url": "https://api.github.com/repos/wjmelements/EIPs/compare/{base}...{head}",
+                    "merges_url": "https://api.github.com/repos/wjmelements/EIPs/merges",
+                    "archive_url": "https://api.github.com/repos/wjmelements/EIPs/{archive_format}{/ref}",
+                    "downloads_url": "https://api.github.com/repos/wjmelements/EIPs/downloads",
+                    "issues_url": "https://api.github.com/repos/wjmelements/EIPs/issues{/number}",
+                    "pulls_url": "https://api.github.com/repos/wjmelements/EIPs/pulls{/number}",
+                    "milestones_url": "https://api.github.com/repos/wjmelements/EIPs/milestones{/number}",
+                    "notifications_url": "https://api.github.com/repos/wjmelements/EIPs/notifications{?since,all,participating}",
+                    "labels_url": "https://api.github.com/repos/wjmelements/EIPs/labels{/name}",
+                    "releases_url": "https://api.github.com/repos/wjmelements/EIPs/releases{/id}",
+                    "deployments_url": "https://api.github.com/repos/wjmelements/EIPs/deployments",
+                    "created_at": "2018-05-16T23:25:34Z",
+                    "updated_at": "2024-12-19T18:20:55Z",
+                    "pushed_at": "2025-02-20T04:01:45Z",
+                    "git_url": "git://github.com/wjmelements/EIPs.git",
+                    "ssh_url": "git@github.com:wjmelements/EIPs.git",
+                    "clone_url": "https://github.com/wjmelements/EIPs.git",
+                    "svn_url": "https://github.com/wjmelements/EIPs",
+                    "homepage": "http://eips.ethereum.org/",
+                    "size": 68310,
+                    "stargazers_count": 3,
+                    "watchers_count": 3,
+                    "language": "Python",
+                    "has_issues": false,
+                    "has_projects": true,
+                    "has_downloads": true,
+                    "has_wiki": false,
+                    "has_pages": false,
+                    "has_discussions": false,
+                    "forks_count": 2,
+                    "mirror_url": null,
+                    "archived": false,
+                    "disabled": false,
+                    "open_issues_count": 0,
+                    "license": {
+                        "key": "cc0-1.0",
+                        "name": "Creative Commons Zero v1.0 Universal",
+                        "spdx_id": "CC0-1.0",
+                        "url": "https://api.github.com/licenses/cc0-1.0",
+                        "node_id": "MDc6TGljZW5zZTY="
+                    },
+                    "allow_forking": true,
+                    "is_template": false,
+                    "web_commit_signoff_required": false,
+                    "topics": [],
+                    "visibility": "public",
+                    "forks": 2,
+                    "open_issues": 0,
+                    "watchers": 3,
+                    "default_branch": "master"
+                }
+            },
+            "base": {
+                "label": "ethereum:master",
+                "ref": "master",
+                "sha": "1226427f76446525a00c02db3afa57a51dfcad51",
+                "user": {
+                    "login": "ethereum",
+                    "id": 6250754,
+                    "node_id": "MDEyOk9yZ2FuaXphdGlvbjYyNTA3NTQ=",
+                    "avatar_url": "https://avatars.githubusercontent.com/u/6250754?v=4",
+                    "gravatar_id": "",
+                    "url": "https://api.github.com/users/ethereum",
+                    "html_url": "https://github.com/ethereum",
+                    "followers_url": "https://api.github.com/users/ethereum/followers",
+                    "following_url": "https://api.github.com/users/ethereum/following{/other_user}",
+                    "gists_url": "https://api.github.com/users/ethereum/gists{/gist_id}",
+                    "starred_url": "https://api.github.com/users/ethereum/starred{/owner}{/repo}",
+                    "subscriptions_url": "https://api.github.com/users/ethereum/subscriptions",
+                    "organizations_url": "https://api.github.com/users/ethereum/orgs",
+                    "repos_url": "https://api.github.com/users/ethereum/repos",
+                    "events_url": "https://api.github.com/users/ethereum/events{/privacy}",
+                    "received_events_url": "https://api.github.com/users/ethereum/received_events",
+                    "type": "Organization",
+                    "user_view_type": "public",
+                    "site_admin": false
+                },
+                "repo": {
+                    "id": 44971752,
+                    "node_id": "MDEwOlJlcG9zaXRvcnk0NDk3MTc1Mg==",
+                    "name": "EIPs",
+                    "full_name": "ethereum/EIPs",
+                    "private": false,
+                    "owner": {
+                        "login": "ethereum",
+                        "id": 6250754,
+                        "node_id": "MDEyOk9yZ2FuaXphdGlvbjYyNTA3NTQ=",
+                        "avatar_url": "https://avatars.githubusercontent.com/u/6250754?v=4",
+                        "gravatar_id": "",
+                        "url": "https://api.github.com/users/ethereum",
+                        "html_url": "https://github.com/ethereum",
+                        "followers_url": "https://api.github.com/users/ethereum/followers",
+                        "following_url": "https://api.github.com/users/ethereum/following{/other_user}",
+                        "gists_url": "https://api.github.com/users/ethereum/gists{/gist_id}",
+                        "starred_url": "https://api.github.com/users/ethereum/starred{/owner}{/repo}",
+                        "subscriptions_url": "https://api.github.com/users/ethereum/subscriptions",
+                        "organizations_url": "https://api.github.com/users/ethereum/orgs",
+                        "repos_url": "https://api.github.com/users/ethereum/repos",
+                        "events_url": "https://api.github.com/users/ethereum/events{/privacy}",
+                        "received_events_url": "https://api.github.com/users/ethereum/received_events",
+                        "type": "Organization",
+                        "user_view_type": "public",
+                        "site_admin": false
+                    },
+                    "html_url": "https://github.com/ethereum/EIPs",
+                    "description": "The Ethereum Improvement Proposal repository",
+                    "fork": false,
+                    "url": "https://api.github.com/repos/ethereum/EIPs",
+                    "forks_url": "https://api.github.com/repos/ethereum/EIPs/forks",
+                    "keys_url": "https://api.github.com/repos/ethereum/EIPs/keys{/key_id}",
+                    "collaborators_url": "https://api.github.com/repos/ethereum/EIPs/collaborators{/collaborator}",
+                    "teams_url": "https://api.github.com/repos/ethereum/EIPs/teams",
+                    "hooks_url": "https://api.github.com/repos/ethereum/EIPs/hooks",
+                    "issue_events_url": "https://api.github.com/repos/ethereum/EIPs/issues/events{/number}",
+                    "events_url": "https://api.github.com/repos/ethereum/EIPs/events",
+                    "assignees_url": "https://api.github.com/repos/ethereum/EIPs/assignees{/user}",
+                    "branches_url": "https://api.github.com/repos/ethereum/EIPs/branches{/branch}",
+                    "tags_url": "https://api.github.com/repos/ethereum/EIPs/tags",
+                    "blobs_url": "https://api.github.com/repos/ethereum/EIPs/git/blobs{/sha}",
+                    "git_tags_url": "https://api.github.com/repos/ethereum/EIPs/git/tags{/sha}",
+                    "git_refs_url": "https://api.github.com/repos/ethereum/EIPs/git/refs{/sha}",
+                    "trees_url": "https://api.github.com/repos/ethereum/EIPs/git/trees{/sha}",
+                    "statuses_url": "https://api.github.com/repos/ethereum/EIPs/statuses/{sha}",
+                    "languages_url": "https://api.github.com/repos/ethereum/EIPs/languages",
+                    "stargazers_url": "https://api.github.com/repos/ethereum/EIPs/stargazers",
+                    "contributors_url": "https://api.github.com/repos/ethereum/EIPs/contributors",
+                    "subscribers_url": "https://api.github.com/repos/ethereum/EIPs/subscribers",
+                    "subscription_url": "https://api.github.com/repos/ethereum/EIPs/subscription",
+                    "commits_url": "https://api.github.com/repos/ethereum/EIPs/commits{/sha}",
+                    "git_commits_url": "https://api.github.com/repos/ethereum/EIPs/git/commits{/sha}",
+                    "comments_url": "https://api.github.com/repos/ethereum/EIPs/comments{/number}",
+                    "issue_comment_url": "https://api.github.com/repos/ethereum/EIPs/issues/comments{/number}",
+                    "contents_url": "https://api.github.com/repos/ethereum/EIPs/contents/{+path}",
+                    "compare_url": "https://api.github.com/repos/ethereum/EIPs/compare/{base}...{head}",
+                    "merges_url": "https://api.github.com/repos/ethereum/EIPs/merges",
+                    "archive_url": "https://api.github.com/repos/ethereum/EIPs/{archive_format}{/ref}",
+                    "downloads_url": "https://api.github.com/repos/ethereum/EIPs/downloads",
+                    "issues_url": "https://api.github.com/repos/ethereum/EIPs/issues{/number}",
+                    "pulls_url": "https://api.github.com/repos/ethereum/EIPs/pulls{/number}",
+                    "milestones_url": "https://api.github.com/repos/ethereum/EIPs/milestones{/number}",
+                    "notifications_url": "https://api.github.com/repos/ethereum/EIPs/notifications{?since,all,participating}",
+                    "labels_url": "https://api.github.com/repos/ethereum/EIPs/labels{/name}",
+                    "releases_url": "https://api.github.com/repos/ethereum/EIPs/releases{/id}",
+                    "deployments_url": "https://api.github.com/repos/ethereum/EIPs/deployments",
+                    "created_at": "2015-10-26T13:57:23Z",
+                    "updated_at": "2025-02-19T15:25:38Z",
+                    "pushed_at": "2025-02-19T15:25:28Z",
+                    "git_url": "git://github.com/ethereum/EIPs.git",
+                    "ssh_url": "git@github.com:ethereum/EIPs.git",
+                    "clone_url": "https://github.com/ethereum/EIPs.git",
+                    "svn_url": "https://github.com/ethereum/EIPs",
+                    "homepage": "https://eips.ethereum.org/",
+                    "size": 69168,
+                    "stargazers_count": 13168,
+                    "watchers_count": 13168,
+                    "language": "Python",
+                    "has_issues": true,
+                    "has_projects": false,
+                    "has_downloads": true,
+                    "has_wiki": false,
+                    "has_pages": true,
+                    "has_discussions": false,
+                    "forks_count": 5482,
+                    "mirror_url": null,
+                    "archived": false,
+                    "disabled": false,
+                    "open_issues_count": 131,
+                    "license": {
+                        "key": "cc0-1.0",
+                        "name": "Creative Commons Zero v1.0 Universal",
+                        "spdx_id": "CC0-1.0",
+                        "url": "https://api.github.com/licenses/cc0-1.0",
+                        "node_id": "MDc6TGljZW5zZTY="
+                    },
+                    "allow_forking": true,
+                    "is_template": false,
+                    "web_commit_signoff_required": false,
+                    "topics": [],
+                    "visibility": "public",
+                    "forks": 5482,
+                    "open_issues": 131,
+                    "watchers": 13168,
+                    "default_branch": "master"
+                }
+            },
+            "_links": {
+                "self": {
+                    "href": "https://api.github.com/repos/ethereum/EIPs/pulls/9388"
+                },
+                "html": {
+                    "href": "https://github.com/ethereum/EIPs/pull/9388"
+                },
+                "issue": {
+                    "href": "https://api.github.com/repos/ethereum/EIPs/issues/9388"
+                },
+                "comments": {
+                    "href": "https://api.github.com/repos/ethereum/EIPs/issues/9388/comments"
+                },
+                "review_comments": {
+                    "href": "https://api.github.com/repos/ethereum/EIPs/pulls/9388/comments"
+                },
+                "review_comment": {
+                    "href": "https://api.github.com/repos/ethereum/EIPs/pulls/comments{/number}"
+                },
+                "commits": {
+                    "href": "https://api.github.com/repos/ethereum/EIPs/pulls/9388/commits"
+                },
+                "statuses": {
+                    "href": "https://api.github.com/repos/ethereum/EIPs/statuses/81f186fbc8a3f03acb1ab91cc54a5f46c4194ef6"
+                }
+            },
+            "author_association": "CONTRIBUTOR",
+            "auto_merge": null,
+            "active_lock_reason": null,
+            "days_open": -1
+        },
         {
             "url": "https://api.github.com/repos/ethereum/EIPs/pulls/9387",
             "id": 2345835666,
@@ -359,7 +766,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -373,7 +780,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -775,7 +1182,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -789,7 +1196,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -1182,7 +1589,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -1196,7 +1603,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -1589,7 +1996,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -1603,7 +2010,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -1845,7 +2252,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -1859,7 +2266,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -1978,7 +2385,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -1992,7 +2399,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -2363,7 +2770,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -2377,7 +2784,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -2757,7 +3164,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -2771,7 +3178,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -2842,7 +3249,7 @@
             },
             "body": "See [this doc](https://hackmd.io/@jimmygchen/HkUpFliYJx) for context\r\n\r\n",
             "created_at": "2025-02-18T11:16:42Z",
-            "updated_at": "2025-02-19T22:06:32Z",
+            "updated_at": "2025-02-20T03:57:36Z",
             "closed_at": null,
             "merged_at": null,
             "merge_commit_sha": "b28e2af5189682ec46714b00f64bc327c8b585f9",
@@ -3164,7 +3571,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -3178,7 +3585,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -3580,7 +3987,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -3594,7 +4001,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -3996,7 +4403,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -4010,7 +4417,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -4257,7 +4664,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -4271,7 +4678,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -4390,7 +4797,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -4404,7 +4811,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -4797,7 +5204,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -4811,7 +5218,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -4845,7 +5252,7 @@
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 4
+            "days_open": 5
         },
         {
             "url": "https://api.github.com/repos/ethereum/EIPs/pulls/9367",
@@ -5204,7 +5611,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -5218,7 +5625,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -5252,7 +5659,7 @@
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 4
+            "days_open": 5
         },
         {
             "url": "https://api.github.com/repos/ethereum/EIPs/pulls/9366",
@@ -5656,7 +6063,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -5670,7 +6077,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -6054,7 +6461,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -6068,7 +6475,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -6479,7 +6886,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -6493,7 +6900,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -6895,7 +7302,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -6909,7 +7316,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -7302,7 +7709,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -7316,7 +7723,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -7563,7 +7970,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -7577,7 +7984,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -7696,7 +8103,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -7710,7 +8117,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -8112,7 +8519,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -8126,7 +8533,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -8488,7 +8895,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -8502,7 +8909,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -8886,7 +9293,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -8900,7 +9307,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -9293,7 +9700,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -9307,7 +9714,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -9663,7 +10070,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -9677,7 +10084,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -10079,7 +10486,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -10093,7 +10500,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -10340,7 +10747,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -10354,7 +10761,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -10473,7 +10880,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -10487,7 +10894,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -10734,7 +11141,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -10748,7 +11155,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -10867,7 +11274,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -10881,7 +11288,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -11274,7 +11681,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -11288,7 +11695,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -11690,7 +12097,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -11704,7 +12111,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -11739,404 +12146,6 @@
             "auto_merge": null,
             "active_lock_reason": null,
             "days_open": 18
-        },
-        {
-            "url": "https://api.github.com/repos/ethereum/EIPs/pulls/9301",
-            "id": 2309737838,
-            "node_id": "PR_kwDOAq426M6Jq81u",
-            "html_url": "https://github.com/ethereum/EIPs/pull/9301",
-            "diff_url": "https://github.com/ethereum/EIPs/pull/9301.diff",
-            "patch_url": "https://github.com/ethereum/EIPs/pull/9301.patch",
-            "issue_url": "https://api.github.com/repos/ethereum/EIPs/issues/9301",
-            "number": 9301,
-            "state": "open",
-            "locked": false,
-            "title": "fix: typos in documentation files",
-            "user": {
-                "login": "kilavvy",
-                "id": 140459108,
-                "node_id": "U_kgDOCF88ZA",
-                "avatar_url": "https://avatars.githubusercontent.com/u/140459108?v=4",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/kilavvy",
-                "html_url": "https://github.com/kilavvy",
-                "followers_url": "https://api.github.com/users/kilavvy/followers",
-                "following_url": "https://api.github.com/users/kilavvy/following{/other_user}",
-                "gists_url": "https://api.github.com/users/kilavvy/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/kilavvy/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/kilavvy/subscriptions",
-                "organizations_url": "https://api.github.com/users/kilavvy/orgs",
-                "repos_url": "https://api.github.com/users/kilavvy/repos",
-                "events_url": "https://api.github.com/users/kilavvy/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/kilavvy/received_events",
-                "type": "User",
-                "user_view_type": "public",
-                "site_admin": false
-            },
-            "body": null,
-            "created_at": "2025-01-31T17:45:26Z",
-            "updated_at": "2025-01-31T17:45:40Z",
-            "closed_at": null,
-            "merged_at": null,
-            "merge_commit_sha": "2404fbb912358c478ee3bd24a3a5a259aa24ab6d",
-            "assignee": null,
-            "assignees": [],
-            "requested_reviewers": [
-                {
-                    "login": "eth-bot",
-                    "id": 85952233,
-                    "node_id": "MDQ6VXNlcjg1OTUyMjMz",
-                    "avatar_url": "https://avatars.githubusercontent.com/u/85952233?v=4",
-                    "gravatar_id": "",
-                    "url": "https://api.github.com/users/eth-bot",
-                    "html_url": "https://github.com/eth-bot",
-                    "followers_url": "https://api.github.com/users/eth-bot/followers",
-                    "following_url": "https://api.github.com/users/eth-bot/following{/other_user}",
-                    "gists_url": "https://api.github.com/users/eth-bot/gists{/gist_id}",
-                    "starred_url": "https://api.github.com/users/eth-bot/starred{/owner}{/repo}",
-                    "subscriptions_url": "https://api.github.com/users/eth-bot/subscriptions",
-                    "organizations_url": "https://api.github.com/users/eth-bot/orgs",
-                    "repos_url": "https://api.github.com/users/eth-bot/repos",
-                    "events_url": "https://api.github.com/users/eth-bot/events{/privacy}",
-                    "received_events_url": "https://api.github.com/users/eth-bot/received_events",
-                    "type": "User",
-                    "user_view_type": "public",
-                    "site_admin": false
-                }
-            ],
-            "requested_teams": [],
-            "labels": [
-                {
-                    "id": 4455827647,
-                    "node_id": "LA_kwDOAq426M8AAAABCZaIvw",
-                    "url": "https://api.github.com/repos/ethereum/EIPs/labels/c-update",
-                    "name": "c-update",
-                    "color": "C5DEF5",
-                    "default": false,
-                    "description": "Modifies an existing proposal"
-                },
-                {
-                    "id": 4455831633,
-                    "node_id": "LA_kwDOAq426M8AAAABCZaYUQ",
-                    "url": "https://api.github.com/repos/ethereum/EIPs/labels/t-core",
-                    "name": "t-core",
-                    "color": "FEF2C0",
-                    "default": false,
-                    "description": ""
-                },
-                {
-                    "id": 4455851279,
-                    "node_id": "LA_kwDOAq426M8AAAABCZblDw",
-                    "url": "https://api.github.com/repos/ethereum/EIPs/labels/s-draft",
-                    "name": "s-draft",
-                    "color": "0E8A16",
-                    "default": false,
-                    "description": "This EIP is a Draft"
-                }
-            ],
-            "milestone": null,
-            "draft": false,
-            "commits_url": "https://api.github.com/repos/ethereum/EIPs/pulls/9301/commits",
-            "review_comments_url": "https://api.github.com/repos/ethereum/EIPs/pulls/9301/comments",
-            "review_comment_url": "https://api.github.com/repos/ethereum/EIPs/pulls/comments{/number}",
-            "comments_url": "https://api.github.com/repos/ethereum/EIPs/issues/9301/comments",
-            "statuses_url": "https://api.github.com/repos/ethereum/EIPs/statuses/8460e5814d24dad441db96348cd1f140c0667ff2",
-            "head": {
-                "label": "kilavvy:master",
-                "ref": "master",
-                "sha": "8460e5814d24dad441db96348cd1f140c0667ff2",
-                "user": {
-                    "login": "kilavvy",
-                    "id": 140459108,
-                    "node_id": "U_kgDOCF88ZA",
-                    "avatar_url": "https://avatars.githubusercontent.com/u/140459108?v=4",
-                    "gravatar_id": "",
-                    "url": "https://api.github.com/users/kilavvy",
-                    "html_url": "https://github.com/kilavvy",
-                    "followers_url": "https://api.github.com/users/kilavvy/followers",
-                    "following_url": "https://api.github.com/users/kilavvy/following{/other_user}",
-                    "gists_url": "https://api.github.com/users/kilavvy/gists{/gist_id}",
-                    "starred_url": "https://api.github.com/users/kilavvy/starred{/owner}{/repo}",
-                    "subscriptions_url": "https://api.github.com/users/kilavvy/subscriptions",
-                    "organizations_url": "https://api.github.com/users/kilavvy/orgs",
-                    "repos_url": "https://api.github.com/users/kilavvy/repos",
-                    "events_url": "https://api.github.com/users/kilavvy/events{/privacy}",
-                    "received_events_url": "https://api.github.com/users/kilavvy/received_events",
-                    "type": "User",
-                    "user_view_type": "public",
-                    "site_admin": false
-                },
-                "repo": {
-                    "id": 925337490,
-                    "node_id": "R_kgDONyeHkg",
-                    "name": "EIPs",
-                    "full_name": "kilavvy/EIPs",
-                    "private": false,
-                    "owner": {
-                        "login": "kilavvy",
-                        "id": 140459108,
-                        "node_id": "U_kgDOCF88ZA",
-                        "avatar_url": "https://avatars.githubusercontent.com/u/140459108?v=4",
-                        "gravatar_id": "",
-                        "url": "https://api.github.com/users/kilavvy",
-                        "html_url": "https://github.com/kilavvy",
-                        "followers_url": "https://api.github.com/users/kilavvy/followers",
-                        "following_url": "https://api.github.com/users/kilavvy/following{/other_user}",
-                        "gists_url": "https://api.github.com/users/kilavvy/gists{/gist_id}",
-                        "starred_url": "https://api.github.com/users/kilavvy/starred{/owner}{/repo}",
-                        "subscriptions_url": "https://api.github.com/users/kilavvy/subscriptions",
-                        "organizations_url": "https://api.github.com/users/kilavvy/orgs",
-                        "repos_url": "https://api.github.com/users/kilavvy/repos",
-                        "events_url": "https://api.github.com/users/kilavvy/events{/privacy}",
-                        "received_events_url": "https://api.github.com/users/kilavvy/received_events",
-                        "type": "User",
-                        "user_view_type": "public",
-                        "site_admin": false
-                    },
-                    "html_url": "https://github.com/kilavvy/EIPs",
-                    "description": "The Ethereum Improvement Proposal repository",
-                    "fork": true,
-                    "url": "https://api.github.com/repos/kilavvy/EIPs",
-                    "forks_url": "https://api.github.com/repos/kilavvy/EIPs/forks",
-                    "keys_url": "https://api.github.com/repos/kilavvy/EIPs/keys{/key_id}",
-                    "collaborators_url": "https://api.github.com/repos/kilavvy/EIPs/collaborators{/collaborator}",
-                    "teams_url": "https://api.github.com/repos/kilavvy/EIPs/teams",
-                    "hooks_url": "https://api.github.com/repos/kilavvy/EIPs/hooks",
-                    "issue_events_url": "https://api.github.com/repos/kilavvy/EIPs/issues/events{/number}",
-                    "events_url": "https://api.github.com/repos/kilavvy/EIPs/events",
-                    "assignees_url": "https://api.github.com/repos/kilavvy/EIPs/assignees{/user}",
-                    "branches_url": "https://api.github.com/repos/kilavvy/EIPs/branches{/branch}",
-                    "tags_url": "https://api.github.com/repos/kilavvy/EIPs/tags",
-                    "blobs_url": "https://api.github.com/repos/kilavvy/EIPs/git/blobs{/sha}",
-                    "git_tags_url": "https://api.github.com/repos/kilavvy/EIPs/git/tags{/sha}",
-                    "git_refs_url": "https://api.github.com/repos/kilavvy/EIPs/git/refs{/sha}",
-                    "trees_url": "https://api.github.com/repos/kilavvy/EIPs/git/trees{/sha}",
-                    "statuses_url": "https://api.github.com/repos/kilavvy/EIPs/statuses/{sha}",
-                    "languages_url": "https://api.github.com/repos/kilavvy/EIPs/languages",
-                    "stargazers_url": "https://api.github.com/repos/kilavvy/EIPs/stargazers",
-                    "contributors_url": "https://api.github.com/repos/kilavvy/EIPs/contributors",
-                    "subscribers_url": "https://api.github.com/repos/kilavvy/EIPs/subscribers",
-                    "subscription_url": "https://api.github.com/repos/kilavvy/EIPs/subscription",
-                    "commits_url": "https://api.github.com/repos/kilavvy/EIPs/commits{/sha}",
-                    "git_commits_url": "https://api.github.com/repos/kilavvy/EIPs/git/commits{/sha}",
-                    "comments_url": "https://api.github.com/repos/kilavvy/EIPs/comments{/number}",
-                    "issue_comment_url": "https://api.github.com/repos/kilavvy/EIPs/issues/comments{/number}",
-                    "contents_url": "https://api.github.com/repos/kilavvy/EIPs/contents/{+path}",
-                    "compare_url": "https://api.github.com/repos/kilavvy/EIPs/compare/{base}...{head}",
-                    "merges_url": "https://api.github.com/repos/kilavvy/EIPs/merges",
-                    "archive_url": "https://api.github.com/repos/kilavvy/EIPs/{archive_format}{/ref}",
-                    "downloads_url": "https://api.github.com/repos/kilavvy/EIPs/downloads",
-                    "issues_url": "https://api.github.com/repos/kilavvy/EIPs/issues{/number}",
-                    "pulls_url": "https://api.github.com/repos/kilavvy/EIPs/pulls{/number}",
-                    "milestones_url": "https://api.github.com/repos/kilavvy/EIPs/milestones{/number}",
-                    "notifications_url": "https://api.github.com/repos/kilavvy/EIPs/notifications{?since,all,participating}",
-                    "labels_url": "https://api.github.com/repos/kilavvy/EIPs/labels{/name}",
-                    "releases_url": "https://api.github.com/repos/kilavvy/EIPs/releases{/id}",
-                    "deployments_url": "https://api.github.com/repos/kilavvy/EIPs/deployments",
-                    "created_at": "2025-01-31T17:27:55Z",
-                    "updated_at": "2025-01-31T17:29:48Z",
-                    "pushed_at": "2025-01-31T17:29:44Z",
-                    "git_url": "git://github.com/kilavvy/EIPs.git",
-                    "ssh_url": "git@github.com:kilavvy/EIPs.git",
-                    "clone_url": "https://github.com/kilavvy/EIPs.git",
-                    "svn_url": "https://github.com/kilavvy/EIPs",
-                    "homepage": "https://eips.ethereum.org/",
-                    "size": 68844,
-                    "stargazers_count": 0,
-                    "watchers_count": 0,
-                    "language": "Python",
-                    "has_issues": false,
-                    "has_projects": true,
-                    "has_downloads": true,
-                    "has_wiki": false,
-                    "has_pages": false,
-                    "has_discussions": false,
-                    "forks_count": 0,
-                    "mirror_url": null,
-                    "archived": false,
-                    "disabled": false,
-                    "open_issues_count": 0,
-                    "license": {
-                        "key": "cc0-1.0",
-                        "name": "Creative Commons Zero v1.0 Universal",
-                        "spdx_id": "CC0-1.0",
-                        "url": "https://api.github.com/licenses/cc0-1.0",
-                        "node_id": "MDc6TGljZW5zZTY="
-                    },
-                    "allow_forking": true,
-                    "is_template": false,
-                    "web_commit_signoff_required": false,
-                    "topics": [],
-                    "visibility": "public",
-                    "forks": 0,
-                    "open_issues": 0,
-                    "watchers": 0,
-                    "default_branch": "master"
-                }
-            },
-            "base": {
-                "label": "ethereum:master",
-                "ref": "master",
-                "sha": "f27ddf2b0af7e862a967ee38ceeaa7d980786ca1",
-                "user": {
-                    "login": "ethereum",
-                    "id": 6250754,
-                    "node_id": "MDEyOk9yZ2FuaXphdGlvbjYyNTA3NTQ=",
-                    "avatar_url": "https://avatars.githubusercontent.com/u/6250754?v=4",
-                    "gravatar_id": "",
-                    "url": "https://api.github.com/users/ethereum",
-                    "html_url": "https://github.com/ethereum",
-                    "followers_url": "https://api.github.com/users/ethereum/followers",
-                    "following_url": "https://api.github.com/users/ethereum/following{/other_user}",
-                    "gists_url": "https://api.github.com/users/ethereum/gists{/gist_id}",
-                    "starred_url": "https://api.github.com/users/ethereum/starred{/owner}{/repo}",
-                    "subscriptions_url": "https://api.github.com/users/ethereum/subscriptions",
-                    "organizations_url": "https://api.github.com/users/ethereum/orgs",
-                    "repos_url": "https://api.github.com/users/ethereum/repos",
-                    "events_url": "https://api.github.com/users/ethereum/events{/privacy}",
-                    "received_events_url": "https://api.github.com/users/ethereum/received_events",
-                    "type": "Organization",
-                    "user_view_type": "public",
-                    "site_admin": false
-                },
-                "repo": {
-                    "id": 44971752,
-                    "node_id": "MDEwOlJlcG9zaXRvcnk0NDk3MTc1Mg==",
-                    "name": "EIPs",
-                    "full_name": "ethereum/EIPs",
-                    "private": false,
-                    "owner": {
-                        "login": "ethereum",
-                        "id": 6250754,
-                        "node_id": "MDEyOk9yZ2FuaXphdGlvbjYyNTA3NTQ=",
-                        "avatar_url": "https://avatars.githubusercontent.com/u/6250754?v=4",
-                        "gravatar_id": "",
-                        "url": "https://api.github.com/users/ethereum",
-                        "html_url": "https://github.com/ethereum",
-                        "followers_url": "https://api.github.com/users/ethereum/followers",
-                        "following_url": "https://api.github.com/users/ethereum/following{/other_user}",
-                        "gists_url": "https://api.github.com/users/ethereum/gists{/gist_id}",
-                        "starred_url": "https://api.github.com/users/ethereum/starred{/owner}{/repo}",
-                        "subscriptions_url": "https://api.github.com/users/ethereum/subscriptions",
-                        "organizations_url": "https://api.github.com/users/ethereum/orgs",
-                        "repos_url": "https://api.github.com/users/ethereum/repos",
-                        "events_url": "https://api.github.com/users/ethereum/events{/privacy}",
-                        "received_events_url": "https://api.github.com/users/ethereum/received_events",
-                        "type": "Organization",
-                        "user_view_type": "public",
-                        "site_admin": false
-                    },
-                    "html_url": "https://github.com/ethereum/EIPs",
-                    "description": "The Ethereum Improvement Proposal repository",
-                    "fork": false,
-                    "url": "https://api.github.com/repos/ethereum/EIPs",
-                    "forks_url": "https://api.github.com/repos/ethereum/EIPs/forks",
-                    "keys_url": "https://api.github.com/repos/ethereum/EIPs/keys{/key_id}",
-                    "collaborators_url": "https://api.github.com/repos/ethereum/EIPs/collaborators{/collaborator}",
-                    "teams_url": "https://api.github.com/repos/ethereum/EIPs/teams",
-                    "hooks_url": "https://api.github.com/repos/ethereum/EIPs/hooks",
-                    "issue_events_url": "https://api.github.com/repos/ethereum/EIPs/issues/events{/number}",
-                    "events_url": "https://api.github.com/repos/ethereum/EIPs/events",
-                    "assignees_url": "https://api.github.com/repos/ethereum/EIPs/assignees{/user}",
-                    "branches_url": "https://api.github.com/repos/ethereum/EIPs/branches{/branch}",
-                    "tags_url": "https://api.github.com/repos/ethereum/EIPs/tags",
-                    "blobs_url": "https://api.github.com/repos/ethereum/EIPs/git/blobs{/sha}",
-                    "git_tags_url": "https://api.github.com/repos/ethereum/EIPs/git/tags{/sha}",
-                    "git_refs_url": "https://api.github.com/repos/ethereum/EIPs/git/refs{/sha}",
-                    "trees_url": "https://api.github.com/repos/ethereum/EIPs/git/trees{/sha}",
-                    "statuses_url": "https://api.github.com/repos/ethereum/EIPs/statuses/{sha}",
-                    "languages_url": "https://api.github.com/repos/ethereum/EIPs/languages",
-                    "stargazers_url": "https://api.github.com/repos/ethereum/EIPs/stargazers",
-                    "contributors_url": "https://api.github.com/repos/ethereum/EIPs/contributors",
-                    "subscribers_url": "https://api.github.com/repos/ethereum/EIPs/subscribers",
-                    "subscription_url": "https://api.github.com/repos/ethereum/EIPs/subscription",
-                    "commits_url": "https://api.github.com/repos/ethereum/EIPs/commits{/sha}",
-                    "git_commits_url": "https://api.github.com/repos/ethereum/EIPs/git/commits{/sha}",
-                    "comments_url": "https://api.github.com/repos/ethereum/EIPs/comments{/number}",
-                    "issue_comment_url": "https://api.github.com/repos/ethereum/EIPs/issues/comments{/number}",
-                    "contents_url": "https://api.github.com/repos/ethereum/EIPs/contents/{+path}",
-                    "compare_url": "https://api.github.com/repos/ethereum/EIPs/compare/{base}...{head}",
-                    "merges_url": "https://api.github.com/repos/ethereum/EIPs/merges",
-                    "archive_url": "https://api.github.com/repos/ethereum/EIPs/{archive_format}{/ref}",
-                    "downloads_url": "https://api.github.com/repos/ethereum/EIPs/downloads",
-                    "issues_url": "https://api.github.com/repos/ethereum/EIPs/issues{/number}",
-                    "pulls_url": "https://api.github.com/repos/ethereum/EIPs/pulls{/number}",
-                    "milestones_url": "https://api.github.com/repos/ethereum/EIPs/milestones{/number}",
-                    "notifications_url": "https://api.github.com/repos/ethereum/EIPs/notifications{?since,all,participating}",
-                    "labels_url": "https://api.github.com/repos/ethereum/EIPs/labels{/name}",
-                    "releases_url": "https://api.github.com/repos/ethereum/EIPs/releases{/id}",
-                    "deployments_url": "https://api.github.com/repos/ethereum/EIPs/deployments",
-                    "created_at": "2015-10-26T13:57:23Z",
-                    "updated_at": "2025-02-19T15:25:38Z",
-                    "pushed_at": "2025-02-19T15:25:28Z",
-                    "git_url": "git://github.com/ethereum/EIPs.git",
-                    "ssh_url": "git@github.com:ethereum/EIPs.git",
-                    "clone_url": "https://github.com/ethereum/EIPs.git",
-                    "svn_url": "https://github.com/ethereum/EIPs",
-                    "homepage": "https://eips.ethereum.org/",
-                    "size": 69168,
-                    "stargazers_count": 13168,
-                    "watchers_count": 13168,
-                    "language": "Python",
-                    "has_issues": true,
-                    "has_projects": false,
-                    "has_downloads": true,
-                    "has_wiki": false,
-                    "has_pages": true,
-                    "has_discussions": false,
-                    "forks_count": 5482,
-                    "mirror_url": null,
-                    "archived": false,
-                    "disabled": false,
-                    "open_issues_count": 130,
-                    "license": {
-                        "key": "cc0-1.0",
-                        "name": "Creative Commons Zero v1.0 Universal",
-                        "spdx_id": "CC0-1.0",
-                        "url": "https://api.github.com/licenses/cc0-1.0",
-                        "node_id": "MDc6TGljZW5zZTY="
-                    },
-                    "allow_forking": true,
-                    "is_template": false,
-                    "web_commit_signoff_required": false,
-                    "topics": [],
-                    "visibility": "public",
-                    "forks": 5482,
-                    "open_issues": 130,
-                    "watchers": 13168,
-                    "default_branch": "master"
-                }
-            },
-            "_links": {
-                "self": {
-                    "href": "https://api.github.com/repos/ethereum/EIPs/pulls/9301"
-                },
-                "html": {
-                    "href": "https://github.com/ethereum/EIPs/pull/9301"
-                },
-                "issue": {
-                    "href": "https://api.github.com/repos/ethereum/EIPs/issues/9301"
-                },
-                "comments": {
-                    "href": "https://api.github.com/repos/ethereum/EIPs/issues/9301/comments"
-                },
-                "review_comments": {
-                    "href": "https://api.github.com/repos/ethereum/EIPs/pulls/9301/comments"
-                },
-                "review_comment": {
-                    "href": "https://api.github.com/repos/ethereum/EIPs/pulls/comments{/number}"
-                },
-                "commits": {
-                    "href": "https://api.github.com/repos/ethereum/EIPs/pulls/9301/commits"
-                },
-                "statuses": {
-                    "href": "https://api.github.com/repos/ethereum/EIPs/statuses/8460e5814d24dad441db96348cd1f140c0667ff2"
-                }
-            },
-            "author_association": "NONE",
-            "auto_merge": null,
-            "active_lock_reason": null,
-            "days_open": 19
         }
     ],
     "opened_issues": [
@@ -12836,7 +12845,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -12850,7 +12859,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -13211,7 +13220,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -13225,7 +13234,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -13611,7 +13620,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -13625,7 +13634,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -14005,7 +14014,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -14019,7 +14028,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -14399,7 +14408,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -14413,7 +14422,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -14774,7 +14783,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -14788,7 +14797,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -15192,7 +15201,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -15206,7 +15215,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -15442,14 +15451,14 @@
                     "releases_url": "https://api.github.com/repos/Morinyo1907/EIPs/releases{/id}",
                     "deployments_url": "https://api.github.com/repos/Morinyo1907/EIPs/deployments",
                     "created_at": "2025-02-04T04:28:10Z",
-                    "updated_at": "2025-02-10T16:01:02Z",
-                    "pushed_at": "2025-02-20T00:45:44Z",
+                    "updated_at": "2025-02-20T02:04:48Z",
+                    "pushed_at": "2025-02-20T01:53:48Z",
                     "git_url": "git://github.com/Morinyo1907/EIPs.git",
                     "ssh_url": "git@github.com:Morinyo1907/EIPs.git",
                     "clone_url": "https://github.com/Morinyo1907/EIPs.git",
                     "svn_url": "https://github.com/Morinyo1907/EIPs",
                     "homepage": "https://eips.ethereum.org/",
-                    "size": 69158,
+                    "size": 69163,
                     "stargazers_count": 1,
                     "watchers_count": 1,
                     "language": "Python",
@@ -15472,8 +15481,8 @@
                         "node_id": "MDc6TGljZW5zZTY="
                     },
                     "allow_forking": true,
-                    "is_template": false,
-                    "web_commit_signoff_required": false,
+                    "is_template": true,
+                    "web_commit_signoff_required": true,
                     "topics": [],
                     "visibility": "public",
                     "forks": 0,
@@ -15596,7 +15605,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -15610,7 +15619,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -15980,7 +15989,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -15994,7 +16003,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -16265,7 +16274,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -16279,7 +16288,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -16398,7 +16407,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -16412,7 +16421,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -16773,7 +16782,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -16787,7 +16796,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -17167,7 +17176,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -17181,7 +17190,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -17561,7 +17570,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -17575,7 +17584,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -17930,7 +17939,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -17944,7 +17953,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -18324,7 +18333,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 130,
+                    "open_issues_count": 131,
                     "license": {
                         "key": "cc0-1.0",
                         "name": "Creative Commons Zero v1.0 Universal",
@@ -18338,7 +18347,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 5482,
-                    "open_issues": 130,
+                    "open_issues": 131,
                     "watchers": 13168,
                     "default_branch": "master"
                 }
@@ -21199,11 +21208,11 @@
     ],
     "aggregated_stats": {
         "2025-02-20": {
-            "prs_opened": 1,
+            "prs_opened": 2,
             "prs_closed": 0,
             "issues_opened": 0,
             "issues_closed": 0,
-            "contributors": 1
+            "contributors": 2
         },
         "2025-02-19": {
             "prs_opened": 6,
@@ -21296,13 +21305,6 @@
             "issues_closed": 0,
             "contributors": 2
         },
-        "2025-01-31": {
-            "prs_opened": 1,
-            "prs_closed": 0,
-            "issues_opened": 0,
-            "issues_closed": 0,
-            "contributors": 1
-        },
         "2025-02-17": {
             "prs_opened": 0,
             "prs_closed": 1,
@@ -21319,57 +21321,57 @@
         }
     },
     "wartime_milady_ceo_summary": [
-        "- **EIP Updates and Moves to Last Call**: Several EIPs have been updated and moved to the \"Last Call\" stage, indicating readiness for final review. Notably, EIP-1898, EIP-7251, EIP-7002, EIP-7685, and EIP-6110 have all been transitioned, reflecting their maturity and community support.",
-        "- **ModExp Gas Cost Update**: A significant update was made with PR #9356, which proposes a modification to the `ModExp` pricing algorithm introduced in EIP-2565. This change aims to address underpriced scenarios while ensuring minimal impact on real-world usage and maintaining performance parity with the EcRecover precompile.",
-        "- **ERC-related",
+        "- **EIP Updates and Migrations**: Multiple EIPs have been updated and moved to the Last Call phase, including EIP-1898, EIP-7251, EIP-7002, EIP-7685, and EIP-6110, indicating readiness for final review. Additionally, ERC-related pull requests are now directed to the new [ethereum/ercs](https://github.com/ethereum/ercs) repository. ",
+        "- **ModExp Gas Cost Adjustment**: A significant update to the ModExp pricing algorithm was proposed in PR #9356 to address underpriced scenarios, ensuring efficient resource consumption without impacting real-world usage.",
+        "- **Open Issues and Discussions**: Several issues have been opened, including discussions",
         "Overall: 15 PRs closed, 33 contributors."
     ],
     "spec_links": [
-        "https://github.com/sparklemotion/nokogiri/commit/80fb6085c069e053457ed6f6325ac032f2b029fe\"><code>80fb608</code></a>",
-        "https://github.com/ethereum/EIPs/blob/master/eip-template.md",
-        "https://github.com/ethereum/EIPs/pull/9329",
-        "https://github.com/ipsilon/eof/pull/177",
-        "https://github.com/sparklemotion/nokogiri/commit/67b9e863a67164ae6ffbe5ed4cc482267db7c436\"><code>67b9e86</code></a>",
-        "https://github.com/sparklemotion/nokogiri/commit/1c329e9c09148155624b52ffe630cc1b01d6787f\"><code>1c329e9</code></a>",
-        "https://hackmd.io/5kcrdKgaQHSjrQ9MtAlBfg?comment=37baf7a2-fd97-4e3a-9972-e4a86c92ce8b",
-        "https://github.com/sparklemotion/nokogiri/commit/17c0362082341208bf9aadb61939e4de74005b44\"><code>17c0362</code></a>",
-        "https://github.com/sparklemotion/nokogiri/commit/cd70bd3dc9e0dc15b04b42d67b639eb5804e77d5\"><code>cd70bd3</code></a>",
-        "https://github.com/ethereum/EIPs/pull/9328",
-        "https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=nokogiri&package-manager=bundler&previous-version=1.14.3&new-version=1.16.5)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)",
-        "https://github.com/sparklemotion/nokogiri/blob/main/CHANGELOG.md\">nokogiri's",
-        "https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.7\">v2.12.7</a>",
-        "https://github.com/ethereum/ercs)**",
-        "https://github.com/ethereum/EIPs/pull/9339",
-        "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-xc9x-jj77-9p9j\">GHSA-xc9x-jj77-9p9j</a>",
-        "https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.6\">v2.12.6</a>",
-        "https://github.com/sparklemotion/nokogiri/commit/afc36de553085b6b397b23a0c09a2449655a3a47\"><code>afc36de</code></a>",
-        "https://redirect.github.com/sparklemotion/nokogiri/issues/3191\">#3191</a>)</li>",
-        "https://github.com/sparklemotion/nokogiri)",
-        "https://redirect.github.com/sparklemotion/nokogiri/issues/3175\">#3175</a>)</li>",
-        "https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.5\">v2.12.5</a>",
-        "https://zlib.net/ChangeLog.txt\">v1.3.1</a>",
-        "https://github.com/ethereum/EIPs/pull/9360",
-        "https://github.com/ethereum/EIPs/pull/9338",
-        "https://github.com/sparklemotion/nokogiri/releases\">nokogiri's",
-        "https://github.com/encoding\"><code>@\u200bencoding</code></a>",
-        "https://github.com/ethereum/EIPs/pull/9317",
-        "https://github.com/sparklemotion/nokogiri/commit/461a96ea163b144ea2898d088efe65fce311d5be\"><code>461a96e</code></a>",
-        "https://github.com/sparklemotion/nokogiri/compare/v1.14.3...v1.16.5\">compare",
-        "https://github.com/sparklemotion/nokogiri/discussions/3168\">this",
-        "https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.4\">v2.12.4</a>",
-        "https://github.com/ethereum/EIPs/network/alerts).",
-        "https://github.com/ethereum/EIPs/pull/9327",
-        "https://github.com/ethereum/EIPs/pull/9334",
-        "https://github.com/sparklemotion/nokogiri/commit/41b4f0846d2c264b48ef93ecd034dd230ab8125a\"><code>41b4f08</code></a>",
-        "https://github.com/ethereum/EIPs/pull/9336",
-        "https://github.com/sparklemotion/nokogiri/commit/710bd96d70f39baadd0405cf0f3c0c42805019af\"><code>710bd96</code></a>",
         "https://github.com/sparklemotion/nokogiri/commit/edeac07bb21b3f00c2a6aaf27806ce9d0871a08d\"><code>edeac07</code></a>",
-        "https://github.com/ethereum/EIPs/actions/workflows/ci.yml/badge.svg)](https://github.com/ethereum/EIPs/actions/workflows/ci.yml)",
-        "https://github.com/flavorjones\"><code>@\u200bflavorjones</code></a>)</li>",
-        "https://redirect.github.com/sparklemotion/nokogiri/issues/3151\">#3151</a>)</li>",
-        "https://github.com/ethereum/EIPs/pull/9326",
-        "https://github.com/ethereum/EIPs/pull/9335",
+        "https://github.com/sparklemotion/nokogiri/commit/710bd96d70f39baadd0405cf0f3c0c42805019af\"><code>710bd96</code></a>",
+        "https://github.com/sparklemotion/nokogiri/commit/67b9e863a67164ae6ffbe5ed4cc482267db7c436\"><code>67b9e86</code></a>",
         "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-r95h-9x8f-r3f7\">GHSA-r95h-9x8f-r3f7</a>",
-        "https://github.com/ethereum/EIPs/pull/9359"
+        "https://github.com/ethereum/EIPs/pull/9334",
+        "https://github.com/sparklemotion/nokogiri/blob/main/CHANGELOG.md\">nokogiri's",
+        "https://github.com/sparklemotion/nokogiri/commit/cd70bd3dc9e0dc15b04b42d67b639eb5804e77d5\"><code>cd70bd3</code></a>",
+        "https://github.com/sparklemotion/nokogiri/commit/17c0362082341208bf9aadb61939e4de74005b44\"><code>17c0362</code></a>",
+        "https://github.com/ethereum/EIPs/pull/9326",
+        "https://github.com/ethereum/EIPs/pull/9328",
+        "https://github.com/ethereum/EIPs/pull/9317",
+        "https://github.com/ethereum/EIPs/pull/9335",
+        "https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.5\">v2.12.5</a>",
+        "https://github.com/sparklemotion/nokogiri/compare/v1.14.3...v1.16.5\">compare",
+        "https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.4\">v2.12.4</a>",
+        "https://redirect.github.com/sparklemotion/nokogiri/issues/3191\">#3191</a>)</li>",
+        "https://redirect.github.com/sparklemotion/nokogiri/issues/3175\">#3175</a>)</li>",
+        "https://github.com/sparklemotion/nokogiri/discussions/3168\">this",
+        "https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.7\">v2.12.7</a>",
+        "https://github.com/ethereum/EIPs/pull/9338",
+        "https://github.com/sparklemotion/nokogiri)",
+        "https://github.com/ethereum/EIPs/blob/master/eip-template.md",
+        "https://hackmd.io/5kcrdKgaQHSjrQ9MtAlBfg?comment=37baf7a2-fd97-4e3a-9972-e4a86c92ce8b",
+        "https://github.com/ethereum/EIPs/pull/9329",
+        "https://github.com/ethereum/EIPs/pull/9360",
+        "https://github.com/ethereum/EIPs/pull/9359",
+        "https://github.com/sparklemotion/nokogiri/commit/1c329e9c09148155624b52ffe630cc1b01d6787f\"><code>1c329e9</code></a>",
+        "https://github.com/encoding\"><code>@\u200bencoding</code></a>",
+        "https://github.com/ethereum/ercs)**",
+        "https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.6\">v2.12.6</a>",
+        "https://zlib.net/ChangeLog.txt\">v1.3.1</a>",
+        "https://github.com/sparklemotion/nokogiri/commit/80fb6085c069e053457ed6f6325ac032f2b029fe\"><code>80fb608</code></a>",
+        "https://github.com/sparklemotion/nokogiri/commit/41b4f0846d2c264b48ef93ecd034dd230ab8125a\"><code>41b4f08</code></a>",
+        "https://github.com/ethereum/EIPs/pull/9327",
+        "https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=nokogiri&package-manager=bundler&previous-version=1.14.3&new-version=1.16.5)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)",
+        "https://github.com/ethereum/EIPs/actions/workflows/ci.yml/badge.svg)](https://github.com/ethereum/EIPs/actions/workflows/ci.yml)",
+        "https://github.com/sparklemotion/nokogiri/commit/afc36de553085b6b397b23a0c09a2449655a3a47\"><code>afc36de</code></a>",
+        "https://github.com/ipsilon/eof/pull/177",
+        "https://github.com/ethereum/EIPs/pull/9339",
+        "https://github.com/sparklemotion/nokogiri/releases\">nokogiri's",
+        "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-xc9x-jj77-9p9j\">GHSA-xc9x-jj77-9p9j</a>",
+        "https://redirect.github.com/sparklemotion/nokogiri/issues/3151\">#3151</a>)</li>",
+        "https://github.com/sparklemotion/nokogiri/commit/461a96ea163b144ea2898d088efe65fce311d5be\"><code>461a96e</code></a>",
+        "https://github.com/ethereum/EIPs/pull/9336",
+        "https://github.com/flavorjones\"><code>@\u200bflavorjones</code></a>)</li>",
+        "https://github.com/ethereum/EIPs/network/alerts)."
     ]
 }

@@ -1,6 +1,6 @@
 {
-    "start_date": "2025-02-12T20:34:47.923973",
-    "end_date": "2025-02-19T20:34:47.923973",
+    "start_date": "2025-02-12T23:20:13.334912",
+    "end_date": "2025-02-19T23:20:13.334912",
     "opened_prs": [
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/437",
@@ -344,13 +344,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -364,7 +364,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -378,7 +378,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -412,7 +412,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 0
+            "days_open": 0,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/436",
@@ -756,13 +757,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -776,7 +777,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -790,7 +791,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -824,419 +825,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 0
-        },
-        {
-            "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/435",
-            "id": 2342690314,
-            "node_id": "PR_kwDOMQWmzM6Lop4K",
-            "html_url": "https://github.com/flashbots/rbuilder/pull/435",
-            "diff_url": "https://github.com/flashbots/rbuilder/pull/435.diff",
-            "patch_url": "https://github.com/flashbots/rbuilder/pull/435.patch",
-            "issue_url": "https://api.github.com/repos/flashbots/rbuilder/issues/435",
-            "number": 435,
-            "state": "open",
-            "locked": false,
-            "title": "Add revert protection and integration tests",
-            "user": {
-                "login": "avalonche",
-                "id": 32314588,
-                "node_id": "MDQ6VXNlcjMyMzE0NTg4",
-                "avatar_url": "https://avatars.githubusercontent.com/u/32314588?v=4",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/avalonche",
-                "html_url": "https://github.com/avalonche",
-                "followers_url": "https://api.github.com/users/avalonche/followers",
-                "following_url": "https://api.github.com/users/avalonche/following{/other_user}",
-                "gists_url": "https://api.github.com/users/avalonche/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/avalonche/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/avalonche/subscriptions",
-                "organizations_url": "https://api.github.com/users/avalonche/orgs",
-                "repos_url": "https://api.github.com/users/avalonche/repos",
-                "events_url": "https://api.github.com/users/avalonche/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/avalonche/received_events",
-                "type": "User",
-                "user_view_type": "public",
-                "site_admin": false
-            },
-            "body": "## \ud83d\udcdd Summary\r\n\r\nAdds revert protection and integration tests to the transactions in the payload builder of the op-rbuilder.\r\n\r\n## \ud83d\udca1 Motivation and Context\r\n\r\n\r\n---\r\n\r\n## \u2705 I have completed the following steps:\r\n\r\n* [x] Run `make lint`\r\n* [x] Run `make test`\r\n* [x] Added tests (if applicable)\r\n",
-            "created_at": "2025-02-18T17:33:31Z",
-            "updated_at": "2025-02-19T15:57:27Z",
-            "closed_at": null,
-            "merged_at": null,
-            "merge_commit_sha": "535e42645a93e3b8c467a0dcd9cdc0fa6c2cd7c5",
-            "assignee": null,
-            "assignees": [],
-            "requested_reviewers": [
-                {
-                    "login": "metachris",
-                    "id": 116939,
-                    "node_id": "MDQ6VXNlcjExNjkzOQ==",
-                    "avatar_url": "https://avatars.githubusercontent.com/u/116939?v=4",
-                    "gravatar_id": "",
-                    "url": "https://api.github.com/users/metachris",
-                    "html_url": "https://github.com/metachris",
-                    "followers_url": "https://api.github.com/users/metachris/followers",
-                    "following_url": "https://api.github.com/users/metachris/following{/other_user}",
-                    "gists_url": "https://api.github.com/users/metachris/gists{/gist_id}",
-                    "starred_url": "https://api.github.com/users/metachris/starred{/owner}{/repo}",
-                    "subscriptions_url": "https://api.github.com/users/metachris/subscriptions",
-                    "organizations_url": "https://api.github.com/users/metachris/orgs",
-                    "repos_url": "https://api.github.com/users/metachris/repos",
-                    "events_url": "https://api.github.com/users/metachris/events{/privacy}",
-                    "received_events_url": "https://api.github.com/users/metachris/received_events",
-                    "type": "User",
-                    "user_view_type": "public",
-                    "site_admin": false
-                },
-                {
-                    "login": "dvush",
-                    "id": 21145096,
-                    "node_id": "MDQ6VXNlcjIxMTQ1MDk2",
-                    "avatar_url": "https://avatars.githubusercontent.com/u/21145096?v=4",
-                    "gravatar_id": "",
-                    "url": "https://api.github.com/users/dvush",
-                    "html_url": "https://github.com/dvush",
-                    "followers_url": "https://api.github.com/users/dvush/followers",
-                    "following_url": "https://api.github.com/users/dvush/following{/other_user}",
-                    "gists_url": "https://api.github.com/users/dvush/gists{/gist_id}",
-                    "starred_url": "https://api.github.com/users/dvush/starred{/owner}{/repo}",
-                    "subscriptions_url": "https://api.github.com/users/dvush/subscriptions",
-                    "organizations_url": "https://api.github.com/users/dvush/orgs",
-                    "repos_url": "https://api.github.com/users/dvush/repos",
-                    "events_url": "https://api.github.com/users/dvush/events{/privacy}",
-                    "received_events_url": "https://api.github.com/users/dvush/received_events",
-                    "type": "User",
-                    "user_view_type": "public",
-                    "site_admin": false
-                },
-                {
-                    "login": "ZanCorDX",
-                    "id": 126988525,
-                    "node_id": "U_kgDOB5Gw7Q",
-                    "avatar_url": "https://avatars.githubusercontent.com/u/126988525?v=4",
-                    "gravatar_id": "",
-                    "url": "https://api.github.com/users/ZanCorDX",
-                    "html_url": "https://github.com/ZanCorDX",
-                    "followers_url": "https://api.github.com/users/ZanCorDX/followers",
-                    "following_url": "https://api.github.com/users/ZanCorDX/following{/other_user}",
-                    "gists_url": "https://api.github.com/users/ZanCorDX/gists{/gist_id}",
-                    "starred_url": "https://api.github.com/users/ZanCorDX/starred{/owner}{/repo}",
-                    "subscriptions_url": "https://api.github.com/users/ZanCorDX/subscriptions",
-                    "organizations_url": "https://api.github.com/users/ZanCorDX/orgs",
-                    "repos_url": "https://api.github.com/users/ZanCorDX/repos",
-                    "events_url": "https://api.github.com/users/ZanCorDX/events{/privacy}",
-                    "received_events_url": "https://api.github.com/users/ZanCorDX/received_events",
-                    "type": "User",
-                    "user_view_type": "public",
-                    "site_admin": false
-                }
-            ],
-            "requested_teams": [],
-            "labels": [],
-            "milestone": null,
-            "draft": false,
-            "commits_url": "https://api.github.com/repos/flashbots/rbuilder/pulls/435/commits",
-            "review_comments_url": "https://api.github.com/repos/flashbots/rbuilder/pulls/435/comments",
-            "review_comment_url": "https://api.github.com/repos/flashbots/rbuilder/pulls/comments{/number}",
-            "comments_url": "https://api.github.com/repos/flashbots/rbuilder/issues/435/comments",
-            "statuses_url": "https://api.github.com/repos/flashbots/rbuilder/statuses/0941b8c4e7657fdc253bea5503d9b49634f540c3",
-            "head": {
-                "label": "flashbots:revert-protection",
-                "ref": "revert-protection",
-                "sha": "0941b8c4e7657fdc253bea5503d9b49634f540c3",
-                "user": {
-                    "login": "flashbots",
-                    "id": 71380475,
-                    "node_id": "MDEyOk9yZ2FuaXphdGlvbjcxMzgwNDc1",
-                    "avatar_url": "https://avatars.githubusercontent.com/u/71380475?v=4",
-                    "gravatar_id": "",
-                    "url": "https://api.github.com/users/flashbots",
-                    "html_url": "https://github.com/flashbots",
-                    "followers_url": "https://api.github.com/users/flashbots/followers",
-                    "following_url": "https://api.github.com/users/flashbots/following{/other_user}",
-                    "gists_url": "https://api.github.com/users/flashbots/gists{/gist_id}",
-                    "starred_url": "https://api.github.com/users/flashbots/starred{/owner}{/repo}",
-                    "subscriptions_url": "https://api.github.com/users/flashbots/subscriptions",
-                    "organizations_url": "https://api.github.com/users/flashbots/orgs",
-                    "repos_url": "https://api.github.com/users/flashbots/repos",
-                    "events_url": "https://api.github.com/users/flashbots/events{/privacy}",
-                    "received_events_url": "https://api.github.com/users/flashbots/received_events",
-                    "type": "Organization",
-                    "user_view_type": "public",
-                    "site_admin": false
-                },
-                "repo": {
-                    "id": 822453964,
-                    "node_id": "R_kgDOMQWmzA",
-                    "name": "rbuilder",
-                    "full_name": "flashbots/rbuilder",
-                    "private": false,
-                    "owner": {
-                        "login": "flashbots",
-                        "id": 71380475,
-                        "node_id": "MDEyOk9yZ2FuaXphdGlvbjcxMzgwNDc1",
-                        "avatar_url": "https://avatars.githubusercontent.com/u/71380475?v=4",
-                        "gravatar_id": "",
-                        "url": "https://api.github.com/users/flashbots",
-                        "html_url": "https://github.com/flashbots",
-                        "followers_url": "https://api.github.com/users/flashbots/followers",
-                        "following_url": "https://api.github.com/users/flashbots/following{/other_user}",
-                        "gists_url": "https://api.github.com/users/flashbots/gists{/gist_id}",
-                        "starred_url": "https://api.github.com/users/flashbots/starred{/owner}{/repo}",
-                        "subscriptions_url": "https://api.github.com/users/flashbots/subscriptions",
-                        "organizations_url": "https://api.github.com/users/flashbots/orgs",
-                        "repos_url": "https://api.github.com/users/flashbots/repos",
-                        "events_url": "https://api.github.com/users/flashbots/events{/privacy}",
-                        "received_events_url": "https://api.github.com/users/flashbots/received_events",
-                        "type": "Organization",
-                        "user_view_type": "public",
-                        "site_admin": false
-                    },
-                    "html_url": "https://github.com/flashbots/rbuilder",
-                    "description": "rbuilder is a blazingly fast, state of the art Ethereum MEV-Boost block builder written in Rust",
-                    "fork": false,
-                    "url": "https://api.github.com/repos/flashbots/rbuilder",
-                    "forks_url": "https://api.github.com/repos/flashbots/rbuilder/forks",
-                    "keys_url": "https://api.github.com/repos/flashbots/rbuilder/keys{/key_id}",
-                    "collaborators_url": "https://api.github.com/repos/flashbots/rbuilder/collaborators{/collaborator}",
-                    "teams_url": "https://api.github.com/repos/flashbots/rbuilder/teams",
-                    "hooks_url": "https://api.github.com/repos/flashbots/rbuilder/hooks",
-                    "issue_events_url": "https://api.github.com/repos/flashbots/rbuilder/issues/events{/number}",
-                    "events_url": "https://api.github.com/repos/flashbots/rbuilder/events",
-                    "assignees_url": "https://api.github.com/repos/flashbots/rbuilder/assignees{/user}",
-                    "branches_url": "https://api.github.com/repos/flashbots/rbuilder/branches{/branch}",
-                    "tags_url": "https://api.github.com/repos/flashbots/rbuilder/tags",
-                    "blobs_url": "https://api.github.com/repos/flashbots/rbuilder/git/blobs{/sha}",
-                    "git_tags_url": "https://api.github.com/repos/flashbots/rbuilder/git/tags{/sha}",
-                    "git_refs_url": "https://api.github.com/repos/flashbots/rbuilder/git/refs{/sha}",
-                    "trees_url": "https://api.github.com/repos/flashbots/rbuilder/git/trees{/sha}",
-                    "statuses_url": "https://api.github.com/repos/flashbots/rbuilder/statuses/{sha}",
-                    "languages_url": "https://api.github.com/repos/flashbots/rbuilder/languages",
-                    "stargazers_url": "https://api.github.com/repos/flashbots/rbuilder/stargazers",
-                    "contributors_url": "https://api.github.com/repos/flashbots/rbuilder/contributors",
-                    "subscribers_url": "https://api.github.com/repos/flashbots/rbuilder/subscribers",
-                    "subscription_url": "https://api.github.com/repos/flashbots/rbuilder/subscription",
-                    "commits_url": "https://api.github.com/repos/flashbots/rbuilder/commits{/sha}",
-                    "git_commits_url": "https://api.github.com/repos/flashbots/rbuilder/git/commits{/sha}",
-                    "comments_url": "https://api.github.com/repos/flashbots/rbuilder/comments{/number}",
-                    "issue_comment_url": "https://api.github.com/repos/flashbots/rbuilder/issues/comments{/number}",
-                    "contents_url": "https://api.github.com/repos/flashbots/rbuilder/contents/{+path}",
-                    "compare_url": "https://api.github.com/repos/flashbots/rbuilder/compare/{base}...{head}",
-                    "merges_url": "https://api.github.com/repos/flashbots/rbuilder/merges",
-                    "archive_url": "https://api.github.com/repos/flashbots/rbuilder/{archive_format}{/ref}",
-                    "downloads_url": "https://api.github.com/repos/flashbots/rbuilder/downloads",
-                    "issues_url": "https://api.github.com/repos/flashbots/rbuilder/issues{/number}",
-                    "pulls_url": "https://api.github.com/repos/flashbots/rbuilder/pulls{/number}",
-                    "milestones_url": "https://api.github.com/repos/flashbots/rbuilder/milestones{/number}",
-                    "notifications_url": "https://api.github.com/repos/flashbots/rbuilder/notifications{?since,all,participating}",
-                    "labels_url": "https://api.github.com/repos/flashbots/rbuilder/labels{/name}",
-                    "releases_url": "https://api.github.com/repos/flashbots/rbuilder/releases{/id}",
-                    "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
-                    "created_at": "2024-07-01T07:26:00Z",
-                    "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
-                    "git_url": "git://github.com/flashbots/rbuilder.git",
-                    "ssh_url": "git@github.com:flashbots/rbuilder.git",
-                    "clone_url": "https://github.com/flashbots/rbuilder.git",
-                    "svn_url": "https://github.com/flashbots/rbuilder",
-                    "homepage": "",
-                    "size": 16692,
-                    "stargazers_count": 360,
-                    "watchers_count": 360,
-                    "language": "Rust",
-                    "has_issues": true,
-                    "has_projects": true,
-                    "has_downloads": true,
-                    "has_wiki": true,
-                    "has_pages": false,
-                    "has_discussions": false,
-                    "forks_count": 106,
-                    "mirror_url": null,
-                    "archived": false,
-                    "disabled": false,
-                    "open_issues_count": 74,
-                    "license": {
-                        "key": "apache-2.0",
-                        "name": "Apache License 2.0",
-                        "spdx_id": "Apache-2.0",
-                        "url": "https://api.github.com/licenses/apache-2.0",
-                        "node_id": "MDc6TGljZW5zZTI="
-                    },
-                    "allow_forking": true,
-                    "is_template": false,
-                    "web_commit_signoff_required": false,
-                    "topics": [],
-                    "visibility": "public",
-                    "forks": 106,
-                    "open_issues": 74,
-                    "watchers": 360,
-                    "default_branch": "develop"
-                }
-            },
-            "base": {
-                "label": "flashbots:reth-1.2.0",
-                "ref": "reth-1.2.0",
-                "sha": "bb35cba599e9755e466e88b444d0d91b15411764",
-                "user": {
-                    "login": "flashbots",
-                    "id": 71380475,
-                    "node_id": "MDEyOk9yZ2FuaXphdGlvbjcxMzgwNDc1",
-                    "avatar_url": "https://avatars.githubusercontent.com/u/71380475?v=4",
-                    "gravatar_id": "",
-                    "url": "https://api.github.com/users/flashbots",
-                    "html_url": "https://github.com/flashbots",
-                    "followers_url": "https://api.github.com/users/flashbots/followers",
-                    "following_url": "https://api.github.com/users/flashbots/following{/other_user}",
-                    "gists_url": "https://api.github.com/users/flashbots/gists{/gist_id}",
-                    "starred_url": "https://api.github.com/users/flashbots/starred{/owner}{/repo}",
-                    "subscriptions_url": "https://api.github.com/users/flashbots/subscriptions",
-                    "organizations_url": "https://api.github.com/users/flashbots/orgs",
-                    "repos_url": "https://api.github.com/users/flashbots/repos",
-                    "events_url": "https://api.github.com/users/flashbots/events{/privacy}",
-                    "received_events_url": "https://api.github.com/users/flashbots/received_events",
-                    "type": "Organization",
-                    "user_view_type": "public",
-                    "site_admin": false
-                },
-                "repo": {
-                    "id": 822453964,
-                    "node_id": "R_kgDOMQWmzA",
-                    "name": "rbuilder",
-                    "full_name": "flashbots/rbuilder",
-                    "private": false,
-                    "owner": {
-                        "login": "flashbots",
-                        "id": 71380475,
-                        "node_id": "MDEyOk9yZ2FuaXphdGlvbjcxMzgwNDc1",
-                        "avatar_url": "https://avatars.githubusercontent.com/u/71380475?v=4",
-                        "gravatar_id": "",
-                        "url": "https://api.github.com/users/flashbots",
-                        "html_url": "https://github.com/flashbots",
-                        "followers_url": "https://api.github.com/users/flashbots/followers",
-                        "following_url": "https://api.github.com/users/flashbots/following{/other_user}",
-                        "gists_url": "https://api.github.com/users/flashbots/gists{/gist_id}",
-                        "starred_url": "https://api.github.com/users/flashbots/starred{/owner}{/repo}",
-                        "subscriptions_url": "https://api.github.com/users/flashbots/subscriptions",
-                        "organizations_url": "https://api.github.com/users/flashbots/orgs",
-                        "repos_url": "https://api.github.com/users/flashbots/repos",
-                        "events_url": "https://api.github.com/users/flashbots/events{/privacy}",
-                        "received_events_url": "https://api.github.com/users/flashbots/received_events",
-                        "type": "Organization",
-                        "user_view_type": "public",
-                        "site_admin": false
-                    },
-                    "html_url": "https://github.com/flashbots/rbuilder",
-                    "description": "rbuilder is a blazingly fast, state of the art Ethereum MEV-Boost block builder written in Rust",
-                    "fork": false,
-                    "url": "https://api.github.com/repos/flashbots/rbuilder",
-                    "forks_url": "https://api.github.com/repos/flashbots/rbuilder/forks",
-                    "keys_url": "https://api.github.com/repos/flashbots/rbuilder/keys{/key_id}",
-                    "collaborators_url": "https://api.github.com/repos/flashbots/rbuilder/collaborators{/collaborator}",
-                    "teams_url": "https://api.github.com/repos/flashbots/rbuilder/teams",
-                    "hooks_url": "https://api.github.com/repos/flashbots/rbuilder/hooks",
-                    "issue_events_url": "https://api.github.com/repos/flashbots/rbuilder/issues/events{/number}",
-                    "events_url": "https://api.github.com/repos/flashbots/rbuilder/events",
-                    "assignees_url": "https://api.github.com/repos/flashbots/rbuilder/assignees{/user}",
-                    "branches_url": "https://api.github.com/repos/flashbots/rbuilder/branches{/branch}",
-                    "tags_url": "https://api.github.com/repos/flashbots/rbuilder/tags",
-                    "blobs_url": "https://api.github.com/repos/flashbots/rbuilder/git/blobs{/sha}",
-                    "git_tags_url": "https://api.github.com/repos/flashbots/rbuilder/git/tags{/sha}",
-                    "git_refs_url": "https://api.github.com/repos/flashbots/rbuilder/git/refs{/sha}",
-                    "trees_url": "https://api.github.com/repos/flashbots/rbuilder/git/trees{/sha}",
-                    "statuses_url": "https://api.github.com/repos/flashbots/rbuilder/statuses/{sha}",
-                    "languages_url": "https://api.github.com/repos/flashbots/rbuilder/languages",
-                    "stargazers_url": "https://api.github.com/repos/flashbots/rbuilder/stargazers",
-                    "contributors_url": "https://api.github.com/repos/flashbots/rbuilder/contributors",
-                    "subscribers_url": "https://api.github.com/repos/flashbots/rbuilder/subscribers",
-                    "subscription_url": "https://api.github.com/repos/flashbots/rbuilder/subscription",
-                    "commits_url": "https://api.github.com/repos/flashbots/rbuilder/commits{/sha}",
-                    "git_commits_url": "https://api.github.com/repos/flashbots/rbuilder/git/commits{/sha}",
-                    "comments_url": "https://api.github.com/repos/flashbots/rbuilder/comments{/number}",
-                    "issue_comment_url": "https://api.github.com/repos/flashbots/rbuilder/issues/comments{/number}",
-                    "contents_url": "https://api.github.com/repos/flashbots/rbuilder/contents/{+path}",
-                    "compare_url": "https://api.github.com/repos/flashbots/rbuilder/compare/{base}...{head}",
-                    "merges_url": "https://api.github.com/repos/flashbots/rbuilder/merges",
-                    "archive_url": "https://api.github.com/repos/flashbots/rbuilder/{archive_format}{/ref}",
-                    "downloads_url": "https://api.github.com/repos/flashbots/rbuilder/downloads",
-                    "issues_url": "https://api.github.com/repos/flashbots/rbuilder/issues{/number}",
-                    "pulls_url": "https://api.github.com/repos/flashbots/rbuilder/pulls{/number}",
-                    "milestones_url": "https://api.github.com/repos/flashbots/rbuilder/milestones{/number}",
-                    "notifications_url": "https://api.github.com/repos/flashbots/rbuilder/notifications{?since,all,participating}",
-                    "labels_url": "https://api.github.com/repos/flashbots/rbuilder/labels{/name}",
-                    "releases_url": "https://api.github.com/repos/flashbots/rbuilder/releases{/id}",
-                    "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
-                    "created_at": "2024-07-01T07:26:00Z",
-                    "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
-                    "git_url": "git://github.com/flashbots/rbuilder.git",
-                    "ssh_url": "git@github.com:flashbots/rbuilder.git",
-                    "clone_url": "https://github.com/flashbots/rbuilder.git",
-                    "svn_url": "https://github.com/flashbots/rbuilder",
-                    "homepage": "",
-                    "size": 16692,
-                    "stargazers_count": 360,
-                    "watchers_count": 360,
-                    "language": "Rust",
-                    "has_issues": true,
-                    "has_projects": true,
-                    "has_downloads": true,
-                    "has_wiki": true,
-                    "has_pages": false,
-                    "has_discussions": false,
-                    "forks_count": 106,
-                    "mirror_url": null,
-                    "archived": false,
-                    "disabled": false,
-                    "open_issues_count": 74,
-                    "license": {
-                        "key": "apache-2.0",
-                        "name": "Apache License 2.0",
-                        "spdx_id": "Apache-2.0",
-                        "url": "https://api.github.com/licenses/apache-2.0",
-                        "node_id": "MDc6TGljZW5zZTI="
-                    },
-                    "allow_forking": true,
-                    "is_template": false,
-                    "web_commit_signoff_required": false,
-                    "topics": [],
-                    "visibility": "public",
-                    "forks": 106,
-                    "open_issues": 74,
-                    "watchers": 360,
-                    "default_branch": "develop"
-                }
-            },
-            "_links": {
-                "self": {
-                    "href": "https://api.github.com/repos/flashbots/rbuilder/pulls/435"
-                },
-                "html": {
-                    "href": "https://github.com/flashbots/rbuilder/pull/435"
-                },
-                "issue": {
-                    "href": "https://api.github.com/repos/flashbots/rbuilder/issues/435"
-                },
-                "comments": {
-                    "href": "https://api.github.com/repos/flashbots/rbuilder/issues/435/comments"
-                },
-                "review_comments": {
-                    "href": "https://api.github.com/repos/flashbots/rbuilder/pulls/435/comments"
-                },
-                "review_comment": {
-                    "href": "https://api.github.com/repos/flashbots/rbuilder/pulls/comments{/number}"
-                },
-                "commits": {
-                    "href": "https://api.github.com/repos/flashbots/rbuilder/pulls/435/commits"
-                },
-                "statuses": {
-                    "href": "https://api.github.com/repos/flashbots/rbuilder/statuses/0941b8c4e7657fdc253bea5503d9b49634f540c3"
-                }
-            },
-            "author_association": "MEMBER",
-            "auto_merge": null,
-            "active_lock_reason": null,
-            "days_open": 1
+            "days_open": 0,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/434",
@@ -1383,13 +973,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -1403,7 +993,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -1417,7 +1007,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -1516,13 +1106,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -1536,7 +1126,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -1550,7 +1140,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -1584,7 +1174,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 2
+            "days_open": 2,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/432",
@@ -1949,13 +1540,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -1969,7 +1560,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -1983,7 +1574,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -2017,7 +1608,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 2
+            "days_open": 2,
+            "time_to_first_response": 1
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/429",
@@ -2054,10 +1646,10 @@
             },
             "body": "## \ud83d\udcdd Summary\r\n\r\nLovely reth changes.\r\n\r\n## \ud83d\udca1 Motivation and Context\r\n\r\nPectra\r\n\r\n## \u2705 I have completed the following steps:\r\n\r\n* [X] Run `make lint`\r\n* [X] Run `make test`\r\n* [ ] Added tests (if applicable)\r\n",
             "created_at": "2025-02-13T18:48:05Z",
-            "updated_at": "2025-02-18T16:00:21Z",
+            "updated_at": "2025-02-20T02:07:02Z",
             "closed_at": null,
             "merged_at": null,
-            "merge_commit_sha": "a4b75acbbc702aea9d2f71a5da560fb61683895a",
+            "merge_commit_sha": "1f035709f7ebeb2840b388bbe78b909f42edfca7",
             "assignee": null,
             "assignees": [],
             "requested_reviewers": [
@@ -2112,11 +1704,11 @@
             "review_comments_url": "https://api.github.com/repos/flashbots/rbuilder/pulls/429/comments",
             "review_comment_url": "https://api.github.com/repos/flashbots/rbuilder/pulls/comments{/number}",
             "comments_url": "https://api.github.com/repos/flashbots/rbuilder/issues/429/comments",
-            "statuses_url": "https://api.github.com/repos/flashbots/rbuilder/statuses/bb35cba599e9755e466e88b444d0d91b15411764",
+            "statuses_url": "https://api.github.com/repos/flashbots/rbuilder/statuses/0e7bd51fc28adf578d5a2b72b112a797313c66c4",
             "head": {
                 "label": "flashbots:reth-1.2.0",
                 "ref": "reth-1.2.0",
-                "sha": "bb35cba599e9755e466e88b444d0d91b15411764",
+                "sha": "0e7bd51fc28adf578d5a2b72b112a797313c66c4",
                 "user": {
                     "login": "flashbots",
                     "id": 71380475,
@@ -2207,13 +1799,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -2227,7 +1819,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -2241,7 +1833,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -2340,13 +1932,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -2360,7 +1952,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -2374,7 +1966,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -2402,13 +1994,14 @@
                     "href": "https://api.github.com/repos/flashbots/rbuilder/pulls/429/commits"
                 },
                 "statuses": {
-                    "href": "https://api.github.com/repos/flashbots/rbuilder/statuses/bb35cba599e9755e466e88b444d0d91b15411764"
+                    "href": "https://api.github.com/repos/flashbots/rbuilder/statuses/0e7bd51fc28adf578d5a2b72b112a797313c66c4"
                 }
             },
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 6
+            "days_open": 6,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/387",
@@ -2688,13 +2281,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -2708,7 +2301,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -2722,7 +2315,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -2756,7 +2349,8 @@
             "author_association": "COLLABORATOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 21
+            "days_open": 21,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/315",
@@ -3121,13 +2715,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -3141,7 +2735,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -3155,7 +2749,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -3189,7 +2783,8 @@
             "author_association": "CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 59
+            "days_open": 59,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/284",
@@ -3358,13 +2953,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -3378,7 +2973,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -3392,7 +2987,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -3491,13 +3086,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -3511,7 +3106,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -3525,7 +3120,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -3559,7 +3154,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 68
+            "days_open": 69,
+            "time_to_first_response": 0
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/277",
@@ -3839,13 +3435,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -3859,7 +3455,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -3873,7 +3469,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -3907,7 +3503,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 70
+            "days_open": 70,
+            "time_to_first_response": 2
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/249",
@@ -4272,13 +3869,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -4292,7 +3889,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -4306,7 +3903,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -4340,7 +3937,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 96
+            "days_open": 96,
+            "time_to_first_response": 0
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/236",
@@ -4572,13 +4170,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -4592,7 +4190,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -4606,7 +4204,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -4705,13 +4303,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -4725,7 +4323,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -4739,7 +4337,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -4773,7 +4371,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 106
+            "days_open": 107,
+            "time_to_first_response": 0
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/231",
@@ -5117,13 +4716,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -5137,7 +4736,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -5151,7 +4750,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -5185,7 +4784,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 114
+            "days_open": 114,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/215",
@@ -5571,13 +5171,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -5591,7 +5191,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -5605,7 +5205,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -5639,7 +5239,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 128
+            "days_open": 128,
+            "time_to_first_response": 17
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/200",
@@ -5786,13 +5387,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -5806,7 +5407,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -5820,7 +5421,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -5919,13 +5520,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -5939,7 +5540,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -5953,7 +5554,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -5987,7 +5588,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 141
+            "days_open": 141,
+            "time_to_first_response": 0
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/195",
@@ -6267,13 +5869,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -6287,7 +5889,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -6301,7 +5903,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -6335,7 +5937,8 @@
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 144
+            "days_open": 144,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/144",
@@ -6577,13 +6180,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -6597,7 +6200,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -6611,7 +6214,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -6710,13 +6313,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -6730,7 +6333,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -6744,7 +6347,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -6778,7 +6381,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 178
+            "days_open": 178,
+            "time_to_first_response": 0
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/83",
@@ -6996,13 +6600,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -7016,7 +6620,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -7030,7 +6634,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -7129,13 +6733,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -7149,7 +6753,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -7163,7 +6767,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -7197,7 +6801,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 210
+            "days_open": 210,
+            "time_to_first_response": 0
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/56",
@@ -7429,13 +7034,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -7449,7 +7054,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -7463,7 +7068,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -7562,13 +7167,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -7582,7 +7187,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -7596,7 +7201,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -7630,7 +7235,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 221
+            "days_open": 221,
+            "time_to_first_response": 0
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/54",
@@ -7841,13 +7447,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -7861,7 +7467,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -7875,7 +7481,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -7974,13 +7580,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -7994,7 +7600,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -8008,7 +7614,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -8042,7 +7648,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 221
+            "days_open": 221,
+            "time_to_first_response": 0
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/8",
@@ -8189,13 +7796,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -8209,7 +7816,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -8223,7 +7830,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -8322,13 +7929,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -8342,7 +7949,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -8356,7 +7963,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -8390,7 +7997,8 @@
             "author_association": "MEMBER",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 231
+            "days_open": 231,
+            "time_to_first_response": 0
         }
     ],
     "opened_issues": [
@@ -8459,7 +8067,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rbuilder/issues/438/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/issues/428",
@@ -8536,7 +8145,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rbuilder/issues/428/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": 0
         }
     ],
     "closed_prs": [
@@ -8749,13 +8359,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -8769,7 +8379,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -8783,7 +8393,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -8882,13 +8492,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -8902,7 +8512,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -8916,7 +8526,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -8949,7 +8559,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/431",
@@ -9293,13 +8904,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -9313,7 +8924,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -9327,7 +8938,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -9360,7 +8971,8 @@
             },
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/430",
@@ -9529,13 +9141,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -9549,7 +9161,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -9563,7 +9175,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -9662,13 +9274,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -9682,7 +9294,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -9696,7 +9308,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -9729,7 +9341,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/419",
@@ -10115,13 +9728,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -10135,7 +9748,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -10149,7 +9762,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -10182,7 +9795,8 @@
             },
             "author_association": "FIRST_TIME_CONTRIBUTOR",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/pulls/405",
@@ -10393,13 +10007,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -10413,7 +10027,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -10427,7 +10041,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -10526,13 +10140,13 @@
                     "deployments_url": "https://api.github.com/repos/flashbots/rbuilder/deployments",
                     "created_at": "2024-07-01T07:26:00Z",
                     "updated_at": "2025-02-17T17:16:57Z",
-                    "pushed_at": "2025-02-19T12:13:55Z",
+                    "pushed_at": "2025-02-20T02:07:02Z",
                     "git_url": "git://github.com/flashbots/rbuilder.git",
                     "ssh_url": "git@github.com:flashbots/rbuilder.git",
                     "clone_url": "https://github.com/flashbots/rbuilder.git",
                     "svn_url": "https://github.com/flashbots/rbuilder",
                     "homepage": "",
-                    "size": 16692,
+                    "size": 16693,
                     "stargazers_count": 360,
                     "watchers_count": 360,
                     "language": "Rust",
@@ -10546,7 +10160,7 @@
                     "mirror_url": null,
                     "archived": false,
                     "disabled": false,
-                    "open_issues_count": 74,
+                    "open_issues_count": 73,
                     "license": {
                         "key": "apache-2.0",
                         "name": "Apache License 2.0",
@@ -10560,7 +10174,7 @@
                     "topics": [],
                     "visibility": "public",
                     "forks": 106,
-                    "open_issues": 74,
+                    "open_issues": 73,
                     "watchers": 360,
                     "default_branch": "develop"
                 }
@@ -10593,7 +10207,8 @@
             },
             "author_association": "MEMBER",
             "auto_merge": null,
-            "active_lock_reason": null
+            "active_lock_reason": null,
+            "time_to_first_response": 0
         }
     ],
     "closed_issues": [
@@ -10690,7 +10305,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rbuilder/issues/433/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/issues/431",
@@ -10785,7 +10401,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rbuilder/issues/431/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/issues/430",
@@ -10880,7 +10497,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rbuilder/issues/430/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/issues/419",
@@ -10975,7 +10593,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rbuilder/issues/419/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": null
         },
         {
             "url": "https://api.github.com/repos/flashbots/rbuilder/issues/405",
@@ -11070,7 +10689,8 @@
             },
             "timeline_url": "https://api.github.com/repos/flashbots/rbuilder/issues/405/timeline",
             "performed_via_github_app": null,
-            "state_reason": null
+            "state_reason": null,
+            "time_to_first_response": 0
         }
     ],
     "aggregated_stats": {
@@ -11080,13 +10700,6 @@
             "issues_opened": 1,
             "issues_closed": 1,
             "contributors": 2
-        },
-        "2025-02-18": {
-            "prs_opened": 1,
-            "prs_closed": 0,
-            "issues_opened": 0,
-            "issues_closed": 0,
-            "contributors": 1
         },
         "2025-02-17": {
             "prs_opened": 2,
@@ -11209,10 +10822,10 @@
         }
     },
     "wartime_milady_ceo_summary": [
-        "- **Enhanced Docker and Build Configuration**: Merged PR #433 fixed Docker ARGs and set 'rbuilder' as the default target for building, while PR #419 added 'op-rbuilder' to the CI Docker build process, improving the development and deployment workflow.",
-        "- **New Witness Calculation and Configuration Updates**: PR #431 introduced a new witness calculation algorithm and updated the DA configuration, including reserving space for builder transactions in block DA size. This addresses potential execution issues when `da_config.max_da_tx_size` is too small.",
-        "- **Improved Payload Parsing and Graceful Shutdown**: PR #405 improved the parsing of `eth_sendBundle` payloads to handle object formats, preventing errors with specific clients. Additionally, Issue",
-        "Overall: 5 PRs closed, 17 contributors."
+        "- **Docker and Build Improvements**: PR #433 focused on fixing Docker ARGs and ensuring `rbuilder` is built by default, while PR #419 integrated `op-rbuilder` into the CI Docker build, enhancing the build process and deployment consistency.",
+        "- **Witness Calculation and Configuration Enhancements**: PR #431 introduced a new witness calculation algorithm and updated Data Availability (DA) configuration, reserving space for builder transactions in `block_da_size`. This aims to prevent execution panics due to insufficient `da_config.max_da_tx_size`.",
+        "- **Open Issues on Shutdown and Task Management**: Issue #438 seeks to improve the graceful shutdown process for `op-rbuilder`, ensuring proper connection handling during block building. Issue #428 discusses the",
+        "Overall: 5 PRs closed, 16 contributors."
     ],
     "spec_links": [
         "https://github.com/alloy-rs)),"

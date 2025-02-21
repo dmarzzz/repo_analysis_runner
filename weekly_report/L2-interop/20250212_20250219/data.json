@@ -1,6 +1,6 @@
 {
-    "start_date": "2025-02-12T20:35:33.611823",
-    "end_date": "2025-02-19T20:35:33.611823",
+    "start_date": "2025-02-12T23:12:11.487173",
+    "end_date": "2025-02-19T23:12:11.487173",
     "opened_prs": [
         {
             "url": "https://api.github.com/repos/ethereum/L2-interop/pulls/26",
@@ -672,7 +672,7 @@
             "author_association": "COLLABORATOR",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 0
+            "days_open": 1
         },
         {
             "url": "https://api.github.com/repos/ethereum/L2-interop/pulls/24",
@@ -1344,7 +1344,7 @@
             "author_association": "NONE",
             "auto_merge": null,
             "active_lock_reason": null,
-            "days_open": 2
+            "days_open": 3
         },
         {
             "url": "https://api.github.com/repos/ethereum/L2-interop/pulls/15",
@@ -3297,9 +3297,9 @@
         }
     },
     "wartime_milady_ceo_summary": [
-        "- **Chain-Specific Addresses Initiative:** The project to develop an ERC for chain-specific addresses is underway, focusing on gathering and comparing current efforts (#19), digesting findings and community feedback (#20), creating user stories based on insights (#21), and drafting (#22) and finalizing the ERC after iterative reviews (#23). This comprehensive process aims to enhance interoperability by consolidating existing efforts and ensuring community consensus.",
-        "- **Community Engagement and Feedback:** A significant emphasis is placed on community involvement, with objectives outlined to ensure feedback is documented and reflected in the user stories and draft ERC. The process includes organizing review sessions and maintaining transparent documentation in the repository.",
-        "- **Nomenclature Documentation:** An issue (#17) has been opened to add a Nomen",
+        "- **Chain-Specific Addresses Initiative**: Several open issues (#18 to #23) are focused on developing an ERC for chain-specific addresses, emphasizing the need for interoperability. This includes gathering current efforts, digesting community feedback, and drafting and finalizing the ERC through iterative reviews.",
+        "- **Community Engagement and Feedback**: A structured process is outlined to ensure community feedback is integrated into the development of the ERC for chain-specific addresses. This involves organizing review sessions, documenting insights, and creating user stories that reflect community input.",
+        "- **Documentation and Transparency**: The initiative stresses the importance of maintaining comprehensive documentation and transparency throughout the process. This includes using standard templates, maintaining repository documentation, and ensuring regular updates and clear communication with the community.",
         "Overall: 0 PRs closed, 6 contributors."
     ],
     "spec_links": []
