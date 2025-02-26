@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+    <title>ethereum-optimism/optimism - Weekly Report: Feb 17 - 24, 2025</title>
+            <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+            <style>
+        :root {
+            --repo-color: #4CAF50;
+            --glow-color: #ff173033; /* average color + alpha */
+        }
+                body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background: 
+                linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.02) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.02) 75%);
+                    background-size: 20px 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: 'VT323', monospace;
+        }
+        .scoreboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .repo-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .repo-info h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #333;
+        }
+        .stats-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--repo-color);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 30px;
+                    position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: inset 0 0 20px var(--glow-color);
+        }
+        .stats-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--repo-color), transparent);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        .stat-group {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        .stat-group:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 70%;
+            background: var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .stat-label {
+            font-size: 1.2em;
+            color: #888;
+            margin-right: 10px;
+        }
+        .stat-value {
+            font-size: 2.5em;
+            color: var(--repo-color);
+            text-shadow: 0 0 10px var(--glow-color);
+            font-weight: bold;
+            min-width: 80px;
+            text-align: right;
+        }
+        .graph-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .graph-container h2 {
+            margin-top: 0;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+        .chart-wrapper {
+            width: 100%;
+            height: 300px;
+        }
+        .summary-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .summary-section h2 {
+            color: var(--repo-color);
+            margin-top: 0;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+        .pr-tables {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .pr-table {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            border: 1px solid var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .pr-table h3 {
+            margin-top: 0;
+            color: var(--repo-color);
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                th, td {
+            padding: 10px;
+                    text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th {
+            color: #4CAF50;
+            font-size: 1.1em;
+        }
+        td {
+            vertical-align: top;
+            color: #333;
+        }
+        
+        p {
+            color: #333;
+        }
+        
+        /* White color scheme version */
+        .white-theme {
+            background-color: #ffffff;
+            color: #333;
+            border: 1px solid var(--glow-color);
+            border-radius: 15px;
+            box-shadow: 0 6px 12px var(--glow-color);
+            margin-bottom: 24px;
+            padding: 24px;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .white-theme:hover {
+            box-shadow: 0 8px 16px var(--glow-color);
+        }
+        
+        .white-theme h2, .white-theme h3 {
+            color: #333;
+            text-shadow: none;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 12px;
+            font-size: 1.4em;
+        }
+        
+        .white-stats-display {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid var(--glow-color);
+            box-shadow: 0 6px 12px var(--glow-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .white-stat-group {
+            text-align: center;
+            padding: 0 15px;
+            position: relative;
+        }
+        
+        .white-stat-group:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 70%;
+            background: #eaeaea;
+        }
+        
+        .white-stat-label {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .white-stat-value {
+            font-size: 2.2em;
+            color: var(--repo-color);
+            font-weight: bold;
+        }
+        
+        /* Style table inside white-theme */
+        .white-theme table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .white-theme th, .white-theme td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .white-theme th {
+            color: var(--repo-color);
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .white-theme td {
+            vertical-align: middle;
+        }
+        
+        .white-theme tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        /* Chart styling */
+        .white-theme .chart-wrapper {
+            width: 100%;
+            height: 300px;
+            padding: 20px 0;
+            margin: 0 auto;
+        }
+        
+        /* Breadcrumb navigation */
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb a {
+            color: var(--repo-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 8px;
+            color: #999;
+        }
+        
+        .breadcrumb svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        <a href="../../../../index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+        </a>
+        <span class="separator">/</span>
+        <span>ethereum-optimism</span>
+        <span class="separator">/</span>
+        <span>optimism</span>
+    </div>
+    <div class="scoreboard">
+        <div class="header">
+            <img src="https://github.com/ethereum-optimism.png" alt="ethereum-optimism logo" class="repo-logo">
+            <div class="repo-info">
+                <h1>ethereum-optimism/optimism - Weekly Report</h1>
+                <p>Last updated: 2025-02-24 23:59:14</p>
+            </div>
+        </div>
+
+        <!-- Stats Display -->
+        <div class="white-stats-display">
+            <div class="white-stat-group">
+                <div class="white-stat-label">OPEN PRS</div>
+                <div class="white-stat-value">30</div>
+            </div>
+            <div class="white-stat-group">
+                <div class="white-stat-label">CLOSED PRS</div>
+                <div class="white-stat-value">29</div>
+            </div>
+            <div class="white-stat-group">
+                <div class="white-stat-label">AVG RESPONSE</div>
+                <div class="white-stat-value">2.8h</div>
+            </div>
+            <div class="white-stat-group">
+                <div class="white-stat-label">AVG LIFETIME</div>
+                <div class="white-stat-value">13.8h</div>
+            </div>
+        </div>
+
+        <!-- Weekly Activity Graph -->
+        <div class="white-theme">
+            <h2>Weekly Activity</h2>
+            <div class="chart-wrapper">
+                <canvas id="weeklyGraph"></canvas>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="white-theme">
+            <h2>Summary</h2>
+            <p>- **Significant PR Merges**: <br>  - PR #14483 increased the `sanityEventLimit` 10x to address event queuing issues in `op-node`, preventing system breakdowns during high-volume unsafe payload events.<br>  - PR #14491 refactored the `op-service` RPC server, allowing for multiple RPC routes and improved customization, enhancing the flexibility and efficiency of RPC handling.<br>Overall: 29 PRs closed, 23 contributors.</p>
+        </div>
+
+        <!-- 4 Tables: PRs / Issues (Open / Closed) -->
+        <div class="pr-tables">
+
+            <!-- OPEN PRS -->
+            <div class="white-theme">
+                <h3>Open PRs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Age</th>
+                            <th>Comments</th>
+                            <th>Reviews</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td>Feb 25</td>
+                            <td>op-challenger: Avoid loading duplicate leaves in same block</td>
+                            <td>@ajsutton</td>
+                            <td>-1d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 25</td>
+                            <td>fix(devnet-sdk): Unique sentinels for devnet-sdk</td>
+                            <td>@janjakubnanista</td>
+                            <td>-1d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>fix(devnet-sdk): fix colliding sentinels</td>
+                            <td>@sigma</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>dependabot(gomod): bump golang.org/x/crypto from 0.32.0 to 0.35.0</td>
+                            <td>@dependabot[bot]</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>dependabot(gomod): bump github.com/google/go-cmp from 0.6.0 to 0.7.0</td>
+                            <td>@dependabot[bot]</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>feat: do not alias 7702 addresses</td>
+                            <td>@smartcontracts</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>DRAFT: Update withdrawals root devnet-sdk test</td>
+                            <td>@teddyknox</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>vm-runner: Add metrics to track vm panics</td>
+                            <td>@mbaxter</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>Minor test to check versioning on sub-branches</td>
+                            <td>@alcueca</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>op-test-sequencer: structure sub-responsibilities</td>
+                            <td>@protolambda</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>all: update op-geth to v1.101500.1</td>
+                            <td>@sebastianst</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>Add updated MT Cannon Spearbit audit</td>
+                            <td>@pauldowman</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>feat(op-program-svc): introduce new service to compute prestates</td>
+                            <td>@sigma</td>
+                            <td>3d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-service: make signer client compatible with SetCodeTx type</td>
+                            <td>@bitwiseguy</td>
+                            <td>3d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>feat: op-deployer cleanupAfterExit, unit tests cleanup and clean cache subcmd</td>
+                            <td>@yashvardhan-kukreja</td>
+                            <td>3d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>dependabot(gomod): bump github.com/lmittmann/w3 from 0.17.8 to 0.18.0</td>
+                            <td>@dependabot[bot]</td>
+                            <td>3d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>PLEASE IGNORE - Example of adding a variable to SystemConfig</td>
+                            <td>@alcueca</td>
+                            <td>3d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>69h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>add issue_events_trigger</td>
+                            <td>@raffaele-oplabs</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>fix: update latest prestate</td>
+                            <td>@emilianobonassi</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>dependabot(gomod): bump github.com/minio/minio-go/v7 from 7.0.85 to 7.0.87</td>
+                            <td>@dependabot[bot]</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>dependabot(gomod): bump github.com/decred/dcrd/dcrec/secp256k1/v4 from 4.3.0 to 4.4.0</td>
+                            <td>@dependabot[bot]</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>dependabot(gomod): bump github.com/ipfs/go-datastore from 0.6.0 to 0.7.0</td>
+                            <td>@dependabot[bot]</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>op-supervisor: Check message expiry</td>
+                            <td>@Inphi</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>Match OPCM version with monorepo release version</td>
+                            <td>@alcueca</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>cannon: Implement `dclo|dclz`</td>
+                            <td>@pcw109550</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>8h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>[WIP] interop: Recursive hazard detection</td>
+                            <td>@tyler-smith</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>chore: Update drippie config files with actual config from runbook</td>
+                            <td>@pauldowman</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 19</td>
+                            <td>op-supervisor: independent reset preparation</td>
+                            <td>@axelKingsley</td>
+                            <td>5d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 19</td>
+                            <td>feat: remove freeze from L1 and dispute contracts</td>
+                            <td>@maurelian</td>
+                            <td>5d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 19</td>
+                            <td>dependabot(gomod): bump github.com/klauspost/compress from 1.17.11 to 1.18.0</td>
+                            <td>@dependabot[bot]</td>
+                            <td>5d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RECENTLY CLOSED PRS -->
+            <div class="white-theme">
+                <h3>Recently Closed PRs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Duration</th>
+                            <th>Comments</th>
+                            <th>Reviews</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>chore: Add all predeployed addresses to devnet-sdk</td>
+                            <td>@janjakubnanista</td>
+                            <td>1h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>fix: increase test-upgrade --rerun verbosity</td>
+                            <td>@blmalone</td>
+                            <td>6h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>ctb/op-deployer: Simplify superchain config/protocol versions validations</td>
+                            <td>@mslipper</td>
+                            <td>15h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 23</td>
+                            <td>docs: fix typo in "workflows"</td>
+                            <td>@0xsimka</td>
+                            <td>1d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>30h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 23</td>
+                            <td>devnet-sdk: add name to descriptors.DevnetEnvironment struct</td>
+                            <td>@bitwiseguy</td>
+                            <td>1d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-service: RPC server wraps http-util server now, and factor out RPC handler</td>
+                            <td>@protolambda</td>
+                            <td>1h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-program: Add unichain mainnet to releases.json</td>
+                            <td>@Inphi</td>
+                            <td>4h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>go: Update op-geth to include latest SR 68ebaf81202ee7e21638232c54404074a49a63f6</td>
+                            <td>@sebastianst</td>
+                            <td>1h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>events: Increase Maximum Queue Size 10x</td>
+                            <td>@axelKingsley</td>
+                            <td>2h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-deployer: Add doc describing bootstrap limitation</td>
+                            <td>@mslipper</td>
+                            <td>11h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-signer, op-node: fix block signer utils</td>
+                            <td>@protolambda</td>
+                            <td>17h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>ctb: Add clone-opcm script</td>
+                            <td>@mslipper</td>
+                            <td>8h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>test(devnet-sdk): check file URLs work as intended</td>
+                            <td>@sigma</td>
+                            <td>11h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-service: cleanup rw map utils</td>
+                            <td>@protolambda</td>
+                            <td>1d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>25h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>feat(devnet-sdk): isolate low-level interfaces</td>
+                            <td>@sigma</td>
+                            <td>2h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>fix: Fix docker build in scheduled-docker-publish workflow</td>
+                            <td>@janjakubnanista</td>
+                            <td>2h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>fix(kurtosis-devnet): restore TestSmokeTestFailure</td>
+                            <td>@sigma</td>
+                            <td>20h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>test(kurtosis-devnet): add isthmus devnet</td>
+                            <td>@sigma</td>
+                            <td>4h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>chore(devnet-sdk): move kurtosis artifact fs to devnet-sdk</td>
+                            <td>@sigma</td>
+                            <td>8h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-batcher: improve active-seq-changed signalling setup</td>
+                            <td>@sebastianst</td>
+                            <td>0h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-challenger: Update fault dispute game contracts to be backwards compatible</td>
+                            <td>@ajsutton</td>
+                            <td>22h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-e2e: Refactor GeneratedTransaction to avoid tests needing to calculate identifiers and payloads.</td>
+                            <td>@ajsutton</td>
+                            <td>1d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>feat(devnet-sdk): Add kurtosis data fetcher for externally deployed enclaves</td>
+                            <td>@janjakubnanista</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>op-program: Consolidate cascading block replacements</td>
+                            <td>@Inphi</td>
+                            <td>0h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 19</td>
+                            <td>fix(ci): also clean new files</td>
+                            <td>@smartcontracts</td>
+                            <td>1h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>doc: add books for devnet-sdk and kurtosis-devnet</td>
+                            <td>@sigma</td>
+                            <td>1d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 19</td>
+                            <td>interop: op-supervisor debugging notes</td>
+                            <td>@protolambda</td>
+                            <td>1h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 19</td>
+                            <td>test: just seeing if ci works</td>
+                            <td>@smartcontracts</td>
+                            <td>1h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 19</td>
+                            <td>full freeze of u13 affected contracts until release</td>
+                            <td>@maurelian</td>
+                            <td>1h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- OPEN ISSUES -->
+            <div class="white-theme">
+                <h3>Open Issues</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Age</th>
+                            <th>Comments</th>
+                            <th>Priority</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td>Feb 25</td>
+                            <td>op-batcher doesn't take into account pectra gas floor when posting calldata</td>
+                            <td>@0xalex88</td>
+                            <td>-1d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>contracts: Fix the SuperFaultDisputeGame version</td>
+                            <td>@Inphi</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>op-challenger: Handle SuperFaultDisputeGames explicitly</td>
+                            <td>@Inphi</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 24</td>
+                            <td>op-node: use block signing V2 endpoint</td>
+                            <td>@protolambda</td>
+                            <td>0d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 22</td>
+                            <td>op-batcher: does not shutdown gracefully</td>
+                            <td>@geoknee</td>
+                            <td>2d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>Request to Enable Support for eth_simulateV1</td>
+                            <td>@VladLypovyi</td>
+                            <td>3d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>2h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-supervisor: rate limit event emissions to op-node</td>
+                            <td>@axelKingsley</td>
+                            <td>3d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>op-e2e: Additional interop action tests</td>
+                            <td>@ajsutton</td>
+                            <td>3d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>op-e2e: Add tests for super-cannon games</td>
+                            <td>@ajsutton</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 20</td>
+                            <td>Add devnet-sdk build logic to handle generation of relevant solidity bindings</td>
+                            <td>@teddyknox</td>
+                            <td>4d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RECENTLY CLOSED ISSUES -->
+            <div class="white-theme">
+                <h3>Recently Closed Issues</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Duration</th>
+                            <th>Comments</th>
+                            <th>Resolution</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td>Feb 21</td>
+                            <td>Smart contracts style guide: Document use of interfaces</td>
+                            <td>@alcueca</td>
+                            <td>3h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+            <div class="white-theme">
+                <h3>Associated Specifications</h3>
+                <ul>
+            <li><a href="https://github.com/ethereum-optimism/infra/pull/203" target="_blank">https://github.com/ethereum-optimism/infra/pull/203</a></li><li><a href="https://app.circleci.com/jobs/github/ethereum-optimism/superchain-ops/44380" target="_blank">https://app.circleci.com/jobs/github/ethereum-optimism/superchain-ops/44380</a></li><li><a href="https://app.circleci.com/pipelines/github/ethereum-optimism/optimism/81724/workflows/6f2c0774-fff1-4384-b447-aa58e4a3fb94" target="_blank">https://app.circleci.com/pipelines/github/ethereum-optimism/optimism/81724/workflows/6f2c0774-fff1-4384-b447-aa58e4a3fb94</a></li><li><a href="https://github.com/user-attachments/assets/1b99d3bc-1908-499e-b9b0-04d27eee5ef7)" target="_blank">https://github.com/user-attachments/assets/1b99d3bc-1908-499e-b9b0-04d27eee5ef7)</a></li><li><a href="https://app.circleci.com/pipelines/github/ethereum-optimism/optimism/81848/workflows/1f7ffa9e-181e-4c02-b824-fa31ac4d4048" target="_blank">https://app.circleci.com/pipelines/github/ethereum-optimism/optimism/81848/workflows/1f7ffa9e-181e-4c02-b824-fa31ac4d4048</a></li><li><a href="https://discord.com/channels/1244729134312198194/1341296366944784385/1341614013427093564)," target="_blank">https://discord.com/channels/1244729134312198194/1341296366944784385/1341614013427093564),</a></li><li><a href="https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-bedrock/meta/STYLE_GUIDE.md)." target="_blank">https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-bedrock/meta/STYLE_GUIDE.md).</a></li><li><a href="https://github.com/ethereum-optimism/.github/blob/master/CONTRIBUTING.md" target="_blank">https://github.com/ethereum-optimism/.github/blob/master/CONTRIBUTING.md</a></li>
+                </ul>
+            </div>
+            
+    </div><!-- /scoreboard -->
+
+    <!-- Chart.js for the Weekly Activity chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+        const ctx = document.getElementById('weeklyGraph').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+                    data: {
+                labels: ['02/19', '02/20', '02/21', '02/22', '02/23', '02/24', '02/25'],
+                        datasets: [
+                            {
+                                label: 'PRs Closed',
+                                data: [4, 6, 13, 0, 2, 4, 0],
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: 'Issues Closed',
+                                data: [0, 0, 1, 0, 0, 0, 0],
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: 'Contributors',
+                                data: [5, 10, 11, 0, 2, 12, 2],
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            }
+                        ]
+                    },
+                    options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    boxWidth: 15,
+                                    padding: 15,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                                padding: 10,
+                                cornerRadius: 4,
+                                titleFont: {
+                                    size: 14
+                                },
+                                bodyFont: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart'
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.05)'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        </body>
+        </html>
