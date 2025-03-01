@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+    <title>elizaOS/eliza - Weekly Report: Feb 22 - Mar 01, 2025</title>
+            <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+            <style>
+        :root {
+            --repo-color: #4CAF50;
+            --glow-color: #45343f33; /* average color + alpha */
+        }
+                body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background: 
+                linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.02) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.02) 75%);
+                    background-size: 20px 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: 'VT323', monospace;
+        }
+        .scoreboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid var(--glow-color);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 6px 20px var(--glow-color);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .repo-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .repo-info h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #333;
+        }
+        .stats-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--repo-color);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 30px;
+                    position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: inset 0 0 20px var(--glow-color);
+        }
+        .stats-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--repo-color), transparent);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        .stat-group {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        .stat-group:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 70%;
+            background: var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .stat-label {
+            font-size: 1.2em;
+            color: #888;
+            margin-right: 10px;
+        }
+        .stat-value {
+            font-size: 2.5em;
+            color: var(--repo-color);
+            text-shadow: 0 0 10px var(--glow-color);
+            font-weight: bold;
+            min-width: 80px;
+            text-align: right;
+        }
+        .graph-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .graph-container h2 {
+            margin-top: 0;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+        .chart-wrapper {
+            width: 100%;
+            height: 300px;
+        }
+        .summary-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .summary-section h2 {
+            color: var(--repo-color);
+            margin-top: 0;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+        .pr-tables {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .pr-table {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            border: 1px solid var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .pr-table h3 {
+            margin-top: 0;
+            color: var(--repo-color);
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+                table {
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0;
+                }
+                th, td {
+            padding: 14px 12px;
+                    text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th {
+            color: #4CAF50;
+            font-size: 1.1em;
+        }
+        td {
+            vertical-align: top;
+            color: #333;
+        }
+        
+        p {
+            color: #333;
+        }
+        
+        /* White color scheme version */
+        .white-theme {
+            background-color: #ffffff;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+            padding: 24px;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .white-theme:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .white-theme h2, .white-theme h3 {
+            color: #333;
+            text-shadow: none;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 12px;
+            font-size: 1.4em;
+        }
+        
+        .white-stats-display {
+            display: flex;
+            justify-content: space-around;
+            background-color: #fff;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0) 100%);
+            border-radius: 15px;
+            padding: 25px 15px;
+            margin-bottom: 30px;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), inset 0 1px 3px rgba(255, 255, 255, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .white-stats-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        
+        .white-stat-group {
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            min-width: 18%;
+        }
+        
+        .white-stat-group:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 70%;
+            background: linear-gradient(to bottom, transparent, #e0e0e0, transparent);
+        }
+        
+        .white-stat-label {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+        }
+        
+        .white-stat-value {
+            font-size: 2.6em;
+            color: var(--repo-color);
+            font-weight: bold;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1), 0 0 10px rgba(76, 175, 80, 0.2);
+            position: relative;
+            display: inline-block;
+            padding: 0 5px;
+            transition: transform 0.2s, text-shadow 0.2s;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        
+        .white-stat-value:hover {
+            animation: pulse 1s infinite ease-in-out;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.15), 0 0 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        /* Style table inside white-theme */
+        .white-theme table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .white-theme th, .white-theme td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eaeaea;
+            position: relative;
+        }
+        
+        .white-theme th {
+            color: var(--repo-color);
+            font-size: 1.1em;
+            font-weight: 500;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-bottom: 2px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .white-theme td {
+            vertical-align: middle;
+        }
+        
+        .white-theme tbody tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.01);
+        }
+        
+        .white-theme tbody tr:hover {
+            background-color: rgba(76, 175, 80, 0.05);
+        }
+        
+        /* Create column effect */
+        .white-theme th:not(:last-child), 
+        .white-theme td:not(:last-child) {
+            border-right: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        /* First column styling */
+        .white-theme th:first-child,
+        .white-theme td:first-child {
+            border-left: 3px solid transparent;
+        }
+        
+        .white-theme tbody tr:hover td:first-child {
+            border-left: 3px solid var(--repo-color);
+        }
+        
+        /* User avatar and name styling */
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .user-name {
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        /* Link styling */
+        .white-theme a {
+            text-decoration: none;
+            color: var(--repo-color);
+            transition: color 0.2s, text-decoration 0.2s;
+        }
+        
+        .white-theme a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Keep user name links in their assigned colors */
+        .white-theme a.user-name {
+            text-decoration: none;
+        }
+        
+        .white-theme a.user-name:hover {
+            text-decoration: underline;
+        }
+        
+        /* Chart styling */
+        .white-theme .chart-wrapper {
+            width: 100%;
+            height: 300px;
+            padding: 20px 0;
+            margin: 0 auto;
+        }
+        
+        /* Breadcrumb navigation */
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb a {
+            color: var(--repo-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 8px;
+            color: #999;
+        }
+        
+        .breadcrumb svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scoreboard">
+        <div class="breadcrumb">
+            <a href="../../../index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Home
+            </a>
+            <span class="separator">/</span>
+            <span>elizaOS</span>
+            <span class="separator">/</span>
+            <span>eliza</span>
+        </div>
+        <div class="header">
+            <img src="https://github.com/elizaOS.png" alt="elizaOS logo" class="repo-logo">
+            <div class="repo-info">
+                <h1>elizaOS/eliza - Weekly Report</h1>
+                <p>Last updated: 2025-03-01 16:26:28</p>
+            </div>
+        </div>
+
+        <!-- Stats Display -->
+        <div class="white-stats-display">
+            <div class="white-stat-group">
+                <div class="white-stat-label">OPEN PRS</div>
+                <div class="white-stat-value">30</div>
+            </div>
+            <div class="white-stat-group">
+                <div class="white-stat-label">CLOSED PRS</div>
+                <div class="white-stat-value">25</div>
+            </div>
+            <div class="white-stat-group">
+                <div class="white-stat-label">AVG RESPONSE</div>
+                <div class="white-stat-value">0.9h</div>
+            </div>
+            <div class="white-stat-group">
+                <div class="white-stat-label">AVG LIFETIME</div>
+                <div class="white-stat-value">6.2h</div>
+            </div>
+        </div>
+
+        <!-- Weekly Activity Graph -->
+        <div class="white-theme">
+            <h2>Weekly Activity</h2>
+            <div class="chart-wrapper">
+                <canvas id="weeklyGraph"></canvas>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="white-theme">
+            <h2>Summary</h2>
+            <ul class="summary-list">
+                <li><strong>Summary:</strong> Here is a summary of the recent developments in the ElizaOS GitHub repository:</li>
+<li>**Summary of the Week's Activity:** This week in the ElizaOS repository was characterized by a mix of feature additions, bug fixes, and enhancements. Notably, there was a focus on improving memory management, enhancing the GUI, and refining plugin handling. The tone of the pull requests (PRs) indicates a balanced effort between introducing new functionalities and addressing existing issues, with an emphasis on system robustness and user experience improvements.</li>
+<li>**PR #3725 - Feature Addition: Rolodex and Entity Components:**</li>
+<li>This PR introduced a significant feature by adding a "rolodex" system, where entities now have components that allow the addition of new</li>
+<li>Overall: 25 PRs closed, 35 contributors.</li>
+            </ul>
+        </div>
+
+        <!-- 4 Tables: PRs / Issues (Open / Closed) -->
+        <div class="pr-tables">
+
+            <!-- OPEN PRS -->
+            <div class="white-theme">
+                <h3>Open PRs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Age</th>
+                            <th>Comments</th>
+                            <th>Reviews</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3734" target="_blank">update agent endpoints</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/82053242?v=4" alt="wtfsayo" class="user-avatar">
+                                    <a href="https://github.com/wtfsayo" target="_blank" class="user-name" style="color: #00ffff">@wtfsayo</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">-1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3732" target="_blank">fix docker image for ci/cd setup</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/64296537?v=4" alt="HashWarlock" class="user-avatar">
+                                    <a href="https://github.com/HashWarlock" target="_blank" class="user-name" style="color: #ff00ff">@HashWarlock</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">9h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3731" target="_blank">feat: client ui- Support agent configuration with plugins and environment variable</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/60634884?v=4" alt="tcm390" class="user-avatar">
+                                    <a href="https://github.com/tcm390" target="_blank" class="user-name" style="color: #9900ff">@tcm390</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">12h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3730" target="_blank">feat: add membase in memory management</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/150468180?v=4" alt="MOSSV2" class="user-avatar">
+                                    <a href="https://github.com/MOSSV2" target="_blank" class="user-name" style="color: #cc00cc">@MOSSV2</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">14h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3695" target="_blank">Feature/jsdoc lift 2</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16427113?v=4" alt="jmikedupont2" class="user-avatar">
+                                    <a href="https://github.com/jmikedupont2" target="_blank" class="user-name" style="color: #cc00cc">@jmikedupont2</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">67h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 24</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3658" target="_blank">chore: CI collect artifacts so we can diagnose memory issue</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16395496?v=4" alt="odilitime" class="user-avatar">
+                                    <a href="https://github.com/odilitime" target="_blank" class="user-name" style="color: #6600cc">@odilitime</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">117h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 18</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3583" target="_blank">feat: Optional Venice system prompt removal</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/165832251?v=4" alt="lefrog-dont-code" class="user-avatar">
+                                    <a href="https://github.com/lefrog-dont-code" target="_blank" class="user-name" style="color: #ff0066">@lefrog-dont-code</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">263h</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 18</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3580" target="_blank">feat: Add 'pnpm reload' script</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/165832251?v=4" alt="lefrog-dont-code" class="user-avatar">
+                                    <a href="https://github.com/lefrog-dont-code" target="_blank" class="user-name" style="color: #ff0066">@lefrog-dont-code</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">264h</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 12</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3458" target="_blank">fix: Have agent construct the character plugins for the runtime.</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/2630707?v=4" alt="mtbc" class="user-avatar">
+                                    <a href="https://github.com/mtbc" target="_blank" class="user-name" style="color: #0066ff">@mtbc</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">415h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 11</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3442" target="_blank">Fix: Enhanced string cleaning for response handling</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/25138864?v=4" alt="aayush4vedi" class="user-avatar">
+                                    <a href="https://github.com/aayush4vedi" target="_blank" class="user-name" style="color: #ff00ff">@aayush4vedi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">435h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 10</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3422" target="_blank">docs: Eliza Turkish documentation</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/132911026?v=4" alt="AzrielTheHellrazor" class="user-avatar">
+                                    <a href="https://github.com/AzrielTheHellrazor" target="_blank" class="user-name" style="color: #6600cc">@AzrielTheHellrazor</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">458h</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 09</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3401" target="_blank">Ai/edit twitter client system message</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/57520778?v=4" alt="ayyubibrahimi" class="user-avatar">
+                                    <a href="https://github.com/ayyubibrahimi" target="_blank" class="user-name" style="color: #0099cc">@ayyubibrahimi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">482h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 09</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3393" target="_blank">V2 Development</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/18633264?v=4" alt="lalalune" class="user-avatar">
+                                    <a href="https://github.com/lalalune" target="_blank" class="user-name" style="color: #cc00cc">@lalalune</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">493h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 08</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3391" target="_blank">Integrate nillion frontend</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16987370?v=4" alt="Okulon" class="user-avatar">
+                                    <a href="https://github.com/Okulon" target="_blank" class="user-name" style="color: #ff0066">@Okulon</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">498h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 08</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3379" target="_blank">fix: typo in sampleAction.ts logging (CONFLICTED)</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/155266991?v=4" alt="moooonman" class="user-avatar">
+                                    <a href="https://github.com/moooonman" target="_blank" class="user-name" style="color: #33cc00">@moooonman</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">511h</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 07</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3359" target="_blank">feat: Add pagination support and account status management across database adapters (CONFLICTED)</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/4879512?v=4" alt="tercel" class="user-avatar">
+                                    <a href="https://github.com/tercel" target="_blank" class="user-name" style="color: #9900ff">@tercel</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">535h</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 02</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3155" target="_blank">fix: Added an additional checks for content before calling the embed method in embeddings.ts this will prevent the Invalid embedding input issue (CONFLICTED)</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/47289872?v=4" alt="juanc07" class="user-avatar">
+                                    <a href="https://github.com/juanc07" target="_blank" class="user-name" style="color: #0099cc">@juanc07</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">657h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 01</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3136" target="_blank">feat: Add Google vertex provider support (CONFLICTED)</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1732742?v=4" alt="yohairosen" class="user-avatar">
+                                    <a href="https://github.com/yohairosen" target="_blank" class="user-name" style="color: #ff3300">@yohairosen</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">678h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 30</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3059" target="_blank">feat: add Ideogram.ai image generation support (CONFLICTED)</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/14082769?v=4" alt="derrix060" class="user-avatar">
+                                    <a href="https://github.com/derrix060" target="_blank" class="user-name" style="color: #33cc00">@derrix060</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">717h</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/2910" target="_blank">[draft] feat: Refactor models</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/18633264?v=4" alt="lalalune" class="user-avatar">
+                                    <a href="https://github.com/lalalune" target="_blank" class="user-name" style="color: #cc00cc">@lalalune</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">770h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/2876" target="_blank">docs: Add Fully Homomorphic Encryption (FHE) doc</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/161017766?v=4" alt="zy-bc-ai" class="user-avatar">
+                                    <a href="https://github.com/zy-bc-ai" target="_blank" class="user-name" style="color: #ff00ff">@zy-bc-ai</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">782h</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 13</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/2258" target="_blank">chore(fix): supabase adapter</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/6889529?v=4" alt="antman1p" class="user-avatar">
+                                    <a href="https://github.com/antman1p" target="_blank" class="user-name" style="color: #00ffff">@antman1p</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1124h</td>
+                            <td>13</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">8h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 13</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/2235" target="_blank">feat: view chat history with agent in client UI</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/5406198?v=4" alt="jonathanykh" class="user-avatar">
+                                    <a href="https://github.com/jonathanykh" target="_blank" class="user-name" style="color: #33cc00">@jonathanykh</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1135h</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">48h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 13</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/2234" target="_blank">fix: refactor Twitter client test mocks</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/185259703?v=4" alt="wizardsupreme" class="user-avatar">
+                                    <a href="https://github.com/wizardsupreme" target="_blank" class="user-name" style="color: #ff00ff">@wizardsupreme</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1135h</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">8h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 11</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/2156" target="_blank">docs: Revamping README_PTBR.md for clearer and updated instructions (CONFLICTED)</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/96268540?v=4" alt="2-A-M" class="user-avatar">
+                                    <a href="https://github.com/2-A-M" target="_blank" class="user-name" style="color: #0066ff">@2-A-M</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1177h</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 11</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/2151" target="_blank">feat: add Romanian readme.md (CONFLICTED)</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/87604944?v=4" alt="tudorpintea999" class="user-avatar">
+                                    <a href="https://github.com/tudorpintea999" target="_blank" class="user-name" style="color: #0099cc">@tudorpintea999</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1181h</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">10h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 10</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/2130" target="_blank">feat: Upload a sample photo via the client. Validate successful posting to Twitter.</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/41404218?v=4" alt="kwannz" class="user-avatar">
+                                    <a href="https://github.com/kwannz" target="_blank" class="user-name" style="color: #9900ff">@kwannz</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1197h</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 08</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/2025" target="_blank">Fix: character file plugins import error </a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/43911437?v=4" alt="mbcse" class="user-avatar">
+                                    <a href="https://github.com/mbcse" target="_blank" class="user-name" style="color: #ff3300">@mbcse</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1249h</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #FF4136;">32h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 06</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/1886" target="_blank">feat: docker build character</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/69377900?v=4" alt="thetechnocratic" class="user-avatar">
+                                    <a href="https://github.com/thetechnocratic" target="_blank" class="user-name" style="color: #ff0099">@thetechnocratic</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1310h</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">18h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Dec 31</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/1618" target="_blank">chore(docs): Added a development approach for Windows Users</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/80615048?v=4" alt="matthewhou19" class="user-avatar">
+                                    <a href="https://github.com/matthewhou19" target="_blank" class="user-name" style="color: #ff0099">@matthewhou19</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1437h</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #FF4136;">265h</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RECENTLY CLOSED PRS -->
+            <div class="white-theme">
+                <h3>Recently Closed PRs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Duration</th>
+                            <th>Comments</th>
+                            <th>Reviews</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3733" target="_blank">finally got it to make the request</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/48950649?v=4" alt="Tony363" class="user-avatar">
+                                    <a href="https://github.com/Tony363" target="_blank" class="user-name" style="color: #ff0066">@Tony363</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3728" target="_blank">Feature/jsdoc lift 2</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16427113?v=4" alt="jmikedupont2" class="user-avatar">
+                                    <a href="https://github.com/jmikedupont2" target="_blank" class="user-name" style="color: #cc00cc">@jmikedupont2</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3727" target="_blank">chore: gui enhancements</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/82053242?v=4" alt="wtfsayo" class="user-avatar">
+                                    <a href="https://github.com/wtfsayo" target="_blank" class="user-name" style="color: #00ffff">@wtfsayo</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3726" target="_blank">fix: disable agents in agent table before startup</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/82053242?v=4" alt="wtfsayo" class="user-avatar">
+                                    <a href="https://github.com/wtfsayo" target="_blank" class="user-name" style="color: #00ffff">@wtfsayo</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3725" target="_blank">feat: Add rolodex</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/18633264?v=4" alt="lalalune" class="user-avatar">
+                                    <a href="https://github.com/lalalune" target="_blank" class="user-name" style="color: #cc00cc">@lalalune</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3724" target="_blank">fix: type error and refactor card component</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/60634884?v=4" alt="tcm390" class="user-avatar">
+                                    <a href="https://github.com/tcm390" target="_blank" class="user-name" style="color: #9900ff">@tcm390</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3722" target="_blank">fix: fix 0.25.8 oom bug</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/974169?v=4" alt="v1xingyue" class="user-avatar">
+                                    <a href="https://github.com/v1xingyue" target="_blank" class="user-name" style="color: #ff00ff">@v1xingyue</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">5h</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3721" target="_blank">fix: client ui small fix</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/60634884?v=4" alt="tcm390" class="user-avatar">
+                                    <a href="https://github.com/tcm390" target="_blank" class="user-name" style="color: #9900ff">@tcm390</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">6h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3720" target="_blank">add memory management </a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/150468180?v=4" alt="MOSSV2" class="user-avatar">
+                                    <a href="https://github.com/MOSSV2" target="_blank" class="user-name" style="color: #cc00cc">@MOSSV2</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">8h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3717" target="_blank">fix: update character</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/60634884?v=4" alt="tcm390" class="user-avatar">
+                                    <a href="https://github.com/tcm390" target="_blank" class="user-name" style="color: #9900ff">@tcm390</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3716" target="_blank">chore: tests favor local paths for consistency / adjust deps</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16395496?v=4" alt="odilitime" class="user-avatar">
+                                    <a href="https://github.com/odilitime" target="_blank" class="user-name" style="color: #6600cc">@odilitime</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3715" target="_blank">chore: format pass</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16395496?v=4" alt="odilitime" class="user-avatar">
+                                    <a href="https://github.com/odilitime" target="_blank" class="user-name" style="color: #6600cc">@odilitime</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3714" target="_blank">fix: clean up `pnpm clean` output and make `pnpm dev` faster on faster CPUs</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16395496?v=4" alt="odilitime" class="user-avatar">
+                                    <a href="https://github.com/odilitime" target="_blank" class="user-name" style="color: #6600cc">@odilitime</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3712" target="_blank">wip untested</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16427113?v=4" alt="jmikedupont2" class="user-avatar">
+                                    <a href="https://github.com/jmikedupont2" target="_blank" class="user-name" style="color: #cc00cc">@jmikedupont2</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">2h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3711" target="_blank">feat: ANTHROPIC_API_URL env.</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/27584221?v=4" alt="ChristopherTrimboli" class="user-avatar">
+                                    <a href="https://github.com/ChristopherTrimboli" target="_blank" class="user-name" style="color: #cc3300">@ChristopherTrimboli</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">2h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3710" target="_blank">fix: character creator</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/60634884?v=4" alt="tcm390" class="user-avatar">
+                                    <a href="https://github.com/tcm390" target="_blank" class="user-name" style="color: #9900ff">@tcm390</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">2h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3709" target="_blank">updayte</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/84223519?v=4" alt="Ansh1902396" class="user-avatar">
+                                    <a href="https://github.com/Ansh1902396" target="_blank" class="user-name" style="color: #cc3300">@Ansh1902396</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3708" target="_blank">feat(agent): consolidate character/agent handling</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/82053242?v=4" alt="wtfsayo" class="user-avatar">
+                                    <a href="https://github.com/wtfsayo" target="_blank" class="user-name" style="color: #00ffff">@wtfsayo</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">25h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3705" target="_blank">Documentation and Code Corrections: Grammar, Typo, and Formatting Updates</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/200515703?v=4" alt="SITADRITA1" class="user-avatar">
+                                    <a href="https://github.com/SITADRITA1" target="_blank" class="user-name" style="color: #00ffff">@SITADRITA1</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">37h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3704" target="_blank">refactor: plugin local ai new</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/154863472?v=4" alt="AIFlowML" class="user-avatar">
+                                    <a href="https://github.com/AIFlowML" target="_blank" class="user-name" style="color: #6600cc">@AIFlowML</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">29h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3703" target="_blank">lint and turbo fixes</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/82053242?v=4" alt="wtfsayo" class="user-avatar">
+                                    <a href="https://github.com/wtfsayo" target="_blank" class="user-name" style="color: #00ffff">@wtfsayo</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3701" target="_blank">feat: submit update env for plugin viction</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/87562184?v=4" alt="khiemsoft" class="user-avatar">
+                                    <a href="https://github.com/khiemsoft" target="_blank" class="user-name" style="color: #6600cc">@khiemsoft</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3700" target="_blank">chore: security NPM updates / bump turbo</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16395496?v=4" alt="odilitime" class="user-avatar">
+                                    <a href="https://github.com/odilitime" target="_blank" class="user-name" style="color: #6600cc">@odilitime</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">23h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3699" target="_blank">fix: CLI - escape paths with spaces correctly</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16395496?v=4" alt="odilitime" class="user-avatar">
+                                    <a href="https://github.com/odilitime" target="_blank" class="user-name" style="color: #6600cc">@odilitime</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/elizaOS/eliza/pull/3698" target="_blank">feat: better plugin loading error handling / json5 support for character file</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16395496?v=4" alt="odilitime" class="user-avatar">
+                                    <a href="https://github.com/odilitime" target="_blank" class="user-name" style="color: #6600cc">@odilitime</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- OPEN ISSUES -->
+            <div class="white-theme">
+                <h3>Open Issues</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Age</th>
+                            <th>Comments</th>
+                            <th>Priority</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3723" target="_blank">Add plugin-evm</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/39359294?v=4" alt="quanghuynguyen1902" class="user-avatar">
+                                    <a href="https://github.com/quanghuynguyen1902" target="_blank" class="user-name" style="color: #cc00cc">@quanghuynguyen1902</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">27h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3702" target="_blank">No REST API backend</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/131540429?v=4" alt="lqkhanh195" class="user-avatar">
+                                    <a href="https://github.com/lqkhanh195" target="_blank" class="user-name" style="color: #ff0099">@lqkhanh195</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">56h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3693" target="_blank">Twitter Agent won't post / respond as it should</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/126658950?v=4" alt="mohsinn3" class="user-avatar">
+                                    <a href="https://github.com/mohsinn3" target="_blank" class="user-name" style="color: #0099cc">@mohsinn3</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">72h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3689" target="_blank">wallet issues</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/97726852?v=4" alt="Adz30" class="user-avatar">
+                                    <a href="https://github.com/Adz30" target="_blank" class="user-name" style="color: #cc3300">@Adz30</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">73h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3685" target="_blank">Twitter media is being ignored when discord approvals is enabled</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/15090003?v=4" alt="tomicvladan" class="user-avatar">
+                                    <a href="https://github.com/tomicvladan" target="_blank" class="user-name" style="color: #ff3300">@tomicvladan</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">78h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3683" target="_blank">Utilize ChatGPT assistant API keys</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/97287125?v=4" alt="0xJACKSON-dev" class="user-avatar">
+                                    <a href="https://github.com/0xJACKSON-dev" target="_blank" class="user-name" style="color: #9900ff">@0xJACKSON-dev</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">80h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3679" target="_blank">Not loading any character files</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/854590?v=4" alt="jgarrettvml" class="user-avatar">
+                                    <a href="https://github.com/jgarrettvml" target="_blank" class="user-name" style="color: #33cc00">@jgarrettvml</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">85h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">10h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3664" target="_blank">RAG Knowledge JavaScript Heap Out of Memory</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/112935210?v=4" alt="suryanshkushwaha" class="user-avatar">
+                                    <a href="https://github.com/suryanshkushwaha" target="_blank" class="user-name" style="color: #cc3300">@suryanshkushwaha</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">104h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3661" target="_blank">Docker file issue:  Invalid cachestore</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/49278246?v=4" alt="avdheshcharjan" class="user-avatar">
+                                    <a href="https://github.com/avdheshcharjan" target="_blank" class="user-name" style="color: #0099cc">@avdheshcharjan</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">105h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 21</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3628" target="_blank">agent isn't responding based on the provided knowledge.</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/58559626?v=4" alt="thopatevijay" class="user-avatar">
+                                    <a href="https://github.com/thopatevijay" target="_blank" class="user-name" style="color: #ff00ff">@thopatevijay</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">198h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 19</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3588" target="_blank">Issue with Controlling Reply Length and Single Tweet Format</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/199869537?v=4" alt="kent-neo" class="user-avatar">
+                                    <a href="https://github.com/kent-neo" target="_blank" class="user-name" style="color: #33cc00">@kent-neo</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">253h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">182h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 19</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3585" target="_blank">feat: make eliza server URL configurable via env var when starting  eliza client</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1773785?v=4" alt="bguiz" class="user-avatar">
+                                    <a href="https://github.com/bguiz" target="_blank" class="user-name" style="color: #0099cc">@bguiz</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">253h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">170h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 18</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3576" target="_blank">No work upload files 0G plugin</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/122398677?v=4" alt="mioku50" class="user-avatar">
+                                    <a href="https://github.com/mioku50" target="_blank" class="user-name" style="color: #ff00ff">@mioku50</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">265h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 18</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3569" target="_blank">Always connecting when set SERVER_PORT=3000 in .env and use `SERVER_PORT=3001 pnpm start:client`</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/49605145?v=4" alt="0xCryptoZen" class="user-avatar">
+                                    <a href="https://github.com/0xCryptoZen" target="_blank" class="user-name" style="color: #cc3300">@0xCryptoZen</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">270h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 11</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3441" target="_blank">Long messages cause an error</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/53032750?v=4" alt="lincheoll" class="user-avatar">
+                                    <a href="https://github.com/lincheoll" target="_blank" class="user-name" style="color: #0066ff">@lincheoll</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">436h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">24h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 10</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3418" target="_blank">Cannot find module '@anush008/tokenizers-linux-arm64-gnu'</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/198586686?v=4" alt="GDA63" class="user-avatar">
+                                    <a href="https://github.com/GDA63" target="_blank" class="user-name" style="color: #cc3300">@GDA63</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">460h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 30</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3049" target="_blank">Add demo api access to coingecko plugin</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/70663775?v=4" alt="MichaelDeng03" class="user-avatar">
+                                    <a href="https://github.com/MichaelDeng03" target="_blank" class="user-name" style="color: #0066ff">@MichaelDeng03</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">721h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Jan 30</td>
+                            <td><a href="https://github.com/elizaOS/eliza/issues/3047" target="_blank">add AI/ML API as provider</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/54273355?v=4" alt="OctavianTheI" class="user-avatar">
+                                    <a href="https://github.com/OctavianTheI" target="_blank" class="user-name" style="color: #9900ff">@OctavianTheI</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">723h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RECENTLY CLOSED ISSUES -->
+            <div class="white-theme">
+                <h3>Recently Closed Issues</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Duration</th>
+                            <th>Comments</th>
+                            <th>Resolution</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 20px;">No issues were closed during this period</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+            <div class="white-theme">
+                <h3>Associated Specifications</h3>
+                <ul>
+            <li><a href="https://discord.gg/elizaOS" target="_blank">https://discord.gg/elizaOS</a></li><li><a href="https://github.com/elizaOS/eliza/pull/3701" target="_blank">https://github.com/elizaOS/eliza/pull/3701</a></li>
+                </ul>
+            </div>
+            
+    </div><!-- /scoreboard -->
+
+    <!-- Chart.js for the Weekly Activity chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+        const ctx = document.getElementById('weeklyGraph').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+                    data: {
+                labels: ['12/31', '01/06', '01/08', '01/10', '01/11', '01/13', '01/28', '01/30', '02/01', '02/02', '02/07', '02/08', '02/09', '02/10', '02/11', '02/12', '02/18', '02/19', '02/21', '02/24', '02/25', '02/26', '02/27', '02/28', '03/01'],
+                        datasets: [
+                            {
+                                label: 'PRs Closed',
+                                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 17, 2],
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: 'Issues Closed',
+                                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: 'Contributors',
+                                data: [1, 1, 1, 1, 2, 3, 2, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 0, 0, 1, 0, 1, 5, 9, 6],
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            }
+                        ]
+                    },
+                    options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    boxWidth: 15,
+                                    padding: 15,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                                padding: 10,
+                                cornerRadius: 4,
+                                titleFont: {
+                                    size: 14
+                                },
+                                bodyFont: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart'
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.05)'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        </body>
+        </html>

@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+    <title>ethereum-optimism/optimism - Weekly Report: Feb 22 - Mar 01, 2025</title>
+            <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+            <style>
+        :root {
+            --repo-color: #4CAF50;
+            --glow-color: #ff173033; /* average color + alpha */
+        }
+                body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background: 
+                linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.02) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.02) 75%);
+                    background-size: 20px 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: 'VT323', monospace;
+        }
+        .scoreboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid var(--glow-color);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 6px 20px var(--glow-color);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .repo-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .repo-info h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #333;
+        }
+        .stats-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--repo-color);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 30px;
+                    position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: inset 0 0 20px var(--glow-color);
+        }
+        .stats-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--repo-color), transparent);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        .stat-group {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        .stat-group:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 70%;
+            background: var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .stat-label {
+            font-size: 1.2em;
+            color: #888;
+            margin-right: 10px;
+        }
+        .stat-value {
+            font-size: 2.5em;
+            color: var(--repo-color);
+            text-shadow: 0 0 10px var(--glow-color);
+            font-weight: bold;
+            min-width: 80px;
+            text-align: right;
+        }
+        .graph-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .graph-container h2 {
+            margin-top: 0;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+        .chart-wrapper {
+            width: 100%;
+            height: 300px;
+        }
+        .summary-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .summary-section h2 {
+            color: var(--repo-color);
+            margin-top: 0;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+        .pr-tables {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .pr-table {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            border: 1px solid var(--repo-color);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .pr-table h3 {
+            margin-top: 0;
+            color: var(--repo-color);
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+                table {
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0;
+                }
+                th, td {
+            padding: 14px 12px;
+                    text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th {
+            color: #4CAF50;
+            font-size: 1.1em;
+        }
+        td {
+            vertical-align: top;
+            color: #333;
+        }
+        
+        p {
+            color: #333;
+        }
+        
+        /* White color scheme version */
+        .white-theme {
+            background-color: #ffffff;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+            padding: 24px;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .white-theme:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .white-theme h2, .white-theme h3 {
+            color: #333;
+            text-shadow: none;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 12px;
+            font-size: 1.4em;
+        }
+        
+        .white-stats-display {
+            display: flex;
+            justify-content: space-around;
+            background-color: #fff;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0) 100%);
+            border-radius: 15px;
+            padding: 25px 15px;
+            margin-bottom: 30px;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), inset 0 1px 3px rgba(255, 255, 255, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .white-stats-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        }
+        
+        .white-stat-group {
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            min-width: 18%;
+        }
+        
+        .white-stat-group:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 70%;
+            background: linear-gradient(to bottom, transparent, #e0e0e0, transparent);
+        }
+        
+        .white-stat-label {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+        }
+        
+        .white-stat-value {
+            font-size: 2.6em;
+            color: var(--repo-color);
+            font-weight: bold;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1), 0 0 10px rgba(76, 175, 80, 0.2);
+            position: relative;
+            display: inline-block;
+            padding: 0 5px;
+            transition: transform 0.2s, text-shadow 0.2s;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        
+        .white-stat-value:hover {
+            animation: pulse 1s infinite ease-in-out;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.15), 0 0 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        /* Style table inside white-theme */
+        .white-theme table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .white-theme th, .white-theme td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eaeaea;
+            position: relative;
+        }
+        
+        .white-theme th {
+            color: var(--repo-color);
+            font-size: 1.1em;
+            font-weight: 500;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-bottom: 2px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .white-theme td {
+            vertical-align: middle;
+        }
+        
+        .white-theme tbody tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.01);
+        }
+        
+        .white-theme tbody tr:hover {
+            background-color: rgba(76, 175, 80, 0.05);
+        }
+        
+        /* Create column effect */
+        .white-theme th:not(:last-child), 
+        .white-theme td:not(:last-child) {
+            border-right: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        /* First column styling */
+        .white-theme th:first-child,
+        .white-theme td:first-child {
+            border-left: 3px solid transparent;
+        }
+        
+        .white-theme tbody tr:hover td:first-child {
+            border-left: 3px solid var(--repo-color);
+        }
+        
+        /* User avatar and name styling */
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .user-name {
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        /* Link styling */
+        .white-theme a {
+            text-decoration: none;
+            color: var(--repo-color);
+            transition: color 0.2s, text-decoration 0.2s;
+        }
+        
+        .white-theme a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Keep user name links in their assigned colors */
+        .white-theme a.user-name {
+            text-decoration: none;
+        }
+        
+        .white-theme a.user-name:hover {
+            text-decoration: underline;
+        }
+        
+        /* Chart styling */
+        .white-theme .chart-wrapper {
+            width: 100%;
+            height: 300px;
+            padding: 20px 0;
+            margin: 0 auto;
+        }
+        
+        /* Breadcrumb navigation */
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb a {
+            color: var(--repo-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 8px;
+            color: #999;
+        }
+        
+        .breadcrumb svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scoreboard">
+        <div class="breadcrumb">
+            <a href="../../../index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Home
+            </a>
+            <span class="separator">/</span>
+            <span>ethereum-optimism</span>
+            <span class="separator">/</span>
+            <span>optimism</span>
+        </div>
+        <div class="header">
+            <img src="https://github.com/ethereum-optimism.png" alt="ethereum-optimism logo" class="repo-logo">
+            <div class="repo-info">
+                <h1>ethereum-optimism/optimism - Weekly Report</h1>
+                <p>Last updated: 2025-03-01 16:24:53</p>
+            </div>
+        </div>
+
+        <!-- Stats Display -->
+        <div class="white-stats-display">
+            <div class="white-stat-group">
+                <div class="white-stat-label">OPEN PRS</div>
+                <div class="white-stat-value">30</div>
+            </div>
+            <div class="white-stat-group">
+                <div class="white-stat-label">CLOSED PRS</div>
+                <div class="white-stat-value">30</div>
+            </div>
+            <div class="white-stat-group">
+                <div class="white-stat-label">AVG RESPONSE</div>
+                <div class="white-stat-value">1.8h</div>
+            </div>
+            <div class="white-stat-group">
+                <div class="white-stat-label">AVG LIFETIME</div>
+                <div class="white-stat-value">6.7h</div>
+            </div>
+        </div>
+
+        <!-- Weekly Activity Graph -->
+        <div class="white-theme">
+            <h2>Weekly Activity</h2>
+            <div class="chart-wrapper">
+                <canvas id="weeklyGraph"></canvas>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="white-theme">
+            <h2>Summary</h2>
+            <ul class="summary-list">
+                <li><strong>Summary:</strong> - **Summary of the Week's PRs and Issues**: This week's activity in the repository was predominantly focused on maintenance and hardening efforts, with a few feature enhancements and bug fixes. The tone of the pull requests and issues suggests a meticulous approach to refining existing functionalities and ensuring robustness, particularly in the context of Ethereum Optimism's complex system architecture.</li>
+<li>**PR #14589 - Bytecode Verification Script**: This pull request introduced a script designed to verify that the bytecode in local artifacts matches the bytecode of a deployed contract on a live network. This enhancement is crucial for developers to ensure consistency and correctness in contract deployments, thereby reducing potential discrepancies and errors in smart contract execution.</li>
+<li>**PR #14586 - op-deployer v</li>
+<li>Overall: 30 PRs closed, 28 contributors.</li>
+            </ul>
+        </div>
+
+        <!-- 4 Tables: PRs / Issues (Open / Closed) -->
+        <div class="pr-tables">
+
+            <!-- OPEN PRS -->
+            <div class="white-theme">
+                <h3>Open PRs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Age</th>
+                            <th>Comments</th>
+                            <th>Reviews</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14597" target="_blank">scripts/getting-started: set faultGameGenesisOutputRoot to 0xdead</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3627395?v=4" alt="jsvisa" class="user-avatar">
+                                    <a href="https://github.com/jsvisa" target="_blank" class="user-name" style="color: #33cc00">@jsvisa</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">3h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14596" target="_blank">chore: fix links</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/156356273?v=4" alt="cratiu222" class="user-avatar">
+                                    <a href="https://github.com/cratiu222" target="_blank" class="user-name" style="color: #6600cc">@cratiu222</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">6h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14595" target="_blank">contract/deploy: avoid bash error exit</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3627395?v=4" alt="jsvisa" class="user-avatar">
+                                    <a href="https://github.com/jsvisa" target="_blank" class="user-name" style="color: #33cc00">@jsvisa</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">6h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14594" target="_blank">contracts/deploy: prestate-proof-interop wrong make task</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3627395?v=4" alt="jsvisa" class="user-avatar">
+                                    <a href="https://github.com/jsvisa" target="_blank" class="user-name" style="color: #33cc00">@jsvisa</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">8h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14593" target="_blank">contracts/deploy: rm not used string format</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3627395?v=4" alt="jsvisa" class="user-avatar">
+                                    <a href="https://github.com/jsvisa" target="_blank" class="user-name" style="color: #33cc00">@jsvisa</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">9h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14592" target="_blank">DO-NOT-MERGE: promise callback library</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/10552045?v=4" alt="hamdiallam" class="user-avatar">
+                                    <a href="https://github.com/hamdiallam" target="_blank" class="user-name" style="color: #ff0066">@hamdiallam</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">15h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14590" target="_blank">docs: fix build instructions for op-node</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/136604165?v=4" alt="leopardracer" class="user-avatar">
+                                    <a href="https://github.com/leopardracer" target="_blank" class="user-name" style="color: #ff0099">@leopardracer</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">19h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14588" target="_blank">feat: introduce eth lockbox</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/81362284?v=4" alt="agusduha" class="user-avatar">
+                                    <a href="https://github.com/agusduha" target="_blank" class="user-name" style="color: #33cc00">@agusduha</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">23h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14587" target="_blank">op-batcher: introduce `PREFER_LOCAL_SAFE_L2` config var</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1833419?v=4" alt="geoknee" class="user-avatar">
+                                    <a href="https://github.com/geoknee" target="_blank" class="user-name" style="color: #cc3300">@geoknee</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">24h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14584" target="_blank">op-node: emit local-safe status whenever forkchoice status is requested</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/19571989?v=4" alt="protolambda" class="user-avatar">
+                                    <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">25h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14574" target="_blank">op-e2e: Update dispute game helpers to support SuperSystem and super cannon game types</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/72675?v=4" alt="ajsutton" class="user-avatar">
+                                    <a href="https://github.com/ajsutton" target="_blank" class="user-name" style="color: #9900ff">@ajsutton</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">38h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14570" target="_blank">opcm: Prep upgrade 14 for MTCannon</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/658601?v=4" alt="mbaxter" class="user-avatar">
+                                    <a href="https://github.com/mbaxter" target="_blank" class="user-name" style="color: #ff0066">@mbaxter</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">42h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14568" target="_blank">op-service: tx plans</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/19571989?v=4" alt="protolambda" class="user-avatar">
+                                    <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">44h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14567" target="_blank">DRAFT: Add a few new kurtosis-devnet tests</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1178653?v=4" alt="teddyknox" class="user-avatar">
+                                    <a href="https://github.com/teddyknox" target="_blank" class="user-name" style="color: #ff3300">@teddyknox</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">45h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14565" target="_blank">op-e2e: Single-block invalidation cascade action test</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3516807?v=4" alt="Inphi" class="user-avatar">
+                                    <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">46h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14564" target="_blank">deploy: Update deploy script to require MIPS64 for production networks</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/658601?v=4" alt="mbaxter" class="user-avatar">
+                                    <a href="https://github.com/mbaxter" target="_blank" class="user-name" style="color: #ff0066">@mbaxter</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">46h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14560" target="_blank">all: update op-geth to 1.101503.0</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1833419?v=4" alt="geoknee" class="user-avatar">
+                                    <a href="https://github.com/geoknee" target="_blank" class="user-name" style="color: #cc3300">@geoknee</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">54h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14557" target="_blank">op-deployer: Start finalizing support for v2.0.0</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/67953?v=4" alt="mslipper" class="user-avatar">
+                                    <a href="https://github.com/mslipper" target="_blank" class="user-name" style="color: #cc3300">@mslipper</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">59h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14555" target="_blank">contracts: Add solvency invariant test for Super FDG</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3516807?v=4" alt="Inphi" class="user-avatar">
+                                    <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">65h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14550" target="_blank">dependabot(gomod): bump github.com/ipfs/go-datastore from 0.6.0 to 0.8.0</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/in/29110?v=4" alt="dependabot[bot]" class="user-avatar">
+                                    <a href="https://github.com/dependabot[bot]" target="_blank" class="user-name" style="color: #0066ff">@dependabot[bot]</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">69h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14549" target="_blank">dependabot(gomod): bump github.com/lmittmann/w3 from 0.17.8 to 0.19.0</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/in/29110?v=4" alt="dependabot[bot]" class="user-avatar">
+                                    <a href="https://github.com/dependabot[bot]" target="_blank" class="user-name" style="color: #0066ff">@dependabot[bot]</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">69h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14544" target="_blank">chore: update links in directory structure after PR #12289</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/150683513?v=4" alt="NaijaCoderGirl" class="user-avatar">
+                                    <a href="https://github.com/NaijaCoderGirl" target="_blank" class="user-name" style="color: #6600cc">@NaijaCoderGirl</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">71h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14540" target="_blank">feat(op-wheel): add update-finality flag to control safe and finalized blocks updates</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/193699300?v=4" alt="GarmashAlex" class="user-avatar">
+                                    <a href="https://github.com/GarmashAlex" target="_blank" class="user-name" style="color: #ff0066">@GarmashAlex</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">72h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14538" target="_blank">Update LICENSE</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/154841002?v=4" alt="maximevtush" class="user-avatar">
+                                    <a href="https://github.com/maximevtush" target="_blank" class="user-name" style="color: #00ffff">@maximevtush</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">77h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14535" target="_blank">Fix: Prevent negative values in pendingDABytes metric</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/190900683?v=4" alt="DeVikingMark" class="user-avatar">
+                                    <a href="https://github.com/DeVikingMark" target="_blank" class="user-name" style="color: #cc00cc">@DeVikingMark</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">87h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">36h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14533" target="_blank">fix(devnet-sdk): detect if op-geth types are used</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16090?v=4" alt="sigma" class="user-avatar">
+                                    <a href="https://github.com/sigma" target="_blank" class="user-name" style="color: #cc00cc">@sigma</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">91h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14532" target="_blank">feat: add Super Root specific method to OptimismPortal</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/14298799?v=4" alt="smartcontracts" class="user-avatar">
+                                    <a href="https://github.com/smartcontracts" target="_blank" class="user-name" style="color: #ff3300">@smartcontracts</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">91h</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14524" target="_blank">sigma/op program svc</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16090?v=4" alt="sigma" class="user-avatar">
+                                    <a href="https://github.com/sigma" target="_blank" class="user-name" style="color: #cc00cc">@sigma</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">96h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 24</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14512" target="_blank">fix(devnet-sdk): fix colliding sentinels</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/16090?v=4" alt="sigma" class="user-avatar">
+                                    <a href="https://github.com/sigma" target="_blank" class="user-name" style="color: #cc00cc">@sigma</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">113h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 24</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14511" target="_blank">dependabot(gomod): bump golang.org/x/crypto from 0.32.0 to 0.35.0</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/in/29110?v=4" alt="dependabot[bot]" class="user-avatar">
+                                    <a href="https://github.com/dependabot[bot]" target="_blank" class="user-name" style="color: #0066ff">@dependabot[bot]</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">116h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RECENTLY CLOSED PRS -->
+            <div class="white-theme">
+                <h3>Recently Closed PRs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Duration</th>
+                            <th>Comments</th>
+                            <th>Reviews</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td style="white-space: nowrap;">Mar 01</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14591" target="_blank">fix: Revert Incorrect Change in Default Game Type</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/44706811?v=4" alt="ControlCplusControlV" class="user-avatar">
+                                    <a href="https://github.com/ControlCplusControlV" target="_blank" class="user-name" style="color: #cc00cc">@ControlCplusControlV</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">3h</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14589" target="_blank">feat: bytecode verification script</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/14298799?v=4" alt="smartcontracts" class="user-avatar">
+                                    <a href="https://github.com/smartcontracts" target="_blank" class="user-name" style="color: #ff3300">@smartcontracts</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">2h</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14586" target="_blank">chore(op-deployer): v2.0.0-rc.1 contracts release</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/25801460?v=4" alt="yashvardhan-kukreja" class="user-avatar">
+                                    <a href="https://github.com/yashvardhan-kukreja" target="_blank" class="user-name" style="color: #cc3300">@yashvardhan-kukreja</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">2h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14582" target="_blank">ci: only tag finalized Docker images as 'latest'</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/2607372?v=4" alt="sebastianst" class="user-avatar">
+                                    <a href="https://github.com/sebastianst" target="_blank" class="user-name" style="color: #9900ff">@sebastianst</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14575" target="_blank">op-e2e: Write jwt.secret to a temp dir instead of into the source code tree</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/72675?v=4" alt="ajsutton" class="user-avatar">
+                                    <a href="https://github.com/ajsutton" target="_blank" class="user-name" style="color: #9900ff">@ajsutton</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">21h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14572" target="_blank">op-program, op-challenger: Reduce number of steps per timestamp to 128</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/72675?v=4" alt="ajsutton" class="user-avatar">
+                                    <a href="https://github.com/ajsutton" target="_blank" class="user-name" style="color: #9900ff">@ajsutton</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14571" target="_blank">op-service: check if TLS is enabled and move middleware</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/19571989?v=4" alt="protolambda" class="user-avatar">
+                                    <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">21h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14563" target="_blank">op-batcher: improve `computeSyncActions()` logging</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1833419?v=4" alt="geoknee" class="user-avatar">
+                                    <a href="https://github.com/geoknee" target="_blank" class="user-name" style="color: #cc3300">@geoknee</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14561" target="_blank">op-batcher: correctly track block metrics in `handleChannelInvalidated()`</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1833419?v=4" alt="geoknee" class="user-avatar">
+                                    <a href="https://github.com/geoknee" target="_blank" class="user-name" style="color: #cc3300">@geoknee</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">0h</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14558" target="_blank">kurtosis-devnet: optimize context usage</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1265027?v=4" alt="zhiqiangxu" class="user-avatar">
+                                    <a href="https://github.com/zhiqiangxu" target="_blank" class="user-name" style="color: #0099cc">@zhiqiangxu</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">5h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">5h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14556" target="_blank">feat: remove DeployOPCM</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/23033765?v=4" alt="maurelian" class="user-avatar">
+                                    <a href="https://github.com/maurelian" target="_blank" class="user-name" style="color: #cc3300">@maurelian</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">2h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14554" target="_blank">op-node: Remove OverrideMessageExpiryTimeInterop from rollup.Config</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3516807?v=4" alt="Inphi" class="user-avatar">
+                                    <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">2h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14553" target="_blank">op-batcher: remove `ChannelManager.CheckExpectedProgress()` and add channel timeout log</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1833419?v=4" alt="geoknee" class="user-avatar">
+                                    <a href="https://github.com/geoknee" target="_blank" class="user-name" style="color: #cc3300">@geoknee</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">16h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14552" target="_blank">Enhancements and Fixes in Optimism Codebase</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/140459108?v=4" alt="kilavvy" class="user-avatar">
+                                    <a href="https://github.com/kilavvy" target="_blank" class="user-name" style="color: #0066ff">@kilavvy</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14551" target="_blank">op-challenger: Add Super DG contract caller</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3516807?v=4" alt="Inphi" class="user-avatar">
+                                    <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">2h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14548" target="_blank">chore: Fix another footer</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/67953?v=4" alt="mslipper" class="user-avatar">
+                                    <a href="https://github.com/mslipper" target="_blank" class="user-name" style="color: #cc3300">@mslipper</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14545" target="_blank">devnet-sdk: Fix casing in book theme</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/67953?v=4" alt="mslipper" class="user-avatar">
+                                    <a href="https://github.com/mslipper" target="_blank" class="user-name" style="color: #cc3300">@mslipper</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14543" target="_blank">cannon: Add 64-bit tests for signExtend</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/658601?v=4" alt="mbaxter" class="user-avatar">
+                                    <a href="https://github.com/mbaxter" target="_blank" class="user-name" style="color: #ff0066">@mbaxter</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">23h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14542" target="_blank">op-program: Fix log index of executing messages in block</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3516807?v=4" alt="Inphi" class="user-avatar">
+                                    <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">4h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14541" target="_blank">chore: fix problematic function name in comment</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/166388131?v=4" alt="looklose" class="user-avatar">
+                                    <a href="https://github.com/looklose" target="_blank" class="user-name" style="color: #cc00cc">@looklose</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">2h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14539" target="_blank">op-program: Retry chain-id queries</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/658601?v=4" alt="mbaxter" class="user-avatar">
+                                    <a href="https://github.com/mbaxter" target="_blank" class="user-name" style="color: #ff0066">@mbaxter</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">4h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14534" target="_blank">feat: semgrep rules and check for reinitializer modifiers</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/14298799?v=4" alt="smartcontracts" class="user-avatar">
+                                    <a href="https://github.com/smartcontracts" target="_blank" class="user-name" style="color: #ff3300">@smartcontracts</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">16h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14531" target="_blank">feat: Install superchain registry using git clone + git ignore</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/23033765?v=4" alt="maurelian" class="user-avatar">
+                                    <a href="https://github.com/maurelian" target="_blank" class="user-name" style="color: #cc3300">@maurelian</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14528" target="_blank">Revert "Add legal footer to op-deployer docs"</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/67953?v=4" alt="mslipper" class="user-avatar">
+                                    <a href="https://github.com/mslipper" target="_blank" class="user-name" style="color: #cc3300">@mslipper</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">0h</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14526" target="_blank">contracts: Bump Super DG major semver</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3516807?v=4" alt="Inphi" class="user-avatar">
+                                    <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">10h</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14525" target="_blank">chore: update links in directory structure after PRs #12968 & #12828</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/150683513?v=4" alt="NaijaCoderGirl" class="user-avatar">
+                                    <a href="https://github.com/NaijaCoderGirl" target="_blank" class="user-name" style="color: #6600cc">@NaijaCoderGirl</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">0h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">2h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14523" target="_blank">maint: clean up security reviews table, update codeowners</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/14298799?v=4" alt="smartcontracts" class="user-avatar">
+                                    <a href="https://github.com/smartcontracts" target="_blank" class="user-name" style="color: #ff3300">@smartcontracts</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">1h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14521" target="_blank">chore: fix function name</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/170811223?v=4" alt="costcould" class="user-avatar">
+                                    <a href="https://github.com/costcould" target="_blank" class="user-name" style="color: #cc00cc">@costcould</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">27h</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 25</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14520" target="_blank">op-batcher: always `updateCursorAndMetrics` when returning from `processBlocks()`</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1833419?v=4" alt="geoknee" class="user-avatar">
+                                    <a href="https://github.com/geoknee" target="_blank" class="user-name" style="color: #cc3300">@geoknee</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">6h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14519" target="_blank">docs: update 404 link in `VERSIONING.md`</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/184771107?v=4" alt="rebustron" class="user-avatar">
+                                    <a href="https://github.com/rebustron" target="_blank" class="user-name" style="color: #ff00ff">@rebustron</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">24h</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">24h</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- OPEN ISSUES -->
+            <div class="white-theme">
+                <h3>Open Issues</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Age</th>
+                            <th>Comments</th>
+                            <th>Priority</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14585" target="_blank">OP-Conductor health check ignores the `OP_CONDUCTOR_HEALTHCHECK_UNSAFE_INTERVAL` configuration option</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/5247707?v=4" alt="brg8" class="user-avatar">
+                                    <a href="https://github.com/brg8" target="_blank" class="user-name" style="color: #cc3300">@brg8</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">25h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">7h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14583" target="_blank">op-batcher: testing API</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/19571989?v=4" alt="protolambda" class="user-avatar">
+                                    <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">26h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14581" target="_blank">op-node: post-interop cleanup</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/19571989?v=4" alt="protolambda" class="user-avatar">
+                                    <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">26h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14580" target="_blank">op-node: block signing and publishing improvements</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/19571989?v=4" alt="protolambda" class="user-avatar">
+                                    <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">26h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14579" target="_blank">op-node: cleanup signal / schedule internals</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/19571989?v=4" alt="protolambda" class="user-avatar">
+                                    <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">26h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14578" target="_blank">op-node: cleanup engine package</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/19571989?v=4" alt="protolambda" class="user-avatar">
+                                    <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">26h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14577" target="_blank">op-service: Go service templating</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/19571989?v=4" alt="protolambda" class="user-avatar">
+                                    <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">26h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14576" target="_blank">op-node: syncStatus can report `LocalSafeL2` of zero even when `SafeL2` is nonzero</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1833419?v=4" alt="geoknee" class="user-avatar">
+                                    <a href="https://github.com/geoknee" target="_blank" class="user-name" style="color: #cc3300">@geoknee</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">27h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 28</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14573" target="_blank">op-program: Add subcommand to list all supported chains</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/72675?v=4" alt="ajsutton" class="user-avatar">
+                                    <a href="https://github.com/ajsutton" target="_blank" class="user-name" style="color: #9900ff">@ajsutton</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">40h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14569" target="_blank">OPCM: ensure contract `upgrade` methods are called in `opcm.upgrade`</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/17163988?v=4" alt="mds1" class="user-avatar">
+                                    <a href="https://github.com/mds1" target="_blank" class="user-name" style="color: #0066ff">@mds1</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">43h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14566" target="_blank">devnet-sdk shell doesn't connect as expected</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/1178653?v=4" alt="teddyknox" class="user-avatar">
+                                    <a href="https://github.com/teddyknox" target="_blank" class="user-name" style="color: #ff3300">@teddyknox</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">46h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">21h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14562" target="_blank">Deriver system is resetting - failed to fetch blob sidecars for slot 9946383 block 0x4f792564095af9fa5d2e36c112afe0eaecc2080abdcbc01fd5241bd88dd2fc25:20737555</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/74613889?v=4" alt="Andrei-sys" class="user-avatar">
+                                    <a href="https://github.com/Andrei-sys" target="_blank" class="user-name" style="color: #0099cc">@Andrei-sys</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">49h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">50h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14559" target="_blank">op-batcher: Improve pending data tracking</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/2607372?v=4" alt="sebastianst" class="user-avatar">
+                                    <a href="https://github.com/sebastianst" target="_blank" class="user-name" style="color: #9900ff">@sebastianst</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">55h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FFDC00;">7h</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RECENTLY CLOSED ISSUES -->
+            <div class="white-theme">
+                <h3>Recently Closed Issues</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Duration</th>
+                            <th>Comments</th>
+                            <th>Resolution</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14546" target="_blank">op-dispute-mon: Detect super fault dispute games</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3516807?v=4" alt="Inphi" class="user-avatar">
+                                    <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">3h</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">3h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 27</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14537" target="_blank">Remove message expiry override from rollup.Config</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3516807?v=4" alt="Inphi" class="user-avatar">
+                                    <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">39h</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+            <div class="white-theme">
+                <h3>Associated Specifications</h3>
+                <ul>
+            <li><a href="https://github.com/ethereum-optimism/optimism/issues/14002" target="_blank">https://github.com/ethereum-optimism/optimism/issues/14002</a></li><li><a href="https://github.com/ethereum-optimism/optimism/issues/14318" target="_blank">https://github.com/ethereum-optimism/optimism/issues/14318</a></li><li><a href="https://github.com/ethereum-optimism/optimism/blob/56b7f49d96a2013656bfff1d71923147af25ed46/op-batcher/batcher/sync_actions.go#L114-L129" target="_blank">https://github.com/ethereum-optimism/optimism/blob/56b7f49d96a2013656bfff1d71923147af25ed46/op-batcher/batcher/sync_actions.go#L114-L129</a></li><li><a href="https://github.com/ethereum-optimism/optimism/issues/14508" target="_blank">https://github.com/ethereum-optimism/optimism/issues/14508</a></li><li><a href="https://github.com/ethereum-optimism/infra)" target="_blank">https://github.com/ethereum-optimism/infra)</a></li><li><a href="https://github.com/ethereum-optimism/op-geth/pull/515" target="_blank">https://github.com/ethereum-optimism/op-geth/pull/515</a></li><li><a href="https://github.com/ethereum-optimism/optimism/issues/14509" target="_blank">https://github.com/ethereum-optimism/optimism/issues/14509</a></li><li><a href="https://github.com/ethereum-optimism/.github/blob/master/CONTRIBUTING.md" target="_blank">https://github.com/ethereum-optimism/.github/blob/master/CONTRIBUTING.md</a></li><li><a href="https://github.com/ethereum-optimism/design-docs/blob/main/protocol/proofs/interop-config.md" target="_blank">https://github.com/ethereum-optimism/design-docs/blob/main/protocol/proofs/interop-config.md</a></li>
+                </ul>
+            </div>
+            
+    </div><!-- /scoreboard -->
+
+    <!-- Chart.js for the Weekly Activity chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+        const ctx = document.getElementById('weeklyGraph').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+                    data: {
+                labels: ['02/24', '02/25', '02/26', '02/27', '02/28', '03/01'],
+                        datasets: [
+                            {
+                                label: 'PRs Closed',
+                                data: [0, 5, 12, 6, 6, 1],
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: 'Issues Closed',
+                                data: [0, 0, 1, 1, 0, 0],
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: 'Contributors',
+                                data: [2, 6, 13, 8, 8, 4],
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                                borderWidth: 3,
+                                tension: 0.4,
+                                fill: true,
+                                pointRadius: 4,
+                                pointHoverRadius: 6
+                            }
+                        ]
+                    },
+                    options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    boxWidth: 15,
+                                    padding: 15,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                                padding: 10,
+                                cornerRadius: 4,
+                                titleFont: {
+                                    size: 14
+                                },
+                                bodyFont: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutQuart'
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.05)'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        </body>
+        </html>

@@ -2,7 +2,7 @@
         <html lang="en">
         <head>
             <meta charset="UTF-8">
-    <title>ethereum-optimism/optimism - Weekly Report: Feb 18 - 25, 2025</title>
+    <title>ethereum-optimism/optimism - Weekly Report: Feb 19 - 26, 2025</title>
             <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
             <style>
         :root {
@@ -426,7 +426,7 @@
             <img src="https://github.com/ethereum-optimism.png" alt="ethereum-optimism logo" class="repo-logo">
             <div class="repo-info">
                 <h1>ethereum-optimism/optimism - Weekly Report</h1>
-                <p>Last updated: 2025-02-25 23:37:45</p>
+                <p>Last updated: 2025-02-26 00:26:16</p>
             </div>
         </div>
 
@@ -438,15 +438,15 @@
             </div>
             <div class="white-stat-group">
                 <div class="white-stat-label">CLOSED PRS</div>
-                <div class="white-stat-value">28</div>
+                <div class="white-stat-value">29</div>
             </div>
             <div class="white-stat-group">
                 <div class="white-stat-label">AVG RESPONSE</div>
-                <div class="white-stat-value">2.9h</div>
+                <div class="white-stat-value">2.8h</div>
             </div>
             <div class="white-stat-group">
                 <div class="white-stat-label">AVG LIFETIME</div>
-                <div class="white-stat-value">20.2h</div>
+                <div class="white-stat-value">20.3h</div>
             </div>
         </div>
 
@@ -461,7 +461,7 @@
         <!-- Summary -->
         <div class="white-theme">
             <h2>Summary</h2>
-            <p>### New Features<br>- **Superchain Registry Installation**: A new feature was added to install the superchain registry using a streamlined process, enhancing the setup efficiency for users managing multiple blockchain environments.<br>- **Prestate Computation Service**: A new service was introduced to compute prestates dynamically, allowing for more accurate and context-aware deployment of development networks, which is crucial for testing and validation processes.<br>### Bug Fixes & Hardening<br>- **Batcher Edge Case Fix**: Resolved an issue where the batcher could misbehave by adding the same blocks multiple times due to a block cursor update failure. This fix improves the reliability of block processing and prevents data duplication errors.<br>- **Unique Sentinels in Devnet SDK**: Addressed a bug in the devnet SDK where non-unique pointers were causing workflow failures. This fix ensures that multiple validators can operate without interference, enhancing the stability of test environments.<br>### Milestones & Progress<br>- **Improved Event Handling**: The maximum queue size for events was significantly increased to handle spikes in event volume, reducing the risk of system crashes and improving overall system robustness.<br>- **Enhanced RPC Server Functionality**: The RPC server was updated to support multiple routes and improve configuration<br>Overall: 28 PRs closed, 29 contributors.</p>
+            <p>### New Features<br>- **Superchain Registry Installation**: A new feature was added to install the superchain registry via a git clone, which simplifies the integration process and enhances the development workflow by streamlining setup procedures.<br>- **VM Panic Metrics**: Metrics were introduced to track VM panics, providing better visibility into system health and aiding in proactive issue resolution, which can improve system reliability and user experience.<br>### Bug Fixes & Hardening<br>- **Batcher Edge Case Fix**: Addressed a potential issue in the op-batcher where blocks could be added multiple times due to an unupdated block cursor, ensuring more accurate data processing and preventing system errors.<br>- **Security Review and Code Ownership**: Cleaned up the security reviews table and updated codeowners, which enhances the accuracy of security documentation and clarifies responsibilities, contributing to improved software security management.<br>### Milestones & Progress<br>- **Address Aliasing Update**: Progress was made by updating the OptimismPortal to not alias 7702 addresses, aligning with standard practices and reducing potential errors, thus moving closer to compliance and operational goals.<br>- **Operator Fee Tracker**: Continued progress on implementing the Operator Fee (Isthmus) with partial completion, indicating ongoing efforts to<br>Overall: 29 PRs closed, 29 contributors.</p>
         </div>
 
         <!-- 4 Tables: PRs / Issues (Open / Closed) -->
@@ -493,7 +493,7 @@
                                     <a href="https://github.com/DeVikingMark" target="_blank" class="user-name" style="color: #cc00cc">@DeVikingMark</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">-2h</td>
+                            <td style="white-space: nowrap;">-1h</td>
                             <td>0</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -508,7 +508,7 @@
                                     <a href="https://github.com/smartcontracts" target="_blank" class="user-name" style="color: #ff3300">@smartcontracts</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">0h</td>
+                            <td style="white-space: nowrap;">1h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -523,7 +523,7 @@
                                     <a href="https://github.com/sigma" target="_blank" class="user-name" style="color: #cc00cc">@sigma</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">2h</td>
+                            <td style="white-space: nowrap;">3h</td>
                             <td>1</td>
                             <td>1</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -538,7 +538,7 @@
                                     <a href="https://github.com/smartcontracts" target="_blank" class="user-name" style="color: #ff3300">@smartcontracts</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">2h</td>
+                            <td style="white-space: nowrap;">3h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -553,7 +553,7 @@
                                     <a href="https://github.com/sigma" target="_blank" class="user-name" style="color: #cc00cc">@sigma</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">7h</td>
+                            <td style="white-space: nowrap;">8h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -568,7 +568,7 @@
                                     <a href="https://github.com/costcould" target="_blank" class="user-name" style="color: #cc00cc">@costcould</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">8h</td>
+                            <td style="white-space: nowrap;">9h</td>
                             <td>0</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -613,7 +613,7 @@
                                     <a href="https://github.com/dependabot[bot]" target="_blank" class="user-name" style="color: #0066ff">@dependabot[bot]</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">27h</td>
+                            <td style="white-space: nowrap;">28h</td>
                             <td>0</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -628,7 +628,7 @@
                                     <a href="https://github.com/dependabot[bot]" target="_blank" class="user-name" style="color: #0066ff">@dependabot[bot]</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">27h</td>
+                            <td style="white-space: nowrap;">28h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -643,7 +643,7 @@
                                     <a href="https://github.com/teddyknox" target="_blank" class="user-name" style="color: #ff3300">@teddyknox</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">31h</td>
+                            <td style="white-space: nowrap;">32h</td>
                             <td>0</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -658,7 +658,7 @@
                                     <a href="https://github.com/alcueca" target="_blank" class="user-name" style="color: #33cc00">@alcueca</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">33h</td>
+                            <td style="white-space: nowrap;">34h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -673,7 +673,7 @@
                                     <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">34h</td>
+                            <td style="white-space: nowrap;">35h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -688,7 +688,7 @@
                                     <a href="https://github.com/sebastianst" target="_blank" class="user-name" style="color: #9900ff">@sebastianst</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">35h</td>
+                            <td style="white-space: nowrap;">36h</td>
                             <td>1</td>
                             <td>1</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -718,7 +718,7 @@
                                     <a href="https://github.com/dependabot[bot]" target="_blank" class="user-name" style="color: #0066ff">@dependabot[bot]</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">100h</td>
+                            <td style="white-space: nowrap;">101h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -733,7 +733,7 @@
                                     <a href="https://github.com/alcueca" target="_blank" class="user-name" style="color: #33cc00">@alcueca</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">105h</td>
+                            <td style="white-space: nowrap;">106h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #FF4136;">69h</td>
@@ -748,7 +748,7 @@
                                     <a href="https://github.com/raffaele-oplabs" target="_blank" class="user-name" style="color: #cc00cc">@raffaele-oplabs</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">122h</td>
+                            <td style="white-space: nowrap;">123h</td>
                             <td>1</td>
                             <td>3</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -763,7 +763,7 @@
                                     <a href="https://github.com/emilianobonassi" target="_blank" class="user-name" style="color: #cc3300">@emilianobonassi</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">123h</td>
+                            <td style="white-space: nowrap;">124h</td>
                             <td>0</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -778,7 +778,7 @@
                                     <a href="https://github.com/dependabot[bot]" target="_blank" class="user-name" style="color: #0066ff">@dependabot[bot]</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">124h</td>
+                            <td style="white-space: nowrap;">125h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -793,7 +793,7 @@
                                     <a href="https://github.com/dependabot[bot]" target="_blank" class="user-name" style="color: #0066ff">@dependabot[bot]</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">124h</td>
+                            <td style="white-space: nowrap;">125h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -808,7 +808,7 @@
                                     <a href="https://github.com/dependabot[bot]" target="_blank" class="user-name" style="color: #0066ff">@dependabot[bot]</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">124h</td>
+                            <td style="white-space: nowrap;">125h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -823,7 +823,7 @@
                                     <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">126h</td>
+                            <td style="white-space: nowrap;">127h</td>
                             <td>4</td>
                             <td>1</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -838,7 +838,7 @@
                                     <a href="https://github.com/alcueca" target="_blank" class="user-name" style="color: #33cc00">@alcueca</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">131h</td>
+                            <td style="white-space: nowrap;">132h</td>
                             <td>2</td>
                             <td>1</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -853,7 +853,7 @@
                                     <a href="https://github.com/pcw109550" target="_blank" class="user-name" style="color: #33cc00">@pcw109550</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">133h</td>
+                            <td style="white-space: nowrap;">134h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #FFDC00;">8h</td>
@@ -868,7 +868,7 @@
                                     <a href="https://github.com/tyler-smith" target="_blank" class="user-name" style="color: #ff0099">@tyler-smith</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">133h</td>
+                            <td style="white-space: nowrap;">134h</td>
                             <td>0</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -883,7 +883,7 @@
                                     <a href="https://github.com/axelKingsley" target="_blank" class="user-name" style="color: #6600cc">@axelKingsley</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">147h</td>
+                            <td style="white-space: nowrap;">148h</td>
                             <td>1</td>
                             <td>0</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -928,7 +928,7 @@
                                     <a href="https://github.com/ControlCplusControlV" target="_blank" class="user-name" style="color: #cc00cc">@ControlCplusControlV</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">151h</td>
+                            <td style="white-space: nowrap;">152h</td>
                             <td>1</td>
                             <td>4</td>
                             <td style="white-space: nowrap; color: #2ECC40;">4h</td>
@@ -1042,6 +1042,21 @@
                             <td style="white-space: nowrap;">12h</td>
                             <td>2</td>
                             <td>2</td>
+                            <td style="white-space: nowrap; color: #2ECC40;">1h</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/pull/14516" target="_blank">op-challenger: Avoid loading duplicate leaves in same block</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/72675?v=4" alt="ajsutton" class="user-avatar">
+                                    <a href="https://github.com/ajsutton" target="_blank" class="user-name" style="color: #9900ff">@ajsutton</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">21h</td>
+                            <td>1</td>
+                            <td>1</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
                         </tr>
             
@@ -1398,6 +1413,21 @@
         
                         <tr>
                             <td style="white-space: nowrap;">Feb 26</td>
+                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14537" target="_blank">Remove message expiry override from rollup.Config</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/3516807?v=4" alt="Inphi" class="user-avatar">
+                                    <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
+                                </div>
+                            </td>
+                            <td style="white-space: nowrap;">-6h</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td style="white-space: nowrap;">Feb 26</td>
                             <td><a href="https://github.com/ethereum-optimism/optimism/issues/14536" target="_blank">contracts: SuperFaultDisputeGame solvency invariants</a></td>
                             <td>
                                 <div class="user-info">
@@ -1420,7 +1450,7 @@
                                     <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">4h</td>
+                            <td style="white-space: nowrap;">5h</td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -1435,7 +1465,7 @@
                                     <a href="https://github.com/protolambda" target="_blank" class="user-name" style="color: #ff0099">@protolambda</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">4h</td>
+                            <td style="white-space: nowrap;">5h</td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -1450,7 +1480,7 @@
                                     <a href="https://github.com/lewejahlil" target="_blank" class="user-name" style="color: #0099cc">@lewejahlil</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">6h</td>
+                            <td style="white-space: nowrap;">7h</td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -1480,7 +1510,7 @@
                                     <a href="https://github.com/sebastianst" target="_blank" class="user-name" style="color: #9900ff">@sebastianst</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">12h</td>
+                            <td style="white-space: nowrap;">13h</td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -1495,7 +1525,7 @@
                                     <a href="https://github.com/Inphi" target="_blank" class="user-name" style="color: #cc00cc">@Inphi</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">28h</td>
+                            <td style="white-space: nowrap;">29h</td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td style="white-space: nowrap; color: #2ECC40;">1h</td>
@@ -1525,7 +1555,7 @@
                                     <a href="https://github.com/geoknee" target="_blank" class="user-name" style="color: #cc3300">@geoknee</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">88h</td>
+                            <td style="white-space: nowrap;">89h</td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -1540,7 +1570,7 @@
                                     <a href="https://github.com/VladLypovyi" target="_blank" class="user-name" style="color: #00ffff">@VladLypovyi</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">99h</td>
+                            <td style="white-space: nowrap;">100h</td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td style="white-space: nowrap; color: #2ECC40;">2h</td>
@@ -1570,22 +1600,7 @@
                                     <a href="https://github.com/ajsutton" target="_blank" class="user-name" style="color: #9900ff">@ajsutton</a>
                                 </div>
                             </td>
-                            <td style="white-space: nowrap;">117h</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td style="white-space: nowrap; color: #FF4136;">N/A</td>
-                        </tr>
-            
-                        <tr>
-                            <td style="white-space: nowrap;">Feb 20</td>
-                            <td><a href="https://github.com/ethereum-optimism/optimism/issues/14475" target="_blank">op-e2e: Add tests for super-cannon games</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/72675?v=4" alt="ajsutton" class="user-avatar">
-                                    <a href="https://github.com/ajsutton" target="_blank" class="user-name" style="color: #9900ff">@ajsutton</a>
-                                </div>
-                            </td>
-                            <td style="white-space: nowrap;">122h</td>
+                            <td style="white-space: nowrap;">118h</td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td style="white-space: nowrap; color: #FF4136;">N/A</td>
@@ -1665,7 +1680,7 @@
             <div class="white-theme">
                 <h3>Associated Specifications</h3>
                 <ul>
-            <li><a href="https://github.com/ethereum-optimism/platforms-team/issues/643" target="_blank">https://github.com/ethereum-optimism/platforms-team/issues/643</a></li><li><a href="https://github.com/ethereum-optimism/optimism/pull/14478" target="_blank">https://github.com/ethereum-optimism/optimism/pull/14478</a></li><li><a href="https://app.circleci.com/pipelines/github/ethereum-optimism/devnet-sdk-test-setups/17/workflows/ad677af5-3843-4063-b0a1-52b7e002b065/jobs/32)" target="_blank">https://app.circleci.com/pipelines/github/ethereum-optimism/devnet-sdk-test-setups/17/workflows/ad677af5-3843-4063-b0a1-52b7e002b065/jobs/32)</a></li><li><a href="https://github.com/ethereum-optimism/.github/blob/master/CONTRIBUTING.md" target="_blank">https://github.com/ethereum-optimism/.github/blob/master/CONTRIBUTING.md</a></li><li><a href="https://github.com/FraxFinance/fraxtal/commit/a09fd6ba27fee24e88f02819643bd36eadc76bfc)" target="_blank">https://github.com/FraxFinance/fraxtal/commit/a09fd6ba27fee24e88f02819643bd36eadc76bfc)</a></li><li><a href="https://app.circleci.com/jobs/github/ethereum-optimism/superchain-ops/44380" target="_blank">https://app.circleci.com/jobs/github/ethereum-optimism/superchain-ops/44380</a></li><li><a href="https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-bedrock/meta/STYLE_GUIDE.md)." target="_blank">https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-bedrock/meta/STYLE_GUIDE.md).</a></li><li><a href="https://github.com/ethereum-optimism/optimism/issues/14458" target="_blank">https://github.com/ethereum-optimism/optimism/issues/14458</a></li><li><a href="https://github.com/user-attachments/assets/1b99d3bc-1908-499e-b9b0-04d27eee5ef7)" target="_blank">https://github.com/user-attachments/assets/1b99d3bc-1908-499e-b9b0-04d27eee5ef7)</a></li><li><a href="https://github.com/ethereum-optimism/platforms-team/issues/642" target="_blank">https://github.com/ethereum-optimism/platforms-team/issues/642</a></li><li><a href="https://github.com/ethereum-optimism/optimism/issues/14448" target="_blank">https://github.com/ethereum-optimism/optimism/issues/14448</a></li><li><a href="https://app.circleci.com/pipelines/github/ethereum-optimism/devnet-sdk-test-setups/16/workflows/d6da8e0c-3e34-4b23-b4dc-9fb9c2c44e4f/jobs/30)." target="_blank">https://app.circleci.com/pipelines/github/ethereum-optimism/devnet-sdk-test-setups/16/workflows/d6da8e0c-3e34-4b23-b4dc-9fb9c2c44e4f/jobs/30).</a></li><li><a href="https://github.com/ethereum-optimism/infra/pull/203" target="_blank">https://github.com/ethereum-optimism/infra/pull/203</a></li><li><a href="https://github.com/ethereum-optimism/optimism/blob/develop/op-challenger/game/fault/contracts/faultdisputegame.go#L78)" target="_blank">https://github.com/ethereum-optimism/optimism/blob/develop/op-challenger/game/fault/contracts/faultdisputegame.go#L78)</a></li><li><a href="https://discord.com/channels/1244729134312198194/1341296366944784385/1341614013427093564)," target="_blank">https://discord.com/channels/1244729134312198194/1341296366944784385/1341614013427093564),</a></li><li><a href="https://github.com/ethereum-optimism/infra)" target="_blank">https://github.com/ethereum-optimism/infra)</a></li>
+            <li><a href="https://github.com/user-attachments/assets/1b99d3bc-1908-499e-b9b0-04d27eee5ef7)" target="_blank">https://github.com/user-attachments/assets/1b99d3bc-1908-499e-b9b0-04d27eee5ef7)</a></li><li><a href="https://github.com/FraxFinance/fraxtal/commit/a09fd6ba27fee24e88f02819643bd36eadc76bfc)" target="_blank">https://github.com/FraxFinance/fraxtal/commit/a09fd6ba27fee24e88f02819643bd36eadc76bfc)</a></li><li><a href="https://github.com/ethereum-optimism/.github/blob/master/CONTRIBUTING.md" target="_blank">https://github.com/ethereum-optimism/.github/blob/master/CONTRIBUTING.md</a></li><li><a href="https://app.circleci.com/jobs/github/ethereum-optimism/superchain-ops/44380" target="_blank">https://app.circleci.com/jobs/github/ethereum-optimism/superchain-ops/44380</a></li><li><a href="https://app.circleci.com/pipelines/github/ethereum-optimism/devnet-sdk-test-setups/16/workflows/d6da8e0c-3e34-4b23-b4dc-9fb9c2c44e4f/jobs/30)." target="_blank">https://app.circleci.com/pipelines/github/ethereum-optimism/devnet-sdk-test-setups/16/workflows/d6da8e0c-3e34-4b23-b4dc-9fb9c2c44e4f/jobs/30).</a></li><li><a href="https://app.circleci.com/pipelines/github/ethereum-optimism/devnet-sdk-test-setups/17/workflows/ad677af5-3843-4063-b0a1-52b7e002b065/jobs/32)" target="_blank">https://app.circleci.com/pipelines/github/ethereum-optimism/devnet-sdk-test-setups/17/workflows/ad677af5-3843-4063-b0a1-52b7e002b065/jobs/32)</a></li><li><a href="https://github.com/ethereum-optimism/optimism/issues/14458" target="_blank">https://github.com/ethereum-optimism/optimism/issues/14458</a></li><li><a href="https://github.com/ethereum-optimism/infra)" target="_blank">https://github.com/ethereum-optimism/infra)</a></li><li><a href="https://github.com/ethereum-optimism/platforms-team/issues/642" target="_blank">https://github.com/ethereum-optimism/platforms-team/issues/642</a></li><li><a href="https://github.com/ethereum-optimism/optimism/issues/14448" target="_blank">https://github.com/ethereum-optimism/optimism/issues/14448</a></li><li><a href="https://discord.com/channels/1244729134312198194/1341296366944784385/1341614013427093564)," target="_blank">https://discord.com/channels/1244729134312198194/1341296366944784385/1341614013427093564),</a></li><li><a href="https://github.com/ethereum-optimism/infra/pull/203" target="_blank">https://github.com/ethereum-optimism/infra/pull/203</a></li><li><a href="https://github.com/ethereum-optimism/optimism/pull/14478" target="_blank">https://github.com/ethereum-optimism/optimism/pull/14478</a></li><li><a href="https://github.com/ethereum-optimism/optimism/blob/develop/op-challenger/game/fault/contracts/faultdisputegame.go#L78)" target="_blank">https://github.com/ethereum-optimism/optimism/blob/develop/op-challenger/game/fault/contracts/faultdisputegame.go#L78)</a></li><li><a href="https://github.com/ethereum-optimism/platforms-team/issues/643" target="_blank">https://github.com/ethereum-optimism/platforms-team/issues/643</a></li><li><a href="https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-bedrock/meta/STYLE_GUIDE.md)." target="_blank">https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-bedrock/meta/STYLE_GUIDE.md).</a></li>
                 </ul>
             </div>
             
@@ -1682,7 +1697,7 @@
                         datasets: [
                             {
                                 label: 'PRs Closed',
-                                data: [0, 1, 9, 0, 2, 3, 13, 0],
+                                data: [0, 1, 9, 0, 2, 3, 13, 1],
                                 borderColor: 'rgba(255, 99, 132, 1)',
                                 backgroundColor: 'rgba(255, 99, 132, 0.1)',
                                 borderWidth: 3,
@@ -1704,7 +1719,7 @@
                             },
                             {
                                 label: 'Contributors',
-                                data: [3, 8, 8, 0, 2, 10, 13, 2],
+                                data: [3, 8, 8, 0, 2, 10, 13, 3],
                                 borderColor: 'rgba(75, 192, 192, 1)',
                                 backgroundColor: 'rgba(75, 192, 192, 0.1)',
                                 borderWidth: 3,
