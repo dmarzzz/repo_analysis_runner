@@ -1896,17 +1896,17 @@ for repo, repo_owner in repos:
 
     def calculate_average_color(image_url):
         try:
-            r = requests.get(image_url)
+        r = requests.get(image_url)
             if r.status_code != 200:
                 print(f"Warning: Failed to fetch image from {image_url}, status code: {r.status_code}")
                 return "#00ffa0"  # Default color if image can't be fetched
             
             try:
-                img = Image.open(io.BytesIO(r.content)).convert('RGB')
-                px = list(img.getdata())
-                n = len(px)
-                avg = tuple(sum(x)//n for x in zip(*px))
-                return "#{:02x}{:02x}{:02x}".format(*avg)
+        img = Image.open(io.BytesIO(r.content)).convert('RGB')
+        px = list(img.getdata())
+        n = len(px)
+        avg = tuple(sum(x)//n for x in zip(*px))
+        return "#{:02x}{:02x}{:02x}".format(*avg)
             except (PIL.UnidentifiedImageError, OSError, IOError) as e:
                 print(f"Warning: Could not process image from {image_url}: {str(e)}")
                 return "#00ffa0"  # Default color if image can't be processed
@@ -1938,7 +1938,7 @@ for repo, repo_owner in repos:
 
         # Debug info about closed issues
         print(f"Generating HTML with {len(data.get('closed_issues', []))} closed issues")
-        
+
         # Chart data
         sorted_dates = sorted(data['aggregated_stats'].keys())
         pr_closed_list = []
