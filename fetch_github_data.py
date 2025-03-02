@@ -13,6 +13,7 @@ import io
 import logging
 import time
 import math
+import PIL
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -1894,15 +1895,32 @@ for repo, repo_owner in repos:
         return "#" + h.hexdigest()[:6]
 
     def calculate_average_color(image_url):
-        r = requests.get(image_url)
-        img = Image.open(io.BytesIO(r.content)).convert('RGB')
-        px = list(img.getdata())
-        n = len(px)
-        avg = tuple(sum(x)//n for x in zip(*px))
-        return "#{:02x}{:02x}{:02x}".format(*avg)
-
-    org_logo_url = f"https://github.com/{repo_owner}.png"
-    glow_color = calculate_average_color(org_logo_url)
+        try:
+            r = requests.get(image_url)
+            if r.status_code != 200:
+                print(f"Warning: Failed to fetch image from {image_url}, status code: {r.status_code}")
+                return "#00ffa0"  # Default color if image can't be fetched
+            
+            try:
+                img = Image.open(io.BytesIO(r.content)).convert('RGB')
+                px = list(img.getdata())
+                n = len(px)
+                avg = tuple(sum(x)//n for x in zip(*px))
+                return "#{:02x}{:02x}{:02x}".format(*avg)
+            except (PIL.UnidentifiedImageError, OSError, IOError) as e:
+                print(f"Warning: Could not process image from {image_url}: {str(e)}")
+                return "#00ffa0"  # Default color if image can't be processed
+        except Exception as e:
+            print(f"Warning: Error in calculate_average_color for {image_url}: {str(e)}")
+            return "#00ffa0"  # Default fallback color
+    
+    try:
+        logo_url = f"https://github.com/{repo_owner}.png"
+        glow_color = calculate_average_color(logo_url)
+    except Exception as e:
+        print(f"Warning: Error getting organization logo color: {str(e)}")
+        logo_url = f"https://github.com/{repo_owner}.png"  # Still set logo_url even if color extraction fails
+        glow_color = "#00ffa0"  # Default color if anything goes wrong
 
     # ---------- Generate HTML ----------
     def generate_html(data):
@@ -2386,7 +2404,7 @@ for repo, repo_owner in repos:
             <span>{repo}</span>
         </div>
         <div class="header">
-            <img src="{org_logo_url}" alt="{repo_owner} logo" class="repo-logo">
+            <img src="{logo_url}" alt="{repo_owner} logo" class="repo-logo">
             <div class="repo-info">
                 <h1>{repo_owner}/{repo} - Weekly Report</h1>
                 <p>Last updated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</p>
