@@ -22,6 +22,12 @@ OPENAI_API_KEY = os.getenv("OPENAI_KEY")
 DAYS_TO_FETCH = 7  # Default to last 7 days of messages
 MESSAGE_LIMIT = 2000  # Significantly increased to get more messages
 
+# Define the output directory for reports
+REPORTS_DIR = "reports"
+
+# Ensure the reports directory exists
+os.makedirs(REPORTS_DIR, exist_ok=True)
+
 # First, let's list all available chats
 with Client("session_name", api_id=TELEGRAM_API_ID, api_hash=TELEGRAM_API_HASH) as app:
     print("Listing all available dialogs (chats):")
@@ -514,13 +520,55 @@ with Client("session_name", api_id=TELEGRAM_API_ID, api_hash=TELEGRAM_API_HASH) 
 </html>
                 """
                 
-                # Write to HTML file
-                with open("EA.html", "w", encoding="utf-8") as f:
+                # Write to individual HTML file for each chat
+                report_filename = f"{chat_title.replace(' ', '_')}.html"
+                report_path = os.path.join(REPORTS_DIR, report_filename)
+                with open(report_path, "w", encoding="utf-8") as f:
                     f.write(html)
-                print("\nEnhanced summary with statistics saved to EA.html")
+                print(f"Enhanced summary with statistics saved to {report_path}")
+
+                # Collect report filenames for index
+                report_files = []
+                report_files.append(report_filename)
             else:
                 print("No text messages found in the specified time period.")
         else:
             print("No channel ID specified. Please set the TELEGRAM_CHANNEL_ID environment variable.")
     except Exception as e:
-        print(f"Error: {e}") 
+        print(f"Error: {e}")
+
+# After processing all chats, generate the main index page
+index_html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Telegram Chat Summaries Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Share Tech Mono', monospace; background-color: #0a0a0a; color: #00ffa0; padding: 20px; }
+        h1 { text-align: center; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 10px 0; }
+        a { color: #00ffa0; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Telegram Chat Summaries</h1>
+    <ul>
+"""
+
+for report_file in report_files:
+    index_html += f"<li><a href='{REPORTS_DIR}/{report_file}'>{report_file.replace('_', ' ').replace('.html', '')}</a></li>\n"
+
+index_html += """
+    </ul>
+</body>
+</html>
+"""
+
+# Write the index HTML file
+with open("telegram_reports_index.html", "w", encoding="utf-8") as f:
+    f.write(index_html)
+print("Index page created: telegram_reports_index.html") 
