@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Chat Summary - ⛽Ethereum gas limit working group⛽</title>
+    <title>Telegram Chat Summary - L2 Interop Working Group</title>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -166,16 +166,37 @@
             font-size: 16px;
         }
         
-        .theme-item {
-            padding-left: 15px;
+        .weekly-focus {
+            font-size: 1.2em;
             border-left: 3px solid var(--warning);
-            margin-bottom: 20px;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            color: var(--warning);
+        }
+        
+        .bullet-point {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .bullet-point::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--warning);
         }
         
         .decision-item {
             padding-left: 15px;
             border-left: 3px solid var(--secondary);
             margin-bottom: 15px;
+        }
+        
+        .debate-item {
+            padding-left: 15px;
+            border-left: 3px solid var(--primary);
+            margin-bottom: 20px;
         }
         
         .section-header {
@@ -249,27 +270,27 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>NERV TELEGRAM ANALYSIS SYSTEM</h1>
+            <h1>OFFLINE NERV TELEGRAM ANALYSIS</h1>
         </div>
         
-        <div class="date-range">ANALYSIS PERIOD: Feb 23, 2025 - Mar 02, 2025</div>
+        <div class="date-range">ANALYSIS PERIOD: 2025-02-24 to 2025-03-03</div>
         
         <div class="stats-panel">
             <div class="stat-box">
                 <div class="stat-label">CHAT TITLE</div>
-                <div class="stat-value" style="font-size: 24px;">⛽Ethereum gas limit working group⛽</div>
+                <div class="stat-value" style="font-size: 24px;">L2 Interop Working Group</div>
             </div>
             <div class="stat-box">
                 <div class="stat-label">TOTAL MESSAGES</div>
-                <div class="stat-value">0</div>
+                <div class="stat-value">32</div>
             </div>
             <div class="stat-box">
                 <div class="stat-label">UNIQUE PARTICIPANTS</div>
-                <div class="stat-value">0</div>
+                <div class="stat-value">20</div>
             </div>
             <div class="stat-box">
                 <div class="stat-label">ANALYSIS COMPLETED</div>
-                <div class="stat-value" style="font-size: 20px;">2025-03-02 23:24</div>
+                <div class="stat-value" style="font-size: 20px;">2025-03-03 16:04</div>
             </div>
         </div>
         
@@ -279,20 +300,39 @@
         </div>
         
         <div class="summary">
-            <div class="panel-title">CONVERSATION SUMMARY</div>
+            <div class="panel-title">WEEKLY ANALYSIS</div>
             
-            <div class="section-header">THREE CORE THEMES</div>
+            <div class="section-header">WEEKLY FOCUS</div>
+            <p>No specific focus identified for this week.</p>
             
+            <div class="section-header">KEY POINTS</div>
+            <ul>
+                <li class='bullet-point'>- Discussion on adding an official Telegram ID bot for programmatic access and chat history summaries.</li>
+<li class='bullet-point'>- Progress made on developing a messaging standard during a workshop in Denver.</li>
+<li class='bullet-point'>- Implementation of EIP-7702 with Resource Locks for true multichain accounts.</li>
+
+            </ul>
             
             <div class="section-header">DECISIONS MADE</div>
+            <ul>
+                <li class='decision-item'>- Addition of an official Telegram ID bot for chat history summaries.</li>
+<li class='decision-item'>- Updating ERC 7786 based on discussions from the messaging standard workshop.</li>
+<li class='decision-item'>- Implementation of EIP-7702 with Resource Locks for multichain accounts.</li>
+
+            </ul>
             
-            
-            <div class="section-header">GENERAL SUMMARY</div>
-            
+            <div class="section-header">TOPICS DEBATED</div>
+            <ul>
+                <li class='debate-item'>- Side 1: Using PREP method with CREATE2 for consistent configuration.</li>
+<li class='debate-item'>- Side 2: Concerns about rotating or adding social recovery to configurations over time.</li>
+<li class='debate-item'>- Side 1: Exploring the possibility of spending assets across multiple networks with one signature.</li>
+<li class='debate-item'>- Side 2: Addressing UX gaps related to duplicated signatures and network switching between EVMs and Solana.</li>
+
+            </ul>
         </div>
         
         <div class="credits">
-            GENERATED BY NERV TELEGRAM ANALYSIS SYSTEM • 2025-03-02 23:24:19
+            GENERATED BY OFFLINE NERV TELEGRAM ANALYSIS • 2025-03-03 16:04:19
         </div>
     </div>
     
@@ -302,11 +342,11 @@
         var activityChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['03/02'],
+                labels: ['02/24', '02/25', '02/26', '03/02', '03/03'],
                 datasets: [
                     {
                         label: 'Messages',
-                        data: [0],
+                        data: [7, 6, 15, 3, 1],
                         borderColor: '#00ffa0',
                         backgroundColor: 'rgba(0, 255, 160, 0.1)',
                         borderWidth: 2,
@@ -315,7 +355,7 @@
                     },
                     {
                         label: 'Participants',
-                        data: [0],
+                        data: [5, 5, 8, 3, 1],
                         borderColor: '#ff5000',
                         backgroundColor: 'rgba(255, 80, 0, 0.1)',
                         borderWidth: 2,
@@ -358,4 +398,4 @@
     </script>
 </body>
 </html>
-            
+    

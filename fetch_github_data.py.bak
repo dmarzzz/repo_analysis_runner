@@ -1913,14 +1913,14 @@ for repo, repo_owner in repos:
         except Exception as e:
             print(f"Warning: Error in calculate_average_color for {image_url}: {str(e)}")
             return "#00ffa0"  # Default fallback color
-        
-        try:
-            logo_url = f"https://github.com/{repo_owner}.png"
-            glow_color = calculate_average_color(logo_url)
-        except Exception as e:
-            print(f"Warning: Error getting organization logo color: {str(e)}")
-            logo_url = f"https://github.com/{repo_owner}.png"  # Still set logo_url even if color extraction fails
-            glow_color = "#00ffa0"  # Default color if anything goes wrong
+    
+    try:
+        logo_url = f"https://github.com/{repo_owner}.png"
+        glow_color = calculate_average_color(logo_url)
+    except Exception as e:
+        print(f"Warning: Error getting organization logo color: {str(e)}")
+        logo_url = f"https://github.com/{repo_owner}.png"  # Still set logo_url even if color extraction fails
+        glow_color = "#00ffa0"  # Default color if anything goes wrong
 
     # ---------- Generate HTML ----------
     def generate_html(data):

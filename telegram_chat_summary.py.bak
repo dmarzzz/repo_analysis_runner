@@ -1,0 +1,1130 @@
+from pyrogram import Client
+from openai import OpenAI
+import os
+from datetime import datetime, timedelta
+from dotenv import load_dotenv
+import logging
+from collections import Counter
+import pytz
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+# Load environment variables
+load_dotenv()
+
+# Define your Telegram and OpenAI credentials
+TELEGRAM_API_ID = os.getenv("TELEGRAM_API_ID")
+TELEGRAM_API_HASH = os.getenv("TELEGRAM_API_HASH")
+# Channel ID now accepts comma-separated list of channel IDs
+TELEGRAM_CHANNEL_IDS = [id.strip() for id in os.getenv("TELEGRAM_CHANNEL_IDS", "").split(",") if id.strip()]
+OPENAI_API_KEY = os.getenv("OPENAI_KEY")
+
+DAYS_TO_FETCH = 14  # Increased to 14 days to get two weeks of messages
+MESSAGE_LIMIT = 3000  # Increased to accommodate two weeks of messages
+
+# Define the output directory for reports
+REPORTS_DIR = "reports"
+
+# Ensure the reports directory exists
+os.makedirs(REPORTS_DIR, exist_ok=True)
+
+# Initialize list to store all report filenames
+all_report_files = []
+
+# Debug log for the process
+print("Starting Telegram chat analysis...")
+print(f"Will analyze these channel IDs: {TELEGRAM_CHANNEL_IDS}")
+
+# First, let's list all available chats
+with Client("session_name", api_id=TELEGRAM_API_ID, api_hash=TELEGRAM_API_HASH) as app:
+    print("Listing all available dialogs (chats):")
+    print("ID | TYPE | TITLE")
+    print("-" * 50)
+    
+    for dialog in app.get_dialogs():
+        chat = dialog.chat
+        chat_type = chat.type.name
+        chat_title = chat.title or chat.first_name or "Unknown"
+        print(f"{chat.id} | {chat_type} | {chat_title}")
+    
+    print("-" * 50)
+    
+    if not TELEGRAM_CHANNEL_IDS:
+        print("No channel IDs specified. Please set the TELEGRAM_CHANNEL_IDS environment variable.")
+    else:
+        print(f"Found {len(TELEGRAM_CHANNEL_IDS)} channel ID(s) to process: {', '.join(TELEGRAM_CHANNEL_IDS)}")
+    
+    # Process each channel ID
+    for channel_id in TELEGRAM_CHANNEL_IDS:
+        try:
+            print(f"\n{'='*50}")
+            print(f"Processing channel ID: {channel_id}")
+            print(f"{'=' * 50}")
+            
+            # Only try to get chat history if a chat ID is provided
+            try:
+                print(f"Attempting to fetch messages from: {channel_id}")
+                
+                # Get chat information
+                chat = app.get_chat(channel_id)
+                chat_title = chat.title or chat.first_name or "Unknown Chat"
+                chat_id_formatted = str(chat.id).replace("-", "n") # Make safe for filenames
+                print(f"Found chat: {chat_title}")
+                
+                # Calculate date ranges for the two periods
+                current_date = datetime.now()
+                
+                # Most recent week (0-7 days ago) - THIS IS WHAT WILL APPEAR IN THE REPORT
+                recent_period_end = current_date
+                recent_period_start = current_date - timedelta(days=7)
+                
+                # Previous week (7-14 days ago) - CONTEXT ONLY, NOT FOR DISPLAY
+                context_period_end = recent_period_start
+                context_period_start = current_date - timedelta(days=14)
+                
+                # Convert dates to UTC
+                utc = pytz.UTC
+                recent_period_start_utc = utc.localize(recent_period_start) if recent_period_start.tzinfo is None else recent_period_start.astimezone(utc)
+                recent_period_end_utc = utc.localize(recent_period_end) if recent_period_end.tzinfo is None else recent_period_end.astimezone(utc)
+                context_period_start_utc = utc.localize(context_period_start) if context_period_start.tzinfo is None else context_period_start.astimezone(utc)
+                context_period_end_utc = utc.localize(context_period_end) if context_period_end.tzinfo is None else context_period_end.astimezone(utc)
+                
+                # Format date ranges for display
+                recent_date_range = f"{recent_period_start.strftime('%Y-%m-%d')} to {recent_period_end.strftime('%Y-%m-%d')}"
+                context_date_range = f"{context_period_start.strftime('%Y-%m-%d')} to {context_period_end.strftime('%Y-%m-%d')}"
+                
+                print(f"\nFetching messages for chat ID: {channel_id}")
+                print(f"Recent period (for report): {recent_date_range}")
+                print(f"Context period (for LLM only): {context_date_range}")
+                
+                # Fetch the messages
+                messages = []
+                try:
+                    for message in app.get_chat_history(channel_id, limit=MESSAGE_LIMIT):
+                        messages.append(message)
+                        if len(messages) % 100 == 0:
+                            print(f"Processed {len(messages)} messages...")
+                    print(f"Total messages processed: {len(messages)}")
+                except Exception as e:
+                    print(f"Error fetching messages: {e}")
+                    continue
+                
+                # Split messages into the two periods and filter out any outside our 14-day window
+                recent_period_messages = []
+                context_period_messages = []
+                filtered_out_count = 0
+                
+                for message in messages:
+                    if not message.date:
+                        continue
+                    
+                    # Convert message date to UTC
+                    message_date_utc = utc.localize(message.date) if message.date.tzinfo is None else message.date.astimezone(utc)
+                    
+                    # Check if message is in the recent period (0-7 days)
+                    if recent_period_start_utc <= message_date_utc <= recent_period_end_utc:
+                        recent_period_messages.append(message)
+                    # Check if message is in the context period (7-14 days)
+                    elif context_period_start_utc <= message_date_utc <= context_period_end_utc:
+                        context_period_messages.append(message)
+                    # Message is outside our 14-day window
+                    elif message_date_utc < context_period_start_utc:
+                        filtered_out_count += 1
+                
+                print(f"Messages in recent period (0-7 days): {len(recent_period_messages)}")
+                print(f"Messages in context period (7-14 days): {len(context_period_messages)}")
+                print(f"Messages filtered out (older than 14 days): {filtered_out_count}")
+                
+                # Group messages by day for recent period only (for chart)
+                daily_message_counts = Counter()
+                daily_participant_counts = Counter()
+                participants_by_day = {}
+                
+                for message in recent_period_messages:
+                    if not message.date:
+                        continue
+                    
+                    day = message.date.strftime("%Y-%m-%d")
+                    daily_message_counts[day] += 1
+                    
+                    sender = getattr(message.sender, 'first_name', 'Unknown')
+                    if hasattr(message.sender, 'last_name') and message.sender.last_name:
+                        sender += f" {message.sender.last_name}"
+                    
+                    if day not in participants_by_day:
+                        participants_by_day[day] = set()
+                    
+                    participants_by_day[day].add(sender)
+                
+                # Count unique participants per day
+                for day, participants in participants_by_day.items():
+                    daily_participant_counts[day] = len(participants)
+                
+                # Sort days chronologically
+                all_days = sorted(set(daily_message_counts.keys()) | set(daily_participant_counts.keys()))
+                
+                # Prepare chart data
+                chart_labels = all_days
+                daily_message_counts = [daily_message_counts.get(day, 0) for day in all_days]
+                daily_participant_counts = [daily_participant_counts.get(day, 0) for day in all_days]
+                
+                # Count unique participants for the entire week
+                all_participants = set()
+                for day, participants in participants_by_day.items():
+                    all_participants.update(participants)
+                total_unique_participants = len(all_participants)
+                
+                # Generate chat title
+                chat = app.get_chat(channel_id)
+                chat_title = getattr(chat, 'title', str(channel_id))
+                chat_id_formatted = str(channel_id).replace('-', 'n')  # Replace minus signs for filename
+                
+                print(f"Chat title: {chat_title}")
+                print(f"Unique participants: {total_unique_participants}")
+                
+                # Convert messages to text for the summary
+                context_message_text = ""
+                recent_message_text = ""
+                
+                # Format context period messages (7-14 days ago)
+                for message in context_period_messages:
+                    if message.text:
+                        sender = getattr(message.sender, 'first_name', 'Unknown')
+                        if hasattr(message.sender, 'last_name') and message.sender.last_name:
+                            sender += f" {message.sender.last_name}"
+                        
+                        message_date = message.date.strftime("%Y-%m-%d %H:%M:%S")
+                        context_message_text += f"[{message_date}] {sender}: {message.text}\n\n"
+                
+                # Format recent period messages (0-7 days ago)
+                for message in recent_period_messages:
+                    if message.text:
+                        sender = getattr(message.sender, 'first_name', 'Unknown')
+                        if hasattr(message.sender, 'last_name') and message.sender.last_name:
+                            sender += f" {message.sender.last_name}"
+                        
+                        message_date = message.date.strftime("%Y-%m-%d %H:%M:%S")
+                        recent_message_text += f"[{message_date}] {sender}: {message.text}\n\n"
+                
+                # If no messages found in the recent period, generate an empty report
+                if not recent_period_messages:
+                    formatted_summary = "<p class='weekly-focus'>No messages found in this chat during the specified time period.</p>"
+                    daily_message_counts = [0]
+                    daily_participant_counts = [0]
+                    chart_labels = [recent_period_end.strftime("%Y-%m-%d")]
+                    total_messages = 0
+                    total_unique_participants = 0
+                else:
+                    # Generate summary using OpenAI
+                    openai_client = OpenAI(api_key=OPENAI_API_KEY)
+                    
+                    # Special handling for L2 Interop Working Group
+                    l2_interop_context = ""
+                    if "L2 Interop Working Group" in chat_title:
+                        l2_interop_context = """
+                        IMPORTANT REPOSITORY CONTEXT:
+                        
+                        Ethereum-wide Interoperability
+                        Welcome to the L2 Interop repository under the Ethereum organization. This repository serves as the central hub for Ethereum-wide interoperability efforts, providing a single source of truth and collaboration space for all teams and contributors across the Ethereum ecosystem.
+
+                        Overview
+                        Our repository is organized into two main areas:
+
+                        docs/: Contains high-level documentation, onboarding guides, roadmaps, meeting notes, and user-friendly reference material.
+                        specs/: Contains detailed technical specifications, standards, and protocol definitions.
+                        Discussions and collaborations in this repository focus on delivering concrete results. Expected outputs include prototypes, implementation references, and contributions to protocol improvements (e.g., EIPs, RIPs) or proposals for new or existing standards (e.g., ERCs, CAIPs).
+
+                        Getting Started
+                        System Properties
+                        The most important file of this repository is: Properties. It lists and explains the system properties that guide and constraint the current design.
+
+                        Explore the Documentation
+                        Visit the docs/ directory for a comprehensive guide on the project, including architecture overviews and getting started instructions.
+
+                        Review the Specifications
+                        Check the specs/ directory for technical details, protocol specifications, and design decisions that underpin the interoperability efforts.
+
+                        Contributing
+                        We welcome contributions from the community! Please take a moment to review our Contribution Guidelines before getting started. Your input is valuable, and we aim to maintain a collaborative and inclusive environment for everyone.
+
+                        Collaboration & Communication
+                        GitHub Issues & Discussions: Use GitHub Issues for starting conversations, feature requests, and questions.
+                        Project Boards: Stay updated on progress and upcoming milestones by reviewing our project boards.
+                        
+                        When analyzing the chat messages, please keep this repository context in mind.
+                        """
+                    
+                    # Now include the context from previous week in the prompt
+                    context_section = ""
+                    if context_message_text:
+                        context_section = f"""
+                        PREVIOUS WEEK'S CONVERSATION CONTEXT ({context_date_range}):
+                        {context_message_text}
+                        
+                        This previous week's conversation is provided ONLY as context to help you better understand the current week's discussion.
+                        DO NOT include any of this previous week's content in your summary.
+                        Your summary should ONLY cover the current week's conversation that follows.
+                        """
+                    
+                    summary_prompt = f"""
+                    You are an open source software project manager which has many years of experience in the Ethereum Layer 1 core developer process, and now you are working on tracking Layer 2 core development. Your goal is to create weekly summaries of discussions happening on telegram. For each weekly summary, return a one sentence focus of the week, then return a 3 bullet point summary of the week, then return any decisions made related to those discussions, and lastly, generate a list of topics that were debated and list out the two sides of the debate. be careful to not speak vaguely as this will be consumed by participants of the chat themself to refresh themselves. be sure to use exact technical terms as theyre used not to confuse things. be careful to not make up discussions or debates if none happened as some weeks wont have discussions. And for context: {l2_interop_context}
+
+                    {context_section}
+                    
+                    CURRENT WEEK'S CONVERSATION TO SUMMARIZE ({recent_date_range}):
+                    {recent_message_text}
+                    """
+                    
+                    print("Sending chat to OpenAI for summarization...")
+                    response = openai_client.chat.completions.create(
+                        model="gpt-4-turbo",
+                        messages=[
+                            {"role": "system", "content": "You are an open source software project manager which has many years of experience in the Ethereum Layer 1 core developer process, and now you are working on tracking Layer 2 core development. Your goal is to create weekly summaries of discussions happening on telegram."},
+                            {"role": "user", "content": summary_prompt}
+                        ],
+                        max_tokens=1000,  # Increased for more detailed summaries
+                        temperature=0.3
+                    )
+                    
+                    # Extract summary
+                    summary = response.choices[0].message.content.strip()
+                    print("Summary received from OpenAI")
+                    
+                    # Process the summary to extract sections and convert line breaks to HTML
+                    # Initialize section trackers
+                    current_section = None
+                    weekly_focus = ""
+                    bullet_points = []
+                    decisions_lines = []
+                    debates_lines = []
+                    
+                    # Set the initial section to help with parsing
+                    current_section = "looking_for_focus"
+                    
+                    for line in summary.split('\n'):
+                        line = line.strip()
+                        if not line:
+                            continue
+                        
+                        line_lower = line.lower()
+                        
+                        # Handle section headers first
+                        if "focus of the week" in line_lower or "weekly focus" in line_lower:
+                            current_section = "focus"
+                            # Extract focus if it's on the same line
+                            if ":" in line:
+                                focus_text = line.split(":", 1)[1].strip().strip('*')
+                                if focus_text:
+                                    weekly_focus = focus_text
+                            continue
+                        elif "key points" in line_lower:
+                            current_section = "key_points"
+                            continue
+                        elif "decisions made" in line_lower:
+                            current_section = "decisions"
+                            continue
+                        elif "debated topics" in line_lower or "topics debated" in line_lower:
+                            current_section = "debates"
+                            continue
+                        
+                        # Process content based on current section
+                        if current_section == "focus" and not weekly_focus:
+                            # Remove asterisks and other decorations
+                            cleaned_line = line.strip('*: ')
+                            if cleaned_line:
+                                weekly_focus = cleaned_line
+                        elif current_section == "key_points":
+                            # Check for bullet points or numbered items
+                            if line.strip().startswith(('•', '-', '*', '1.', '2.', '3.')):
+                                # Clean the line by removing bullet/number markers
+                                cleaned_line = line.lstrip('•-*123456789. ')
+                                # Remove any trailing asterisks that might be formatting
+                                cleaned_line = cleaned_line.rstrip('*')
+                                if cleaned_line and len(bullet_points) < 3:
+                                    bullet_points.append(cleaned_line)
+                        elif current_section == "decisions":
+                            if "no decisions were made" in line_lower:
+                                decisions_lines = ["No decisions were made this week."]
+                            elif line != "Decisions Made:**":  # Skip the header repetition
+                                decisions_lines.append(line)
+                        elif current_section == "debates":
+                            debates_lines.append(line)
+                    
+                    # Format the HTML for each section
+                    weekly_focus_html = f"<p class='weekly-focus'>{weekly_focus}</p>" if weekly_focus else "<p class='weekly-focus'>No clear focus identified for this week.</p>"
+                    
+                    bullet_points_html = "<ul class='bullet-points'>"
+                    if bullet_points:
+                        for point in bullet_points:
+                            bullet_points_html += f"<li>{point}</li>"
+                    else:
+                        bullet_points_html += "<li>No significant discussions occurred this week.</li>"
+                    bullet_points_html += "</ul>"
+                    
+                    decisions_html = "<div class='decisions'>"
+                    if decisions_lines:
+                        decisions_html += "<ul>"
+                        for line in decisions_lines:
+                            if line.strip().startswith(('•', '-', '*', '1.', '2.', '3.')):
+                                decisions_html += f"<li>{line.lstrip('•-*123456789. ')}</li>"
+                            else:
+                                decisions_html += f"<p>{line}</p>"
+                        decisions_html += "</ul>"
+                    else:
+                        decisions_html += "<p>No decisions were made this week.</p>"
+                    decisions_html += "</div>"
+                    
+                    debates_html = "<div class='debates'>"
+                    if debates_lines:
+                        debates_formatted = []
+                        current_debate = None
+                        
+                        for line in debates_lines:
+                            # Detect debate topic headers
+                            if line.strip().startswith(('1.', '2.', '3.')) and "**" in line:
+                                if current_debate:
+                                    debates_formatted.append(current_debate)
+                                current_debate = {"topic": line, "sides": []}
+                            # Detect "For:" and "Against:" sections
+                            elif current_debate and ("For:**" in line or "Against:**" in line):
+                                side_text = line.strip()
+                                current_debate["sides"].append(side_text)
+                        
+                        # Add the last debate if exists
+                        if current_debate:
+                            debates_formatted.append(current_debate)
+                        
+                        # Format the debates into HTML
+                        if debates_formatted:
+                            debates_html += "<ul class='debate-list'>"
+                            for debate in debates_formatted:
+                                debates_html += f"<li class='debate-topic'>{debate['topic']}</li>"
+                                debates_html += "<ul class='debate-sides'>"
+                                for side in debate["sides"]:
+                                    debates_html += f"<li>{side}</li>"
+                                debates_html += "</ul>"
+                            debates_html += "</ul>"
+                        else:
+                            # Just output the raw lines if parsing failed
+                            debates_html += "<ul>"
+                            for line in debates_lines:
+                                if line.strip():
+                                    debates_html += f"<li>{line}</li>"
+                            debates_html += "</ul>"
+                    else:
+                        debates_html += "<p>No debates or controversial topics were discussed this week.</p>"
+                    debates_html += "</div>"
+                    
+                    # Combine all sections
+                    formatted_summary = weekly_focus_html + bullet_points_html + decisions_html + debates_html
+                    
+                    # Generate HTML with styling inspired by fetch_github_data.py
+                    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Chat Summary - {chat_title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {{
+            --primary: #00ffa0;
+            --secondary: #ff5000;
+            --warning: #ffcf00;
+            --background: #0a0a0a;
+            --panel: #101418;
+            --terminal-green: #00ffa0;
+            --terminal-orange: #ff5000;
+        }}
+        
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--primary);
+        }}
+        
+        @keyframes scanline {{
+            0% {{
+                transform: translateY(-100%);
+            }}
+            100% {{
+                transform: translateY(100%);
+            }}
+        }}
+        
+        body {{
+            background-color: var(--background);
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }}
+        
+        body::before {{
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 160, 0.1),
+                rgba(0, 255, 160, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 10;
+        }}
+        
+        body::after {{
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: rgba(0, 255, 160, 0.07);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: 11;
+        }}
+        
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }}
+        
+        .header {{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 255, 160, 0.3);
+        }}
+        
+        .header h1 {{
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            flex-grow: 1;
+        }}
+        
+        .date-range {{
+            font-size: 18px;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }}
+        
+        .stats-panel {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }}
+        
+        .stat-box {{
+            flex: 1;
+            min-width: 200px;
+            background-color: var(--panel);
+            border: 1px solid rgba(0, 255, 160, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }}
+        
+        .stat-value {{
+            font-size: 32px;
+            margin: 10px 0;
+        }}
+        
+        .stat-label {{
+            font-size: 14px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }}
+        
+        .summary {{
+            background-color: var(--panel);
+            border: 1px solid rgba(0, 255, 160, 0.3);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }}
+        
+        .summary h2 {{
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }}
+        
+        .summary h3 {{
+            color: var(--warning);
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }}
+        
+        .summary p {{
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }}
+        
+        .weekly-focus {{
+            font-size: 20px;
+            color: var(--warning);
+            border-bottom: 1px dashed var(--warning);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }}
+        
+        .bullet-points {{
+            margin-bottom: 30px;
+        }}
+        
+        .bullet-points li {{
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }}
+        
+        .decisions, .debates {{
+            margin-top: 30px;
+        }}
+        
+        .decisions p, .debates p {{
+            margin-bottom: 10px;
+        }}
+        
+        .decisions li, .debates li {{
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }}
+        
+        .section-header {{
+            color: var(--terminal-orange);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 22px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px dashed var(--terminal-orange);
+            padding-bottom: 10px;
+        }}
+        
+        .chart-container {{
+            background-color: var(--panel);
+            border: 1px solid rgba(0, 255, 160, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            height: 400px;
+            position: relative;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }}
+        
+        .credits {{
+            text-align: center;
+            margin-top: 50px;
+            font-size: 12px;
+            opacity: 0.5;
+        }}
+        
+        .panel-title {{
+            margin-bottom: 15px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: var(--terminal-orange);
+        }}
+        
+        .most-active {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }}
+        
+        .user-card {{
+            background-color: rgba(0, 255, 160, 0.1);
+            border-radius: 8px;
+            padding: 10px 15px;
+            min-width: 130px;
+        }}
+        
+        .user-name {{
+            color: var(--warning);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }}
+        
+        .message-count {{
+            font-size: 20px;
+        }}
+        
+        @media (max-width: 768px) {{
+            .stat-box {{
+                min-width: 100%;
+            }}
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NERV TELEGRAM ANALYSIS SYSTEM</h1>
+        </div>
+        
+        <div class="date-range">ANALYSIS PERIOD: {recent_date_range}</div>
+        
+        <div class="stats-panel">
+            <div class="stat-box">
+                <div class="stat-label">CHAT TITLE</div>
+                <div class="stat-value" style="font-size: 24px;">{chat_title}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">TOTAL MESSAGES</div>
+                <div class="stat-value">{len(recent_period_messages)}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">UNIQUE PARTICIPANTS</div>
+                <div class="stat-value">{total_unique_participants}</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">ANALYSIS COMPLETED</div>
+                <div class="stat-value" style="font-size: 20px;">{datetime.now().strftime('%Y-%m-%d %H:%M')}</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <div class="panel-title">ACTIVITY ANALYSIS</div>
+            <canvas id="activityChart"></canvas>
+        </div>
+        
+        <div class="summary">
+            <div class="panel-title">CONVERSATION SUMMARY</div>
+            
+            <div class="section-header">WEEKLY FOCUS</div>
+            {weekly_focus_html}
+            
+            <div class="section-header">KEY POINTS</div>
+            {bullet_points_html}
+            
+            <div class="section-header">DECISIONS MADE</div>
+            {decisions_html}
+            
+            <div class="section-header">DEBATED TOPICS</div>
+            {debates_html}
+        </div>
+        
+        <div class="credits">
+            GENERATED BY NERV TELEGRAM ANALYSIS SYSTEM • {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+        </div>
+    </div>
+    
+    <script>
+        // Activity Chart
+        var ctx = document.getElementById('activityChart').getContext('2d');
+        var activityChart = new Chart(ctx, {{
+            type: 'line',
+            data: {{
+                labels: {chart_labels},
+                datasets: [
+                    {{
+                        label: 'Messages',
+                        data: {daily_message_counts},
+                        borderColor: '#00ffa0',
+                        backgroundColor: 'rgba(0, 255, 160, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.2,
+                        fill: true
+                    }},
+                    {{
+                        label: 'Participants',
+                        data: {daily_participant_counts},
+                        borderColor: '#ff5000',
+                        backgroundColor: 'rgba(255, 80, 0, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.2,
+                        fill: true
+                    }}
+                ]
+            }},
+            options: {{
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {{
+                    x: {{
+                        grid: {{
+                            color: 'rgba(0, 255, 160, 0.1)'
+                        }},
+                        ticks: {{
+                            color: '#00ffa0'
+                        }}
+                    }},
+                    y: {{
+                        beginAtZero: true,
+                        grid: {{
+                            color: 'rgba(0, 255, 160, 0.1)'
+                        }},
+                        ticks: {{
+                            color: '#00ffa0'
+                        }}
+                    }}
+                }},
+                plugins: {{
+                    legend: {{
+                        labels: {{
+                            color: '#00ffa0'
+                        }}
+                    }}
+                }}
+            }}
+        }});
+    </script>
+</body>
+</html>
+            """
+            
+            # Create a unique filename based on chat title and ID
+            report_filename = f"{chat_title.replace(' ', '_')}_{chat_id_formatted}.html"
+            report_path = os.path.join(REPORTS_DIR, report_filename)
+            
+            with open(report_path, "w", encoding="utf-8") as f:
+                f.write(html)
+            print(f"Enhanced summary with statistics saved to {report_path}")
+            
+            # Add this report to our list for the index
+            print(f"Adding report to index: {report_filename} for chat: {chat_title}")
+            report_info = {
+                'filename': report_filename,
+                'title': chat_title,
+                'message_count': len(recent_period_messages),
+                'participant_count': total_unique_participants,
+                'date': datetime.now().strftime('%Y-%m-%d %H:%M')
+            }
+            all_report_files.append(report_info)
+            print(f"Successfully added report to index. Current report count: {len(all_report_files)}")
+            
+        except Exception as e:
+            print(f"Error processing channel {channel_id}: {str(e)}")
+            import traceback
+            traceback.print_exc()
+
+# Debug: Check if we have collected any reports
+print(f"\n{'='*50}")
+print(f"Total reports collected for index: {len(all_report_files)}")
+for i, report in enumerate(all_report_files):
+    print(f"Report {i+1}: {report['title']} - {report['filename']}")
+
+# Only generate the index if we have reports
+if len(all_report_files) > 0:
+    # After processing all chats, generate the main index page with improved styling
+    index_html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NERV Telegram Analysis Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00ffa0;
+            --secondary: #ff5000;
+            --warning: #ffcf00;
+            --background: #0a0a0a;
+            --panel: #101418;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--primary);
+        }
+        
+        @keyframes scanline {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        
+        body {
+            background-color: var(--background);
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 160, 0.1),
+                rgba(0, 255, 160, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: rgba(0, 255, 160, 0.07);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: 11;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nerv-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .nerv-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary);
+        }
+        
+        .nerv-logo {
+            font-size: 2.5em;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--primary);
+        }
+        
+        .nerv-subtitle {
+            font-size: 1.2em;
+            letter-spacing: 3px;
+            color: var(--secondary);
+            text-shadow: 0 0 10px var(--secondary);
+        }
+        
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .report-card {
+            background: rgba(10, 10, 10, 0.5);
+            border: 1px solid var(--primary);
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .report-card:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 160, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .report-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 16px 16px 0 0;
+        }
+        
+        .report-title {
+            font-size: 1.3em;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--primary);
+            padding-bottom: 10px;
+        }
+        
+        .report-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        
+        .report-stat {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .report-stat-label {
+            opacity: 0.7;
+        }
+        
+        .report-stat-value {
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--primary);
+        }
+        
+        .report-date {
+            font-size: 0.8em;
+            text-align: right;
+            opacity: 0.7;
+            margin-bottom: 15px;
+        }
+        
+        .eva-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(0, 255, 160, 0.1),
+                rgba(0, 255, 160, 0.2),
+                rgba(0, 255, 160, 0.1)
+            );
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .eva-button:hover {
+            background: linear-gradient(
+                90deg,
+                rgba(0, 255, 160, 0.2),
+                rgba(0, 255, 160, 0.3),
+                rgba(0, 255, 160, 0.2)
+            );
+            box-shadow: 0 0 10px rgba(0, 255, 160, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .empty-message {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 1.2em;
+            opacity: 0.7;
+            letter-spacing: 2px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            font-size: 0.8em;
+            opacity: 0.7;
+            border-top: 1px dashed var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nerv-header">
+            <div class="nerv-logo">NERV</div>
+            <div class="nerv-subtitle">TELEGRAM ANALYSIS DASHBOARD</div>
+        </div>
+        
+        <div class="report-grid">
+"""
+
+# Add each report to the grid
+if all_report_files:
+    for report in all_report_files:
+        index_html += f"""
+        <div class="report-card">
+            <div class="report-title">{report['title']}</div>
+            <div class="report-date">Generated: {report['date']}</div>
+            <div class="report-stats">
+                <div class="report-stat">
+                    <div class="report-stat-label">MESSAGES:</div>
+                    <div class="report-stat-value">{report['message_count']}</div>
+                </div>
+                <div class="report-stat">
+                    <div class="report-stat-label">PARTICIPANTS:</div>
+                    <div class="report-stat-value">{report['participant_count']}</div>
+                </div>
+            </div>
+            <a href="{REPORTS_DIR}/{report['filename']}" class="eva-button">View Report</a>
+        </div>
+        """
+else:
+    index_html += """
+        <div class="empty-message">
+            No reports have been generated yet.
+        </div>
+    """
+
+index_html += """
+        </div>
+        
+        <footer>
+            NERV TELEGRAM ANALYSIS SYSTEM v2.0 - Generated: """ + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + """
+        </footer>
+    </div>
+</body>
+</html>
+"""
+
+# Write the index HTML file
+with open("telegram_reports_index.html", "w", encoding="utf-8") as f:
+    f.write(index_html)
+print("Index page created: telegram_reports_index.html")
+else:
+    print("WARNING: No reports were collected. Index page will not be generated.")
+    print("Check above for any error messages that might explain why no reports were processed.") 
