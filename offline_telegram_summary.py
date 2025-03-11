@@ -163,7 +163,8 @@ def generate_summary(processed_data, anthropic_key):
             'bullet_points': [],
             'decisions_made': [],
             'topics_discussed': [],
-            'thinking_mode': ""
+            'thinking_mode': "",
+            'important_links': []  # Added empty links array
         }
     
     # Format messages for the prompt
@@ -224,6 +225,15 @@ Please analyze these discussions and create a summary following these steps:
     <details>[Brief, technical description of the discussion]</details>
    ]
    </topics_discussed>
+   
+   <important_links>
+   [List all PR links, GitHub repositories, standards, and other technical resources mentioned in the discussions. For each link:
+    <link_title>[Brief description or title]</link_title>
+    <link_url>[The URL]</link_url>
+    <link_type>[PR, ERC, Standard, Repository, or Other]</link_type>
+    <link_context>[Brief context about why this link was shared]</link_context>
+   ]
+   </important_links>
 
 Important guidelines:
 - Use exact technical terms as they appear in the discussions. Do not paraphrase technical concepts.
@@ -231,6 +241,7 @@ Important guidelines:
 - If no significant discussions occurred in a particular week, simply state that no significant discussions took place.
 - Focus on the most important and technically relevant information, particularly related to Layer 2 interoperability.
 - Ensure your language reflects expertise in Ethereum Layer 2 development and familiarity with the ongoing interoperability efforts.
+- For the important_links section, always include relevant GitHub PRs, EIPs, ERCs, and standards mentioned. If none are mentioned, use the text "No important links were shared this week."
 
 Remember, your goal is to provide a concise yet technically accurate summary that captures the essence of the week's Layer 2 interoperability discussions. Your summary should be useful for participants of the chat to refresh their memory and for other stakeholders to stay informed about the progress of Layer 2 interoperability efforts.
 
@@ -311,13 +322,34 @@ Your final output should consist only of the summary with the structure outlined
                     'details': details
                 })
         
+        # Extract important links
+        important_links = []
+        links_match = re.search(r'<important_links>(.*?)</important_links>', summary, re.DOTALL)
+        if links_match:
+            links_text = links_match.group(1).strip()
+            if "No important links" not in links_text:
+                # Find all link information
+                link_matches = re.finditer(r'<link_title>(.*?)</link_title>\s*<link_url>(.*?)</link_url>\s*<link_type>(.*?)</link_type>\s*<link_context>(.*?)</link_context>', links_text, re.DOTALL)
+                for link_match in link_matches:
+                    link_title = link_match.group(1).strip()
+                    link_url = link_match.group(2).strip()
+                    link_type = link_match.group(3).strip()
+                    link_context = link_match.group(4).strip()
+                    important_links.append({
+                        'title': link_title,
+                        'url': link_url,
+                        'type': link_type,
+                        'context': link_context
+                    })
+        
         return {
             'weekly_focus': weekly_focus,
             'bullet_points': bullet_points,
             'decisions_made': decisions_made,
             'topics_discussed': topics_discussed,
             'thinking_mode': thinking_mode,
-            'detailed_analysis': detailed_analysis
+            'detailed_analysis': detailed_analysis,
+            'important_links': important_links
         }
         
     except Exception as e:
@@ -328,7 +360,8 @@ Your final output should consist only of the summary with the structure outlined
             'decisions_made': [],
             'topics_discussed': [],
             'thinking_mode': "",
-            'detailed_analysis': ""
+            'detailed_analysis': "",
+            'important_links': []
         }
 
 def generate_html(processed_data, summary_data, output_file):
@@ -349,27 +382,41 @@ def generate_html(processed_data, summary_data, output_file):
         for point in summary_data['bullet_points']:
             bullet_points_html += f"<li class='bullet-point'>{point}</li>\n"
     else:
-        bullet_points_html = "<li>No significant discussion points identified for this week.</li>"
+        bullet_points_html = "<li>No key points identified for this week.</li>"
     
     decisions_html = ""
     if summary_data['decisions_made']:
         for decision in summary_data['decisions_made']:
             decisions_html += f"<li class='decision-item'>{decision}</li>\n"
     else:
-        decisions_html = "<li>No decisions were made this week.</li>"
+        decisions_html = "<li>No formal decisions were made this week.</li>"
     
-    # Generate HTML for topics discussed - new format
     topics_html = ""
     if summary_data['topics_discussed']:
-        for topic_item in summary_data['topics_discussed']:
+        for topic in summary_data['topics_discussed']:
             topics_html += f"""
             <div class="topic-card">
-                <h3 class="topic-title">{topic_item['topic']}</h3>
-                <p class="topic-details">{topic_item['details']}</p>
+                <h3 class="topic-title">{topic['topic']}</h3>
+                <p class="topic-details">{topic['details']}</p>
             </div>
             """
     else:
-        topics_html = "<p>No significant topics were discussed this week.</p>"
+        topics_html = "<p>No specific topics were discussed in depth this week.</p>"
+    
+    # Format important links section as HTML
+    important_links_html = ""
+    if 'important_links' in summary_data and summary_data['important_links']:
+        for link in summary_data['important_links']:
+            link_type_class = link['type'].lower().replace(' ', '-')
+            important_links_html += f"""
+            <div class="topic-card link-card {link_type_class}">
+                <div class="link-type-badge">{link['type']}</div>
+                <h3 class="topic-title"><a href="{link['url']}" target="_blank" rel="noopener noreferrer">{link['title']}</a></h3>
+                <p class="topic-details">{link['context']}</p>
+            </div>
+            """
+    else:
+        important_links_html = "<p>No important links were shared this week.</p>"
     
     # Add thinking mode section if available
     thinking_html = ""
@@ -395,11 +442,17 @@ def generate_html(processed_data, summary_data, output_file):
     sorted_dates = sorted(daily_message_count.keys())
     daily_message_counts = [daily_message_count[d] for d in sorted_dates]
     
-    # Calculate daily participant counts
-    daily_participant_counts = []
-    for day_str in sorted_dates:
-        day_participants = sum(1 for user_id in participant_days if day_str in participant_days[user_id])
-        daily_participant_counts.append(day_participants)
+    # Calculate daily participant counts - fixing the counting method
+    # Create a dictionary to track participants per day
+    participants_per_day = defaultdict(set)
+    
+    # Populate the dictionary with participant IDs for each day
+    for user_id, days in participant_days.items():
+        for day in days:
+            participants_per_day[day].add(user_id)
+    
+    # Get the count of unique participants for each day in sorted order
+    daily_participant_counts = [len(participants_per_day.get(day, set())) for day in sorted_dates]
     
     chart_labels = [datetime.strptime(d, '%Y-%m-%d').strftime('%m/%d') for d in sorted_dates]
     
@@ -409,13 +462,16 @@ def generate_html(processed_data, summary_data, output_file):
         daily_message_counts = [0]
         daily_participant_counts = [0]
     
+    # Create timestamp
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
+    
     # Generate HTML
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layer 2 Interoperability Chat Summary - {chat_title}</title>
+    <title>Layer 2 Interoperability Chat Summary - {chat_title} - TELEGRAM CHAT ANALYSIS</title>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -722,6 +778,82 @@ def generate_html(processed_data, summary_data, output_file):
             line-height: 1.5;
         }}
         
+        /* Link card styles */
+        .link-card {{
+            background-color: var(--topic-card-bg) !important;
+            position: relative;
+            overflow: hidden;
+        }}
+        
+        .link-type-badge {{
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--primary);
+            color: var(--background);
+            padding: 5px 10px;
+            font-size: 12px;
+            border-bottom-left-radius: 8px;
+            z-index: 2;
+        }}
+        
+        .link-card a {{
+            color: var(--warning);
+            text-decoration: none;
+        }}
+        
+        .link-card a:hover {{
+            text-decoration: underline;
+        }}
+        
+        /* Special styling for different link types */
+        .link-card.pr, .link-card.pull-request {{
+            border-left-color: #6f42c1 !important;
+        }}
+        
+        .link-card.pr .link-type-badge, .link-card.pull-request .link-type-badge {{
+            background-color: #6f42c1;
+        }}
+        
+        .link-card.erc, .link-card.eip, .link-card.standard {{
+            border-left-color: #0366d6 !important;
+        }}
+        
+        .link-card.erc .link-type-badge, .link-card.eip .link-type-badge, .link-card.standard .link-type-badge {{
+            background-color: #0366d6;
+        }}
+        
+        .link-card.repository {{
+            border-left-color: #28a745 !important;
+        }}
+        
+        .link-card.repository .link-type-badge {{
+            background-color: #28a745;
+        }}
+        
+        .button-row {{
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 15px;
+        }}
+        
+        .toggle-button {{
+            background-color: var(--panel);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Share Tech Mono', monospace;
+            transition: all 0.3s ease;
+        }}
+        
+        .toggle-button:hover {{
+            background-color: var(--primary);
+            color: var(--background);
+        }}
+        
         @media (max-width: 768px) {{
             .stat-box {{
                 min-width: 100%;
@@ -752,7 +884,7 @@ def generate_html(processed_data, summary_data, output_file):
             </div>
             <div class="stat-box">
                 <div class="stat-label">ANALYSIS COMPLETED</div>
-                <div class="stat-value" style="font-size: 20px;">{datetime.now().strftime('%Y-%m-%d %H:%M')}</div>
+                <div class="stat-value" style="font-size: 20px;">{timestamp}</div>
             </div>
         </div>
         
@@ -771,24 +903,27 @@ def generate_html(processed_data, summary_data, output_file):
             <ul>
                 {bullet_points_html}
             </ul>
-            
+        
             <div class="section-header">DECISIONS MADE</div>
             <ul>
                 {decisions_html}
             </ul>
-            
+        
             <div class="section-header">TOPICS DISCUSSED</div>
             <div class="topics-container">
                 {topics_html}
             </div>
             
-            {analysis_html}
+            <div class="section-header">IMPORTANT LINKS</div>
+            <div class="topics-container">
+                {important_links_html}
+            </div>
             
-            {thinking_html}
+            {analysis_html}
         </div>
         
         <div class="credits">
-            GENERATED BY LAYER 2 INTEROPERABILITY ANALYSIS SYSTEM • {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+            GENERATED BY MILADY • {timestamp}
         </div>
     </div>
     
