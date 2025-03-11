@@ -500,12 +500,19 @@ for repo, repo_owner in repos:
         return "#" + h.hexdigest()[:6]
 
     def calculate_average_color(image_url):
-        r = requests.get(image_url)
-        img = Image.open(io.BytesIO(r.content)).convert('RGB')
-        px = list(img.getdata())
-        n = len(px)
-        avg = tuple(sum(x)//n for x in zip(*px))
-        return "#{:02x}{:02x}{:02x}".format(*avg)
+        try:
+            r = requests.get(image_url)
+            r.raise_for_status()  # Check if the request was successful
+            if 'image' not in r.headers.get('Content-Type', ''):
+                raise ValueError('URL does not point to an image')
+            img = Image.open(io.BytesIO(r.content)).convert('RGB')
+            px = list(img.getdata())
+            n = len(px)
+            avg = tuple(sum(x)//n for x in zip(*px))
+            return "#{:02x}{:02x}{:02x}".format(*avg)
+        except (requests.HTTPError, ValueError, Image.UnidentifiedImageError) as e:
+            print(f"Error fetching or processing image: {e}")
+            return "#000000"  # Return a default color in case of error
 
     org_logo_url = f"https://github.com/{repo_owner}.png"
     glow_color = calculate_average_color(org_logo_url)
