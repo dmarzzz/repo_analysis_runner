@@ -2,12 +2,12 @@
         <html lang="en">
         <head>
             <meta charset="UTF-8">
-    <title>flashbots/rollup-boost - Weekly Report: Mar 03 - 10, 2025</title>
+    <title>ethereum/L2-interop - Weekly Report: Mar 03 - 10, 2025</title>
             <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
             <style>
         :root {
             --repo-color: #4CAF50;
-            --glow-color: #31312f33; /* average color + alpha */
+            --glow-color: #e7e7e733; /* average color + alpha */
         }
                 body {
             margin: 0;
@@ -418,15 +418,15 @@
                 Home
             </a>
             <span class="separator">/</span>
-            <span>flashbots</span>
+            <span>ethereum</span>
             <span class="separator">/</span>
-            <span>rollup-boost</span>
+            <span>L2-interop</span>
         </div>
         <div class="header">
-            <img src="https://github.com/flashbots.png" alt="flashbots logo" class="repo-logo">
+            <img src="https://github.com/ethereum.png" alt="ethereum logo" class="repo-logo">
             <div class="repo-info">
-                <h1>flashbots/rollup-boost - Weekly Report</h1>
-                <p>Last updated: 2025-03-10 22:17:38</p>
+                <h1>ethereum/L2-interop - Weekly Report</h1>
+                <p>Last updated: 2025-03-10 22:17:57</p>
             </div>
         </div>
 
@@ -434,19 +434,19 @@
         <div class="white-stats-display">
             <div class="white-stat-group">
                 <div class="white-stat-label">OPEN PRS</div>
-                <div class="white-stat-value">6</div>
+                <div class="white-stat-value">4</div>
             </div>
             <div class="white-stat-group">
                 <div class="white-stat-label">CLOSED PRS</div>
-                <div class="white-stat-value">5</div>
+                <div class="white-stat-value">4</div>
             </div>
             <div class="white-stat-group">
                 <div class="white-stat-label">AVG RESPONSE</div>
-                <div class="white-stat-value">13.2h</div>
+                <div class="white-stat-value">99.8h</div>
             </div>
             <div class="white-stat-group">
                 <div class="white-stat-label">AVG LIFETIME</div>
-                <div class="white-stat-value">62.2h</div>
+                <div class="white-stat-value">268.0h</div>
             </div>
         </div>
 
@@ -461,7 +461,7 @@
         <!-- Summary -->
         <div class="white-theme">
             <h2>Summary</h2>
-            <p>- **Closed PRs: Key Enhancements and Fixes**:<br>  - PR #124 introduced configurability for the debug server's listen address, enhancing compatibility with environments like Docker Compose by enabling communication across containers through `0.0.0.0`.<br>  - PR #122 added a CLI argument `--execution-mode`, allowing users to control the execution mode during sequencer deployment, facilitating smoother node transitions.<br>Overall: 5 PRs closed, 7 contributors.</p>
+            <p>- **Interoperable Address Specification and Discussion**: PR #14 introduces a draft specification for interoperable addresses, aiming to foster discussion on defining interfaces using CAIP-10 addresses and exploring resolver options like ERC-7785 for decentralized chain identification.<br>- **Chain-Specific Address Features and User Stories**: PR #25 and PR #11 focus on chain-specific addresses, with PR #25 documenting user stories as a reference for development, and PR #11 initiating a conversation on the properties and features needed for chain-specific addresses.<br>- **Documentation and Outreach**: PR #28 contributes an explainer on interoperable addresses, suggesting its publication as a blog post to enhance community engagement and gather broader feedback.<br>Overall: 4 PRs closed, 5 contributors.</p>
         </div>
 
         <!-- 4 Tables: PRs / Issues (Open / Closed) -->
@@ -486,92 +486,62 @@
         
                         <tr>
                             <td>Mar 10</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/131" target="_blank">feat(proxy): add optional forward-url for l2 client and builder</a></td>
+                            <td><a href="https://github.com/ethereum/L2-interop/pull/29" target="_blank">feat: folder restructuration</a></td>
                             <td>
                                 <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/26036115?v=4" alt="0xOsiris" class="user-avatar">
-                                    <a href="https://github.com/0xOsiris" target="_blank" class="user-name" style="color: #33cc00">@0xOsiris</a>
+                                    <img src="https://avatars.githubusercontent.com/u/91908708?v=4" alt="Joxess" class="user-avatar">
+                                    <a href="https://github.com/Joxess" target="_blank" class="user-name" style="color: #ff0066">@Joxess</a>
                                 </div>
                             </td>
-                            <td>3h</td>
-                            <td>1</td>
+                            <td>5h</td>
                             <td>0</td>
-                            <td>1h</td>
-                        </tr>
-            
-                        <tr>
-                            <td>Feb 26</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/121" target="_blank">feat: v4 payload support</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/3192210?v=4" alt="mkykadir" class="user-avatar">
-                                    <a href="https://github.com/mkykadir" target="_blank" class="user-name" style="color: #00ffff">@mkykadir</a>
-                                </div>
-                            </td>
-                            <td>12d</td>
                             <td>1</td>
-                            <td>0</td>
-                            <td>224h</td>
+                            <td>N/A</td>
                         </tr>
             
                         <tr>
-                            <td>Feb 22</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/120" target="_blank">Better LRU and Fix for Deadlock</a></td>
+                            <td>Feb 19</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/pull/26" target="_blank">Add interop framework</a></td>
                             <td>
                                 <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/8366997?v=4" alt="0xForerunner" class="user-avatar">
-                                    <a href="https://github.com/0xForerunner" target="_blank" class="user-name" style="color: #00ffff">@0xForerunner</a>
-                                </div>
-                            </td>
-                            <td>16d</td>
-                            <td>8</td>
-                            <td>1</td>
-                            <td>1h</td>
-                        </tr>
-            
-                        <tr>
-                            <td>Feb 20</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/111" target="_blank">Add chaos testing</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt" class="user-avatar">
-                                    <a href="https://github.com/ferranbt" target="_blank" class="user-name" style="color: #33cc00">@ferranbt</a>
+                                    <img src="https://avatars.githubusercontent.com/u/481465?v=4" alt="frangio" class="user-avatar">
+                                    <a href="https://github.com/frangio" target="_blank" class="user-name" style="color: #00ffff">@frangio</a>
                                 </div>
                             </td>
                             <td>18d</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>N/A</td>
-                        </tr>
-            
-                        <tr>
-                            <td>Feb 17</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/98" target="_blank">Flashblocks</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/30872539?v=4" alt="ferranbt" class="user-avatar">
-                                    <a href="https://github.com/ferranbt" target="_blank" class="user-name" style="color: #33cc00">@ferranbt</a>
-                                </div>
-                            </td>
-                            <td>21d</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>N/A</td>
-                        </tr>
-            
-                        <tr>
-                            <td>Oct 25</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/24" target="_blank">Add support for multiple builder and block selection</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche" class="user-avatar">
-                                    <a href="https://github.com/avalonche" target="_blank" class="user-name" style="color: #0099cc">@avalonche</a>
-                                </div>
-                            </td>
-                            <td>136d</td>
                             <td>1</td>
+                            <td>1</td>
+                            <td>308h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 13</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/pull/15" target="_blank">feat: add 7683 + intents framework discussion doc</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/8580333?v=4" alt="notbdu" class="user-avatar">
+                                    <a href="https://github.com/notbdu" target="_blank" class="user-name" style="color: #ff00ff">@notbdu</a>
+                                </div>
+                            </td>
+                            <td>25d</td>
                             <td>0</td>
-                            <td>2656h</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Feb 13</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/pull/13" target="_blank">docs: message-passing groups current goals and status</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/118024407?v=4" alt="elliedavidson" class="user-avatar">
+                                    <a href="https://github.com/elliedavidson" target="_blank" class="user-name" style="color: #ff0066">@elliedavidson</a>
+                                </div>
+                            </td>
+                            <td>25d</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>N/A</td>
                         </tr>
             
                     </tbody>
@@ -596,78 +566,63 @@
                     <tbody>
         
                         <tr>
-                            <td>Mar 07</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/129" target="_blank">Add vercel support for book</a></td>
+                            <td>Mar 10</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/pull/28" target="_blank">Docs: interoperable addresses explainer</a></td>
                             <td>
                                 <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/19413126?v=4" alt="sukoneck" class="user-avatar">
-                                    <a href="https://github.com/sukoneck" target="_blank" class="user-name" style="color: #0099cc">@sukoneck</a>
-                                </div>
-                            </td>
-                            <td>17h</td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>1h</td>
-                        </tr>
-            
-                        <tr>
-                            <td>Mar 07</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/128" target="_blank">docs: Add book for rollup-boost</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/32314588?v=4" alt="avalonche" class="user-avatar">
-                                    <a href="https://github.com/avalonche" target="_blank" class="user-name" style="color: #0099cc">@avalonche</a>
-                                </div>
-                            </td>
-                            <td>2d</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>65h</td>
-                        </tr>
-            
-                        <tr>
-                            <td>Mar 05</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/124" target="_blank">chore: allow configuration of debug server listen address</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/672580?v=4" alt="danyalprout" class="user-avatar">
-                                    <a href="https://github.com/danyalprout" target="_blank" class="user-name" style="color: #ff3300">@danyalprout</a>
-                                </div>
-                            </td>
-                            <td>2d</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>N/A</td>
-                        </tr>
-            
-                        <tr>
-                            <td>Mar 05</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/123" target="_blank">chore: remove verbose println</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/672580?v=4" alt="danyalprout" class="user-avatar">
-                                    <a href="https://github.com/danyalprout" target="_blank" class="user-name" style="color: #ff3300">@danyalprout</a>
-                                </div>
-                            </td>
-                            <td>2d</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>N/A</td>
-                        </tr>
-            
-                        <tr>
-                            <td>Mar 05</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/pull/122" target="_blank">chore: argument to set execution </a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/672580?v=4" alt="danyalprout" class="user-avatar">
-                                    <a href="https://github.com/danyalprout" target="_blank" class="user-name" style="color: #ff3300">@danyalprout</a>
+                                    <img src="https://avatars.githubusercontent.com/u/167047118?v=4" alt="0xteddybear" class="user-avatar">
+                                    <a href="https://github.com/0xteddybear" target="_blank" class="user-name" style="color: #ff3300">@0xteddybear</a>
                                 </div>
                             </td>
                             <td>3d</td>
                             <td>0</td>
                             <td>1</td>
                             <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Mar 07</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/pull/25" target="_blank">Feat: Create chain-specific addresses user stories</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/91908708?v=4" alt="Joxess" class="user-avatar">
+                                    <a href="https://github.com/Joxess" target="_blank" class="user-name" style="color: #ff0066">@Joxess</a>
+                                </div>
+                            </td>
+                            <td>16d</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Mar 10</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/pull/14" target="_blank">Interoperable address spec</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/167047118?v=4" alt="0xteddybear" class="user-avatar">
+                                    <a href="https://github.com/0xteddybear" target="_blank" class="user-name" style="color: #ff3300">@0xteddybear</a>
+                                </div>
+                            </td>
+                            <td>24d</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>195h</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Mar 10</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/pull/11" target="_blank">Feat: add chain-specific addresses properties</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/91908708?v=4" alt="Joxess" class="user-avatar">
+                                    <a href="https://github.com/Joxess" target="_blank" class="user-name" style="color: #ff0066">@Joxess</a>
+                                </div>
+                            </td>
+                            <td>0h</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>204h</td>
                         </tr>
             
                     </tbody>
@@ -691,36 +646,6 @@
                     </thead>
                     <tbody>
         
-                        <tr>
-                            <td>Mar 10</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/issues/130" target="_blank">Bug: `proxy::forward_request: error reading body error=Malformed request`</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/26036115?v=4" alt="0xOsiris" class="user-avatar">
-                                    <a href="https://github.com/0xOsiris" target="_blank" class="user-name" style="color: #33cc00">@0xOsiris</a>
-                                </div>
-                            </td>
-                            <td>3h</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                        </tr>
-            
-                        <tr>
-                            <td>Feb 12</td>
-                            <td><a href="https://github.com/flashbots/rollup-boost/issues/92" target="_blank">Rollup Boost Status Page</a></td>
-                            <td>
-                                <div class="user-info">
-                                    <img src="https://avatars.githubusercontent.com/u/22778355?v=4" alt="dmarzzz" class="user-avatar">
-                                    <a href="https://github.com/dmarzzz" target="_blank" class="user-name" style="color: #ff00ff">@dmarzzz</a>
-                                </div>
-                            </td>
-                            <td>26d</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>529h</td>
-                        </tr>
-            
                     </tbody>
                 </table>
             </div>
@@ -742,6 +667,51 @@
                     </thead>
                     <tbody>
         
+                        <tr>
+                            <td>Mar 07</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/issues/21" target="_blank">Create corresponding user stories based on the insights.</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/92943766?v=4" alt="skeletor-spaceman" class="user-avatar">
+                                    <a href="https://github.com/skeletor-spaceman" target="_blank" class="user-name" style="color: #6600cc">@skeletor-spaceman</a>
+                                </div>
+                            </td>
+                            <td>17d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Mar 10</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/issues/18" target="_blank">[Task] Chain-Specific Addresses</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/92943766?v=4" alt="skeletor-spaceman" class="user-avatar">
+                                    <a href="https://github.com/skeletor-spaceman" target="_blank" class="user-name" style="color: #6600cc">@skeletor-spaceman</a>
+                                </div>
+                            </td>
+                            <td>19d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
+                        <tr>
+                            <td>Mar 10</td>
+                            <td><a href="https://github.com/ethereum/L2-interop/issues/5" target="_blank">[Task] Define properties</a></td>
+                            <td>
+                                <div class="user-info">
+                                    <img src="https://avatars.githubusercontent.com/u/92943766?v=4" alt="skeletor-spaceman" class="user-avatar">
+                                    <a href="https://github.com/skeletor-spaceman" target="_blank" class="user-name" style="color: #6600cc">@skeletor-spaceman</a>
+                                </div>
+                            </td>
+                            <td>33d</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+            
                     </tbody>
                 </table>
             </div>
@@ -750,7 +720,7 @@
             <div class="white-theme">
                 <h3>Associated Specifications</h3>
                 <ul>
-            <li><a href="https://github.com/user-attachments/assets/780386f8-c451-4ff0-aedf-97a8a8ba0a3a"" target="_blank">https://github.com/user-attachments/assets/780386f8-c451-4ff0-aedf-97a8a8ba0a3a"</a></li>
+            <li><a href="https://github.com/ethereum/L2-interop/issues/21" target="_blank">https://github.com/ethereum/L2-interop/issues/21</a></li>
                 </ul>
             </div>
             
@@ -763,11 +733,11 @@
         new Chart(ctx, {
             type: 'line',
                     data: {
-                labels: ['10/25', '02/12', '02/17', '02/20', '02/22', '02/26', '03/05', '03/07', '03/10'],
+                labels: ['02/13', '02/19', '03/07', '03/10'],
                         datasets: [
                             {
                                 label: 'PRs Closed',
-                                data: [0, 0, 0, 0, 0, 0, 3, 2, 0],
+                                data: [0, 0, 1, 3],
                                 borderColor: 'rgba(255, 99, 132, 1)',
                                 backgroundColor: 'rgba(255, 99, 132, 0.1)',
                                 borderWidth: 3,
@@ -778,7 +748,7 @@
                             },
                             {
                                 label: 'Issues Closed',
-                                data: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                data: [0, 0, 1, 2],
                                 borderColor: 'rgba(54, 162, 235, 1)',
                                 backgroundColor: 'rgba(54, 162, 235, 0.1)',
                                 borderWidth: 3,
@@ -789,7 +759,7 @@
                             },
                             {
                                 label: 'Contributors',
-                                data: [1, 0, 1, 1, 1, 1, 1, 2, 1],
+                                data: [2, 1, 1, 2],
                                 borderColor: 'rgba(75, 192, 192, 1)',
                                 backgroundColor: 'rgba(75, 192, 192, 0.1)',
                                 borderWidth: 3,
